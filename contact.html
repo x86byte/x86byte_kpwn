@@ -40,16 +40,21 @@
 
                 <h3 class="glow">[ Channels ]</h3>
                  <ul class="contact-methods">
-                    <li>
-                        <span class="contact-label">Telegram:</span>
-                        <a href="https://t.me/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">t.me/x86byte</a>
-                        <span class="contact-note">(Preferred for quick chats)</span>
-                    </li>
-                     <li>
-                        <span class="contact-label">Email:</span>
-                        <a href="mailto:your-real-email@example.com" class="glow-hover">your-real-email@example.com</a> <!-- *** REPLACE THIS *** -->
-                        <span class="contact-note">(For more formal inquiries)</span>
-                    </li>
+                    <div className="grid gap-6">
+                      <div className="flex items-center space-x-4">
+                        <Mail className="text-green-500" size={24} />
+                            <a href="mailto:contact@x86byte.com" className="retro-link">
+                              contact@x86byte.com
+                            </a>
+                      </div>
+          
+                    <div className="flex items-center space-x-4">
+                    <Send className="text-green-500" size={24} />
+                    <a href="https://t.me/x86byte" target="_blank" rel="noopener noreferrer" className="retro-link">
+                      Telegram: @x86byte
+                    </a>
+                  </div>
+                </div>
                  </ul>
 
                  <p class="warning">
