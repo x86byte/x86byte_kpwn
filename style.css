@@ -13,47 +13,63 @@ body {
 a { color: #00ff00; text-decoration: none; }
 img { loading: lazy; decoding: async; max-width: 100%; height: auto; display: block; }
 
-/* --- Custom Cursor (Using setTimeout Logic - NEW) --- */
-.custom-cursor { /* Corresponds to #cursor-follower ID in HTML */
-  width: 20px;  /* Diameter without border */
-  height: 20px; /* Diameter without border */
-  border: 2px solid red; /* Adds to total size */
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  /* JS will set top/left */
-  opacity: 0; /* Start hidden */
-  transition: opacity 0.2s ease-in-out; /* Fade in/out */
-  will-change: top, left;
+
+
+
+#cursor-follower {
+    position: fixed;
+    width: 22px;     /* Diameter + border */
+    height: 22px;    /* Diameter + border */
+    border: 2px solid red;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    top: 0;           /* Position controlled by JS transform */
+    left: 0;          /* Position controlled by JS transform */
+    opacity: 0;       /* Start hidden */
+    transition: opacity 0.2s ease-in-out; /* Only transition opacity */
+    will-change: transform; /* Hint for animation performance */
+    /* Flexbox centers the child dot */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.cursor-dot { /* Corresponds to #cursor-dot ID in HTML */
-  width: 4px;
-  height: 4px;
-  background: white;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-   /* JS will set top/left */
-  opacity: 0; /* Start hidden */
-  transition: opacity 0.2s ease-in-out;
-  will-change: top, left;
+#cursor-dot {
+    width: 6px;      /* Size of the white dot */
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    /* Flexbox handles centering */
+}
+
+/* Hide default cursor */
+body {
+    cursor: none;
 }
 
 /* Hide custom cursor, show default over interactive elements */
-button, a, input, textarea, select { cursor: pointer; }
+button,
+a,
+input,
+textarea,
+select {
+    cursor: pointer;
+}
 input[type="text"],textarea { cursor: text; }
 
-/* Select the elements by ID when hiding */
-button:hover ~ #cursor-follower, button:hover ~ #cursor-dot,
-a:hover ~ #cursor-follower, a:hover ~ #cursor-dot,
-input:hover ~ #cursor-follower, input:hover ~ #cursor-dot,
-textarea:hover ~ #cursor-follower, textarea:hover ~ #cursor-dot,
-select:hover ~ #cursor-follower, select:hover ~ #cursor-dot {
-    opacity: 0 !important; /* Hide both elements */
+/* Use specific selectors to override body cursor:none */
+button:hover ~ #cursor-follower, /* Select follower via sibling combinator */
+a:hover ~ #cursor-follower,
+input:hover ~ #cursor-follower,
+textarea:hover ~ #cursor-follower,
+select:hover ~ #cursor-follower {
+    opacity: 0; /* Hide the custom follower */
 }
+
+
+
+
 
 
 /* --- Header & Navigation --- */
