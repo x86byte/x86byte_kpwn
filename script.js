@@ -1,53 +1,82 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Custom Cursor Logic (Translated from React Example - NEW) ---
-    const cursorFollower = document.getElementById('cursor-follower'); // Red circle using .custom-cursor style
-    const cursorDot = document.getElementById('cursor-dot');         // White dot using .cursor-dot style
+    // --- Custom Cursor Logic (Advanced: RAF + Transform + Centered Dot) ---
+    const cursorFollower = document.getElementById('cursor-follower');
 
-    if (!cursorFollower || !cursorDot) {
-        console.error("Custom cursor elements not found (#cursor-follower or #cursor-dot).");
+    if (!cursorFollower) {
+        console.error("Cursor follower element (#cursor-follower) not found.");
         document.body.style.cursor = 'auto'; // Restore default cursor
     } else {
+        let mouseX = -100, mouseY = -100; // Current mouse position
+        let followerX = -100, followerY = -100; // Follower's smoothed position
+        const delay = 0.09; // Smoothing factor (0.05=tight, 0.15=loose)
+        let rafId = null;   // requestAnimationFrame ID
         let isCursorVisible = false;
-        let dotTimer = null; // To store the setTimeout ID
 
-        // Follower dimensions from CSS (update if CSS changes)
-        const followerWidth = 20 + (2 * 2); // diameter + border * 2
-        const followerHeight = 20 + (2 * 2);
-        // Dot dimensions from CSS
-        const dotWidth = 4;
-        const dotHeight = 4;
+        // This function runs on every animation frame
+        function updateCursor() {
+            // Calculate the difference between follower and mouse
+            let dx = mouseX - followerX;
+            let dy = mouseY - followerY;
 
-        function onMouseMove(e) {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
+            // Apply smoothing (Linear Interpolation)
+            // Follower moves part of the distance towards the mouse each frame
+            followerX += dx * delay;
+            followerY += dy * delay;
 
-            // Make cursor visible on first move
-            if (!isCursorVisible) {
-                cursorFollower.style.opacity = '1';
-                cursorDot.style.opacity = '1';
-                isCursorVisible = true;
-            }
+            // Apply the position using CSS Transform for performance
+            // Translate moves the element's top-left corner
+            // Translate(-50%, -50%) shifts it back to center the element
+            cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
 
-            // 1. Update Red Circle Position IMMEDIATELY
-            // Center the element by subtracting half its calculated size
-            cursorFollower.style.left = `${mouseX - followerWidth / 2}px`;
-            cursorFollower.style.top = `${mouseY - followerHeight / 2}px`;
-
-            // 2. Schedule White Dot Update after 50ms
-            clearTimeout(dotTimer); // Clear previous timer
-            dotTimer = setTimeout(() => {
-                // Center the element by subtracting half its calculated size
-                cursorDot.style.left = `${mouseX - dotWidth / 2}px`;
-                cursorDot.style.top = `${mouseY - dotHeight / 2}px`;
-            }, 50); // 50ms delay
+            // Keep the loop going
+            rafId = requestAnimationFrame(updateCursor);
         }
 
-        // Attach listener
+        // Listen for mouse movement
+        function onMouseMove(e) {
+            // Update the target mouse coordinates
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            // Make cursor visible and start animation on first move
+            if (!isCursorVisible) {
+                cursorFollower.style.opacity = '1';
+                isCursorVisible = true;
+                // Start the animation loop if it's not already running
+                if (!rafId) {
+                    // Initialize follower position roughly to mouse pos to avoid long initial travel
+                    followerX = mouseX;
+                    followerY = mouseY;
+                    updateCursor();
+                }
+            }
+        }
+
+        // Attach the listener
         document.addEventListener('mousemove', onMouseMove, { passive: true });
 
-    } // End if elements exist
+        // Optional: Stop animation when tab is not visible (performance)
+        // document.addEventListener('visibilitychange', () => {
+        //     if (document.hidden) {
+        //         if (rafId) {
+        //             cancelAnimationFrame(rafId);
+        //             rafId = null;
+        //         }
+        //     } else {
+        //         // Restart if was visible and animation not running
+        //         if (isCursorVisible && !rafId) {
+        //             // Update position instantly to avoid jump? Or let it lerp from last pos?
+        //             // followerX = mouseX; followerY = mouseY;
+        //             updateCursor();
+        //         }
+        //     }
+        // });
 
+    } // End if cursorFollower exists
+
+    // --- (Rest of your script.js code: Like Buttons, Mini Shell, etc.) ---
+    // ... (Ensure Like Button and Mini Shell code is present below) ...
 
     // --- Like Buttons Logic ---
     const likeButtons = document.querySelectorAll('.like-button');
@@ -102,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             miniShell.scrollTop = miniShell.scrollHeight;
         }
     }
-    function executeCommand(command) { /* ... (same as before, no changes needed here) ... */
+    function executeCommand(command) { /* ... (same as before) ... */
         const parts = command.trim().split(' ').filter(p => p !== '');
         const cmd = parts[0]?.toLowerCase();
         const args = parts.slice(1);
@@ -134,5 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
         miniShell.addEventListener('click', (e) => { if (e.target !== shellInput) shellInput.focus(); });
         shellInput.focus();
     } else { console.error("Mini-shell HTML elements not found."); }
+
 
 }); // End DOMContentLoaded
