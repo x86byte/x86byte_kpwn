@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x86byte_kpwn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Cursor Elements (Handled by CSS/JS) -->
+    <div id="cursor-follower">
+        <div id="cursor-dot"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="glow">x86byte_kpwn</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="glow-hover active">Home</a></li>
+                    <li><a href="about.html" class="glow-hover">About</a></li>
+                    <li><a href="contact.html" class="glow-hover">Contact</a></li>
+                    <li><a href="community.html" class="glow-hover">Community</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-grid">
+            <aside id="profile-sidebar">
+                <!-- Profile Picture -->
+                <img src="img/profile.png" alt="Profile Picture" onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='block';">
+                <div id="profile-placeholder" style="display: none; width: 150px; height: 150px; border: 1px solid #0f0; margin: 0 auto 10px; text-align: center; line-height: 150px;">[no img]</div>
+
+                <h2 class="glow">x86byte</h2>
+                <p>
+                    Software Engineer x Exploit Developer focused on iOS &
+                    Windows Vulnerability Research
+                    <br>👾🍷 <!-- Example emojis -->
+                </p>
+                <!-- Add more profile info if needed -->
+            </aside>
+
+            <section id="main-content">
+                <div class="content-header">
+                    <!-- Data will be dynamically updated or hardcoded -->
+                    [Total Posts: 3] [Latest Update: 2024-03-15]
+                </div>
+                <h3 class="glow">[ Recent Articles ]</h3>
+                <div class="articles-list">
+                    <article>
+                        <h4><a href="#" class="glow-hover">Advanced Buffer Overflow Exploitation</a></h4>
+                        <p>Deep dive into modern buffer overflow techniques and mitigations</p>
+                        <div class="post-meta">
+                            <span>2024-03-15</span>
+                            <button class="like-button" data-post-id="post1">♥ <span class="like-count">0</span></button>
+                        </div>
+                    </article>
+
+                    <article>
+                        <h4><a href="#" class="glow-hover">Secure Code Review Best Practices</a></h4>
+                        <p>Essential guidelines for conducting effective security code reviews</p>
+                        <div class="post-meta">
+                            <span>2024-03-14</span>
+                            <button class="like-button" data-post-id="post2">♥ <span class="like-count">0</span></button>
+                        </div>
+                    </article>
+
+                    <article>
+                        <h4><a href="#" class="glow-hover">Web3 Security Fundamentals</a></h4>
+                        <p>Understanding security principles in blockchain applications</p>
+                        <div class="post-meta">
+                            <span>2024-03-13</span>
+                             <button class="like-button" data-post-id="post3">♥ <span class="like-count">0</span></button>
+                        </div>
+                    </article>
+                    <!-- Add more articles as needed -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://x.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ X ]</a>
+                <a href="https://github.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ GitHub ]</a>
+                <a href="https://t.me/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ Telegram ]</a>
+            </div>
+            <p class="powered-by">Powered by x86byte</p>
+        </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Mini Shell -->
+    <div id="mini-shell">
+        <div id="shell-output"></div>
+        <div class="shell-input-line">
+            <span id="shell-prompt">x86byte_kpwn:/$</span>
+            <input type="text" id="shell-input" autocomplete="off" autofocus>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
