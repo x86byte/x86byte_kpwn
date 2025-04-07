@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Custom Cursor Elements (Handled by CSS/JS) -->
     <div id="cursor-follower">
         <div id="cursor-dot"></div>
     </div>
@@ -30,8 +29,7 @@
 
         <main class="main-grid">
             <aside id="profile-sidebar">
-                <!-- Profile Picture -->
-                <img src="img/profile.png" alt="Profile Picture" onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='block';">
+                <img src="img/belyat.jpg" alt="Profile Picture" onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='block';">
                 <div id="profile-placeholder" style="display: none; width: 150px; height: 150px; border: 1px solid #0f0; margin: 0 auto 10px; text-align: center; line-height: 150px;">[no img]</div>
 
                 <h2 class="glow">x86byte</h2>
@@ -40,43 +38,30 @@
                     Windows Vulnerability Research
                     <br>👾🍷 <!-- Example emojis -->
                 </p>
-                <!-- Add more profile info if needed -->
             </aside>
 
             <section id="main-content">
                 <div class="content-header">
                     <!-- Data will be dynamically updated or hardcoded -->
-                    [Total Posts: 3] [Latest Update: 2024-03-15]
+                    [Total Posts: 0] [Latest Update: 2024-03-15] <!-- UPDATED COUNT -->
                 </div>
                 <h3 class="glow">[ Recent Articles ]</h3>
                 <div class="articles-list">
-                    <article>
-                        <h4><a href="#" class="glow-hover">Advanced Buffer Overflow Exploitation</a></h4>
-                        <p>Deep dive into modern buffer overflow techniques and mitigations</p>
-                        <div class="post-meta">
-                            <span>2024-03-15</span>
-                            <button class="like-button" data-post-id="post1">♥ <span class="like-count">0</span></button>
-                        </div>
-                    </article>
 
+                    <!-- === ARTICLE LIST AREA === -->
+                    <!-- Add <article> blocks here when you have content -->
+                    <!-- Example of one article (currently commented out):
                     <article>
-                        <h4><a href="#" class="glow-hover">Secure Code Review Best Practices</a></h4>
-                        <p>Essential guidelines for conducting effective security code reviews</p>
+                        <h4><a href="#" class="glow-hover">Example Article Title</a></h4>
+                        <p>Short description of the article content goes here.</p>
                         <div class="post-meta">
-                            <span>2024-03-14</span>
-                            <button class="like-button" data-post-id="post2">♥ <span class="like-count">0</span></button>
+                            <span>YYYY-MM-DD</span>
+                            <button class="like-button" data-post-id="postExample">♥ <span class="like-count">0</span></button>
                         </div>
                     </article>
+                     -->
+                     <p style="color: #aaaaaa;">(No articles published yet.)</p>
 
-                    <article>
-                        <h4><a href="#" class="glow-hover">Web3 Security Fundamentals</a></h4>
-                        <p>Understanding security principles in blockchain applications</p>
-                        <div class="post-meta">
-                            <span>2024-03-13</span>
-                             <button class="like-button" data-post-id="post3">♥ <span class="like-count">0</span></button>
-                        </div>
-                    </article>
-                    <!-- Add more articles as needed -->
                 </div>
             </section>
         </main>
@@ -90,9 +75,8 @@
             <p class="powered-by">Powered by x86byte</p>
         </footer>
 
-    </div> <!-- /container -->
+    </div>
 
-    <!-- Mini Shell -->
     <div id="mini-shell">
         <div id="shell-output"></div>
         <div class="shell-input-line">
