@@ -58,23 +58,26 @@
             </section>
         </main>
 
-         <footer>
-            <div class="social-links">
-                <a href="https://x.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ X ]</a>
-                <a href="https://github.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ GitHub ]</a>
-                <a href="https://t.me/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ Telegram ]</a>
-            </div>
-            <p class="powered-by">Powered by x86byte</p>
-        </footer>
+        <!-- NEW: Footer Bar Wrapper -->
+        <div class="footer-bar">
+             <footer>
+                <div class="social-links">
+                    <a href="https://x.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ X ]</a>
+                    <a href="https://github.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ GitHub ]</a>
+                    <a href="https://t.me/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ Telegram ]</a>
+                </div>
+                <p class="powered-by">Powered by x86byte</p>
+            </footer>
+        </div> <!-- /footer-bar -->
 
     </div> <!-- /container -->
 
-     <!-- Mini Shell -->
+    <!-- Mini Shell (Keep as is, CSS will restyle it) -->
     <div id="mini-shell">
         <div id="shell-output"></div>
         <div class="shell-input-line">
-            <span id="shell-prompt">x86byte_kpwn:/contact$</span>
-            <input type="text" id="shell-input" autocomplete="off">
+            <span id="shell-prompt">x86byte_kpwn:/$</span>
+            <input type="text" id="shell-input" autocomplete="off" autofocus>
         </div>
     </div>
 
