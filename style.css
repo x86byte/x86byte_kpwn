@@ -383,3 +383,31 @@ header h1.glow { /* .glow is optional here if already styled */
     -moz-appearance: none;
     appearance: none;
 }
+
+
+/* --- Styling for Decorative Image on Roadmap Page --- */
+
+#ida-decoration-img {
+    float: right; /* Position image to the right */
+    max-width: 150px; /* Limit image size */
+    height: auto;     /* Maintain aspect ratio */
+    margin-top: 10px; /* Space above the image */
+    margin-left: 25px; /* Space between image and text wrapping */
+    margin-bottom: 15px; /* Space below the image */
+    border: 1px solid var(--border-color); /* Optional subtle border */
+    border-radius: 3px; /* Optional rounded corners */
+}
+
+/* Media query for smaller screens (optional) */
+/* On screens smaller than 700px, maybe center the image instead of floating */
+@media (max-width: 700px) {
+    #ida-decoration-img {
+        float: none; /* Disable float */
+        display: block; /* Make it a block element */
+        margin-left: auto; /* Center the block */
+        margin-right: auto;
+        margin-top: 15px;
+        margin-bottom: 20px; /* Add more space below when centered */
+        max-width: 40%; /* Make it smaller relative to screen */
+    }
+}
