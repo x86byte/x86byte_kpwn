@@ -23,29 +23,113 @@ img { loading: lazy; decoding: async; max-width: 100%; height: auto; display: bl
 
 
 
-/* --- Added Colors for Articles --- */ /* Keep these rules */
-/* Simple Text Colors */
-.text-blue { color: #66ccff; } .text-purple { color: #cc99ff; } .text-yellow { color: #ffff99; } .text-white { color: #ffffff; }
-/* Glowing Colors */
-.glow-blue { color: #66ccff; text-shadow: 0 0 4px #66ccff, 0 0 7px #99ddff; }
-.glow-purple { color: #cc99ff; text-shadow: 0 0 4px #cc99ff, 0 0 7px #e6ccff; }
-.glow-yellow { color: #ffff99; text-shadow: 0 0 4px #ffff99, 0 0 7px #ffffbb; }
-/* Keyword Highlighting Span Styles */
-.keyword { font-weight: bold; } .keyword-blue { color: #88ddff; font-weight: bold; } .keyword-purple { color: #d8a8ff; font-weight: bold; } .keyword-yellow { color: #ffffaa; font-weight: bold; } .keyword-white { color: #ffffff; font-weight: bold; }
-/* Apply colors to headings within articles */
-.article-prose h2.glow { border-bottom-color: #005500; } /* Default Green */
-.article-prose h2.glow-blue { border-bottom-color: #004499; } /* Blue */
-.article-prose h2.glow-purple { border-bottom-color: #550099; } /* Purple */
-.article-prose h2.glow-yellow { border-bottom-color: #999900; } /* Yellow */
-.article-prose h3 { color: #66ccff; border-bottom: 1px dotted #004499; padding-bottom: 3px; }
-/* Book Links */
+/* --- Remove or Comment Out Previous Multi-Color Glows ---
+.glow-blue { ... }
+.glow-purple { ... }
+.glow-yellow { ... }
+.text-blue { ... }
+etc...
+*/
+
+/* --- REFINED Article Styling --- */
+.article-prose {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Headings: Consistent Glow for H1/H2 */
+.article-prose h1.glow,
+.article-prose h2.glow {
+    /* Uses the default .glow rule (green) */
+    color: #00ff00; /* Explicitly set base color */
+    text-shadow: 0 0 4px #00ff00, 0 0 7px #00ff00;
+}
+.article-prose h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+.article-prose h2 {
+    font-size: 1.7em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #005500; /* Green separator */
+    padding-bottom: 5px;
+}
+
+/* H3: Consistent Brighter Green (No Glow) */
+.article-prose h3 {
+    font-size: 1.4em;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: #33ff33; /* Brighter green for H3 */
+    /* Remove border or make it subtle */
+    border-bottom: 1px dotted #004400;
+    padding-bottom: 3px;
+}
+
+/* Standard Paragraph Text */
+.article-prose p {
+    margin-bottom: 1em;
+    color: #ccffcc; /* Readable green/white */
+}
+
+/* Lists */
+.article-prose ul {
+    margin-bottom: 1em;
+    padding-left: 25px; /* Indent lists */
+}
+.article-prose ul ul { /* Nested lists */
+     margin-top: 0.5em;
+     margin-bottom: 0.5em;
+}
+.article-prose li {
+    margin-bottom: 0.6em;
+}
+.article-prose li::before { /* Ensure list bullets are styled if needed */
+     content: "»"; position: absolute; left: 5px; top: 0px; color: #00ff00; font-weight: bold;
+}
+
+
+/* Links: Distinct Base Color (Blue), Green Glow on Hover */
+.article-prose a {
+     color: #66ccff; /* Blue base color for links */
+     text-decoration: none;
+     border-bottom: 1px dotted #006699; /* Subtle blue underline */
+     /* glow-hover class will handle hover effect */
+}
+.article-prose a:hover {
+    border-bottom-style: solid;
+    /* glow-hover class provides text-shadow */
+}
+
+/* Consistent Keyword Highlighting */
+.keyword {
+    color: #ffffff; /* White */
+    font-weight: bold;
+    /* Optional: slight background */
+    /* background-color: rgba(255, 255, 255, 0.05); */
+    /* padding: 0 2px; */
+}
+
+/* Consistent Tool Name / Specific Item Highlighting */
+.tool-name {
+    color: #cc99ff; /* Purple */
+    font-weight: bold;
+}
+
+/* Book / File Link Indicators */
 .book-link::after { content: " [PDF]"; font-size: 0.8em; color: #aaaaaa; }
 .book-link-zip::after { content: " [ZIP]"; font-size: 0.8em; color: #aaaaaa; }
-/* Tool Names */
-.tool-name { color: #cc99ff; font-weight: bold; }
 
-/* Ensure default glow is green if only .glow is present */
-.glow { color: #00ff00; text-shadow: 0 0 4px #00ff00, 0 0 7px #00ff00; }
+/* Code Blocks (Keep existing style) */
+.article-prose code { background-color: #002200; color: #aaffaa; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
+.article-prose pre { background-color: #080808; border: 1px solid #004400; padding: 15px; margin: 15px 0; overflow-x: auto; font-size: 0.9em; line-height: 1.4; }
+.article-prose pre code { background-color: transparent; padding: 0; border-radius: 0; color: #ccffcc; }
+
+/* Other elements */
+.article-prose blockquote { border-left: 3px solid #009900; margin: 15px 0 15px 20px; padding-left: 15px; color: #aaa; font-style: italic; }
+.article-prose hr { border: 0; height: 1px; background: #003300; margin: 30px 0; }
 
 
 
