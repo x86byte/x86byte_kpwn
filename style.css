@@ -89,6 +89,60 @@ nav ul li a.active {
 #main-content.full-width { grid-column: 1 / -1; }
 /* Removed margin-top from main-grid, handled by header bar margin */
 
+
+
+
+
+
+
+/* --- Custom Cursor --- */
+#cursor-follower {
+    position: fixed;
+    width: 22px; height: 22px;
+    border: 2px solid var(--accent-red); /* Red border */
+    border-radius: 50%;
+    pointer-events: none; /* Crucial */
+    z-index: 9999; /* Must be on top */
+    top: 0; left: 0;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease-in-out; /* Fade in */
+    will-change: transform; /* Performance hint */
+    display: flex; /* For centering the dot */
+    justify-content: center;
+    align-items: center;
+    /* Transform is set by JS */
+}
+#cursor-dot {
+    width: 6px; height: 6px;
+    background-color: white; /* White dot */
+    border-radius: 50%;
+}
+/* Hide default cursor */
+body { cursor: none; }
+/* Optional: Show default cursor over interactive elements */
+button, a, input, textarea, select { cursor: auto; }
+/* Optional: Hide custom cursor when hovering interactive elements */
+button:hover ~ #cursor-follower,
+a:hover ~ #cursor-follower,
+input:hover ~ #cursor-follower,
+textarea:hover ~ #cursor-follower,
+select:hover ~ #cursor-follower {
+    opacity: 0; /* Hide custom cursor */
+}
+input[type="text"]:hover ~ #cursor-follower, /* Ensure text input hover also hides */
+textarea:hover ~ #cursor-follower {
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
 /* --- Profile Sidebar (BreachForums Style) --- */
 #profile-sidebar {
     border: 1px solid var(--border-color);
