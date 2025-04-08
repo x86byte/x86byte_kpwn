@@ -16,6 +16,67 @@ img { loading: lazy; decoding: async; max-width: 100%; height: auto; display: bl
 
 
 
+
+/* Simple Text Colors */
+.text-blue { color: #66ccff; }
+.text-purple { color: #cc99ff; }
+.text-yellow { color: #ffff99; } /* Brighter yellow */
+.text-white { color: #ffffff; }
+
+/* Glowing Colors */
+.glow-blue {
+    color: #66ccff;
+    text-shadow: 0 0 4px #66ccff, 0 0 7px #99ddff;
+}
+.glow-purple {
+    color: #cc99ff;
+    text-shadow: 0 0 4px #cc99ff, 0 0 7px #e6ccff;
+}
+.glow-yellow {
+    color: #ffff99;
+    text-shadow: 0 0 4px #ffff99, 0 0 7px #ffffbb;
+}
+
+/* Keyword Highlighting Span Styles */
+.keyword {
+    font-weight: bold;
+}
+.keyword-blue { color: #88ddff; font-weight: bold; }
+.keyword-purple { color: #d8a8ff; font-weight: bold; }
+.keyword-yellow { color: #ffffaa; font-weight: bold; }
+.keyword-white { color: #ffffff; font-weight: bold; }
+
+
+/* Apply colors to headings within articles */
+.article-prose h2.glow { /* Keep default green glow */
+     border-bottom-color: #005500; /* Match glow */
+}
+.article-prose h3 { /* Make H3 blue by default in articles */
+    color: #66ccff;
+     border-bottom: 1px dotted #004499; /* Optional blue dotted underline */
+     padding-bottom: 3px;
+}
+
+/* Style links to book downloads distinctly */
+.book-link::after {
+    content: " [PDF]"; /* Add format indicator */
+    font-size: 0.8em;
+    color: #aaaaaa;
+}
+.book-link-zip::after {
+    content: " [ZIP]";
+    font-size: 0.8em;
+    color: #aaaaaa;
+}
+
+/* Style tool names or specific items */
+.tool-name {
+    color: #cc99ff; /* Purple for tool names */
+    font-weight: bold;
+}
+
+
+
 #cursor-follower {
     position: fixed;
     width: 22px;     /* Diameter + border */
