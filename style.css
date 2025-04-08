@@ -43,6 +43,29 @@ main:not(.main-grid) #main-content { width: 100%; margin-top: 15px; }
 .content-header { font-size: 0.9em; color: #aaaaaa; border-bottom: 1px solid #333333; padding-bottom: 5px; margin-bottom: 15px; }
 #main-content h3.glow { margin-top: 20px; margin-bottom: 15px; font-size: 1.3em; } /* For non-article H3s */
 
+
+
+
+
+
+
+
+.my-Yellow {
+    color: #ffff99; /* Yellow */
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- Article List (Home Page) --- */
 .articles-list article { border-bottom: 1px solid #333333; padding-bottom: 15px; margin-bottom: 15px; }
 .articles-list article:last-child { border-bottom: none; margin-bottom: 0; }
