@@ -4,35 +4,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!cursorFollower) {
         console.error("Cursor follower element (#cursor-follower) not found.");
+        // Fallback to default cursor if custom one fails
         document.body.style.cursor = 'auto';
     } else {
-        let mouseX = -100, mouseY = -100;
-        let followerX = -100, followerY = -100;
-        const delay = 0.2;
+        let mouseX = window.innerWidth / 2;  // Start in center
+        let mouseY = window.innerHeight / 2;
+        let followerX = mouseX;
+        let followerY = mouseY;
+        const delay = 0.15; // Slightly faster follow? Adjust if needed
         let rafId = null;
-        let isCursorVisible = false;
+        let isCursorActive = false; // Track if animation should run
+
+        // Initial position set immediately
+        cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
+        cursorFollower.style.opacity = '0'; // Start hidden
 
         function updateCursor() {
-            if (!isNaN(mouseX) && !isNaN(mouseY)) {
+            // Only run calculations if the mouse has moved at least once
+            if (isCursorActive) {
                 followerX += (mouseX - followerX) * delay;
                 followerY += (mouseY - followerY) * delay;
+                cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
             }
-            cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
-            rafId = requestAnimationFrame(updateCursor);
+            rafId = requestAnimationFrame(updateCursor); // Keep the loop running
         }
 
         function onMouseMove(e) {
-            mouseX = e.clientX; mouseY = e.clientY;
-            if (!isCursorVisible) {
-                cursorFollower.style.opacity = '1'; isCursorVisible = true;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            // Make visible and start animation on first move
+            if (!isCursorActive) {
+                cursorFollower.style.opacity = '1';
+                isCursorActive = true;
+                // Start the animation loop if it's not already running
                 if (!rafId) {
-                    followerX = mouseX; followerY = mouseY;
                     updateCursor();
                 }
             }
         }
-        document.addEventListener('mousemove', onMouseMove, { passive: true });
 
+        function onMouseLeave() {
+             // Optional: Hide cursor when mouse leaves window
+             // cursorFollower.style.opacity = '0';
+             // isCursorActive = false; // Pause calculations
+        }
+
+        document.addEventListener('mousemove', onMouseMove, { passive: true });
+        // document.addEventListener('mouseleave', onMouseLeave); // Uncomment if you want hide on leave
+
+        // Start the animation loop regardless, but calculations depend on isCursorActive
+        if (!rafId) {
+            updateCursor();
+        }
     }
 
 
