@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Path is correct if community.html is in the root -->
 </head>
 <body>
     <!-- Custom Cursor Elements -->
@@ -29,36 +29,39 @@
         </header>
 
         <main>
-             <section id="main-content" class="full-width">
+             <!-- Apply article-prose for consistent styling if desired -->
+             <section id="main-content" class="full-width article-prose">
                 <h2 class="glow">OrcaCyberWeapons Community</h2>
                 <p>
-                    The OrcaCyberWeapons community is a focused space for reverse engineers, exploit developers, and system-level hackers. We specialize in Windows and iOS vulnerability research, low-level debugging, and modern exploitation techniques.
+                    The <span class="tool-name">OrcaCyberWeapons</span> community is a focused space for reverse engineers, exploit developers, and system-level hackers. We specialize in Windows and iOS vulnerability research, low-level debugging, and modern exploitation techniques.
                 </p>
 
-                <h3 class="glow">Partnered Communities</h3>
+                <h2 class="glow">Partnered Communities</h2>
                 <ul>
                     <li>
-                        <span class="highlight"><a
-                          href="https://t.me/VulnerabilityResearchers"
-                          className="retro-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        > Vulnerability Researchers (Group)</a>
-                        </span> - A global research-oriented Telegram group originally based in the Russian security scene. It's home to vulnerability hunters and system-level researchers discussing low-level exploitation, CVEs, and reverse engineering. <a href="YOUR_TELEGRAM_GROUP_LINK" target="_blank" rel="noopener noreferrer" class="glow-hover">[Join Group]</a> <!-- *** ADD LINK *** -->
+                        {/* Removed the highlight span, applied glow-hover directly to link */}
+                        <a href="https://t.me/VulnerabilityResearchers"
+                           class="glow-hover" /* Corrected: class instead of className, using glow-hover */
+                           target="_blank"
+                           rel="noopener noreferrer"> Vulnerability Researchers (Group)</a>
+                         - A global research-oriented Telegram group originally based in the Russian security scene. It's home to vulnerability hunters and system-level researchers discussing low-level exploitation, CVEs, and reverse engineering.
+                         {/* Keep this secondary link if desired, maybe remove text? */}
+                         {/* <a href="https://t.me/VulnerabilityResearchers" target="_blank" rel="noopener noreferrer" class="glow-hover">[Join Group]</a> */}
                     </li>
                      <li>
-                        <span class="highlight"><a
-                          href="https://t.me/OrcaCyberWeapons"
-                          className="retro-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        > Orca Cyber Weapons (Channel)</a>
-                        </span> - A high-quality feed of real-world exploits, vulnerability discoveries, advanced CVEs, and system-level research. Ideal for professionals tracking offensive security and low-level attack surfaces. <a href="YOUR_TELEGRAM_CHANNEL_LINK" target="_blank" rel="noopener noreferrer" class="glow-hover">[View Channel]</a> <!-- *** ADD LINK *** -->
-                    </li>
+                        {/* Removed the highlight span, applied glow-hover directly to link */}
+                        <a href="https://t.me/OrcaCyberWeapons"
+                           class="glow-hover" /* Corrected: class instead of className, using glow-hover */
+                           target="_blank"
+                           rel="noopener noreferrer"> Orca Cyber Weapons (Channel)</a>
+                         - A high-quality feed of real-world exploits, vulnerability discoveries, advanced CVEs, and system-level research. Ideal for professionals tracking offensive security and low-level attack surfaces.
+                         {/* Keep this secondary link if desired, maybe remove text? */}
+                         {/* <a href="https://t.me/OrcaCyberWeapons" target="_blank" rel="noopener noreferrer" class="glow-hover">[View Channel]</a> */}
+                     </li>
                 </ul>
 
                 <p>
-                    <span class="highlight">If you're passionate about security research, reverse engineering, and low-level systems, you'll find valuable content and like-minded individuals in these spaces. Everyone with genuine interest is welcome to join and learn.</span>
+                    <span class="keyword">If you're passionate about security research, reverse engineering, and low-level systems, you'll find valuable content and like-minded individuals in these spaces. Everyone with genuine interest is welcome to join and learn.</span>
                 </p>
             </section>
         </main>
@@ -83,6 +86,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Path is correct if community.html is in the root -->
 </body>
 </html>
