@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ... (keep head content) ... -->
     <title>x86byte_kpwn</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,67 +15,105 @@
     </div>
 
     <div class="container">
-        <header>
-            <h1 class="glow">x86byte_kpwn</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="glow-hover active">Home</a></li>
-                    <li><a href="about.html" class="glow-hover">About</a></li>
-                    <li><a href="contact.html" class="glow-hover">Contact</a></li>
-                    <li><a href="community.html" class="glow-hover">Community</a></li>
-                </ul>
-            </nav>
-        </header>
+        <!-- NEW: Header Bar Wrapper -->
+        <div class="header-bar">
+            <header>
+                <!-- Keep H1 (will be styled red) -->
+                <h1 class="glow">x86byte_kpwn</h1>
+                <nav>
+                    <ul>
+                        <!-- Keep nav links (will be styled gray/red hover) -->
+                        <li><a href="index.html" class="glow-hover active">Home</a></li>
+                        <li><a href="about.html" class="glow-hover">About</a></li>
+                        <li><a href="contact.html" class="glow-hover">Contact</a></li>
+                        <li><a href="community.html" class="glow-hover">Community</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div> <!-- /header-bar -->
 
         <main class="main-grid">
             <aside id="profile-sidebar">
                 <!-- Profile Picture -->
-                <img src="img/belyat.jpg" alt="Profile Picture" onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='block';">
-                <div id="profile-placeholder" style="display: none; width: 150px; height: 150px; border: 1px solid #0f0; margin: 0 auto 10px; text-align: center; line-height: 150px;">[no img]</div>
+                <img id="profile-avatar" src="img/belyat.jpg" alt="Profile Picture" onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='block';">
+                <div id="profile-placeholder" style="display: none;">[no img]</div>
 
-                <h2 class="glow">x86byte</h2>
-                <p>
+                <!-- Username -->
+                <h2 class="username glow">x86byte</h2> <!-- Added class -->
+
+                <!-- Rank Image (Breach Style) -->
+                <div class="profile-rank">
+                    <!-- ********** ADD YOUR godgif.jpg HERE ********** -->
+                    <img src="img/godgif.jpg" alt="Rank">
+                    <!-- Make sure you have godgif.jpg in an img/ folder -->
+                </div>
+
+                <!-- Stats (Breach Style) -->
+                <div class="profile-stats">
+                    <div>
+                        <span class="stat-label">Posts:</span>
+                        <span class="stat-value">1</span> <!-- Get this value dynamically if possible -->
+                    </div>
+                    <div>
+                        <span class="stat-label">Joined:</span>
+                        <span class="stat-value">Apr 2025</span> <!-- Example static value -->
+                    </div>
+                    <div>
+                        <span class="stat-label">Reputation:</span>
+                        <span class="stat-value">270</span> <!-- Example static value -->
+                    </div>
+                     <div>
+                        <span class="stat-label">Level:</span>
+                        <span class="stat-value">GOD</span> <!-- Example static value -->
+                    </div>
+                     <div>
+                        <span class="stat-label">State:</span>
+                        <span class="stat-value">Online</span> <!-- Example static value -->
+                    </div>
+                </div>
+
+                <!-- Original Description (Optional) -->
+                <!-- <p class="profile-description">
                     Software Engineer x Exploit Developer focused on iOS &
                     Windows Vulnerability Research
-                    <br>👾🍷 <!-- Example emojis -->
-                </p>
+                    <br>👾🍷
+                </p> -->
             </aside>
 
             <section id="main-content">
-                <div class="content-header">
-                    <!-- Data updated -->
+                 <!-- ... (keep existing main content structure) ... -->
+                 <div class="content-header">
                     [Total Posts: 1] [Latest Update: 2025-04-08]
                 </div>
-                <h3 class="glow">[ Recent Articles ]</h3>
+                <h3>[ Recent Articles ]</h3> <!-- Will be styled by general H3 rule -->
                 <div class="articles-list">
-
-                    <!-- === Article Listing Updated === -->
                     <article>
                         <h4><a href="articles/re-ma-roadmap.html" class="glow-hover">Reverse Engineering and Malware Analysis Roadmap</a></h4>
                         <p>A comprehensive guide with resources for learning RE and malware analysis, from foundations to advanced techniques.</p>
                         <div class="post-meta">
-                            <span>2025-04-08</span> <!-- Match date -->
+                            <span>2025-04-08</span>
                             <button class="like-button" data-post-id="re-ma-roadmap">♥ <span class="like-count">0</span></button>
                         </div>
                     </article>
-                    <!-- Add more <article> blocks here for future posts -->
-
                 </div>
             </section>
         </main>
 
-        <footer>
-            <div class="social-links">
-                <a href="https://x.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ X ]</a>
-                <a href="https://github.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ GitHub ]</a>
-                <a href="https://t.me/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ Telegram ]</a>
-            </div>
-            <p class="powered-by">Powered by x86byte</p>
-        </footer>
+        <!-- NEW: Footer Bar Wrapper -->
+        <div class="footer-bar">
+             <footer>
+                <div class="social-links">
+                    <a href="https://x.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ X ]</a>
+                    <a href="https://github.com/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ GitHub ]</a>
+                    <a href="https://t.me/x86byte" target="_blank" rel="noopener noreferrer" class="glow-hover">[ Telegram ]</a>
+                </div>
+                <p class="powered-by">Powered by x86byte</p>
+            </footer>
+        </div> <!-- /footer-bar -->
 
     </div> <!-- /container -->
 
-    <!-- Mini Shell -->
+    <!-- Mini Shell (Keep as is, CSS will restyle it) -->
     <div id="mini-shell">
         <div id="shell-output"></div>
         <div class="shell-input-line">
