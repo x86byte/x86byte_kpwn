@@ -10,51 +10,42 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div id="cursor-follower">
-        <div id="cursor-dot"></div>
-    </div>
+    <div id="cursor-follower"><div id="cursor-dot"></div></div>
 
     <div class="container">
         <header>
             <h1 class="glow">x86byte_kpwn</h1>
-             <nav>
-                <ul>
-                    <li><a href="../index.html" class="glow-hover">Home</a></li>
-                    <li><a href="../about.html" class="glow-hover">About</a></li>
-                    <li><a href="../contact.html" class="glow-hover">Contact</a></li>
-                    <li><a href="../community.html" class="glow-hover">Community</a></li>
-                </ul>
-            </nav>
+             <nav><ul><li><a href="../index.html" class="glow-hover">Home</a></li><li><a href="../about.html" class="glow-hover">About</a></li><li><a href="../contact.html" class="glow-hover">Contact</a></li><li><a href="../community.html" class="glow-hover">Community</a></li></ul></nav>
         </header>
 
         <main>
             <section id="main-content" class="full-width article-prose">
                 <h1 class="glow">Reverse Engineering and Malware Analysis Roadmap</h1>
                 <p class="post-meta" style="font-size: 0.9em; margin-bottom: 25px;">
-                    <span>Posted: 2024-03-16 by x86byte</span>
+                    <span>Posted: 2025-04-08 by x86byte</span> <!-- Date updated -->
                 </p>
 
                 <img src="https://github.com/user-attachments/assets/746914e3-f4b3-46de-9ed0-e3f282ac311a" alt="RE/MA Roadmap Visual" style="max-width: 600px; margin: 10px auto 20px; border: 1px solid #0f0;">
 
-                <p>Welcome to the comprehensive roadmap for mastering reverse engineering and malware analysis. This roadmap is designed to guide individuals from beginner to expert level in the field of reverse engineering and malware analysis.</p>
+                <p>Welcome to the comprehensive roadmap for mastering <span class="keyword-yellow">Reverse Engineering</span> (RE) and <span class="keyword-yellow">Malware Analysis</span> (MA). This roadmap is designed to guide individuals from beginner to expert level.</p>
 
                 <h2 class="glow">Foundations</h2>
 
-                <h3>0x00 Establishing a Secure Lab Environment</h3>
+                <h3>0x00 Establishing a <span class="keyword-blue">Secure Lab</span> Environment</h3>
                 <ul>
                     <li><a href="https://0xinfection.github.io/reversing/" target="_blank" rel="noopener noreferrer" class="glow-hover">Reverse Engineering For Everyone!</a></li>
                     <li><a href="https://www.youtube.com/watch?v=ql9D5MuK_3c" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Analysis Virtual Machine – by OALabs</a></li>
                     <li><a href="https://www.malwaretech.com/beginner-malware-reversing-challenges" target="_blank" rel="noopener noreferrer" class="glow-hover">Creating a Simple Free Malware Analysis Environment – by MalwareTech</a></li>
                 </ul>
 
-                <h3>0x01 Mastering Reverse Engineering Tools</h3>
+                <h3>0x01 Mastering <span class="keyword-blue">Reverse Engineering Tools</span></h3>
                 <ul>
-                    <li><a href="https://github.com/kosmokato/Lena151" target="_blank" rel="noopener noreferrer" class="glow-hover">Reversing with Lena151 – learn OllyDbg (old, but still very useful)</a></li>
-                    <li><a href="http://ricardonarvaja.info/WEB/IDA%20DESDE%20CERO/EN%20INGLES/INGLES/" target="_blank" rel="noopener noreferrer" class="glow-hover">REVERSING WITH IDA PRO FROM SCRATCH</a></li>
-                    <li><a href="https://www.youtube.com/playlist?list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu" target="_blank" rel="noopener noreferrer" class="glow-hover">Introduction to Windbg and debugging windows</a></li>
+                    <li><a href="https://github.com/kosmokato/Lena151" target="_blank" rel="noopener noreferrer" class="glow-hover">Reversing with Lena151 – learn <span class="tool-name">OllyDbg</span> (old, but still very useful)</a></li>
+                    <li><a href="http://ricardonarvaja.info/WEB/IDA%20DESDE%20CERO/EN%20INGLES/INGLES/" target="_blank" rel="noopener noreferrer" class="glow-hover">REVERSING WITH <span class="tool-name">IDA PRO</span> FROM SCRATCH</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu" target="_blank" rel="noopener noreferrer" class="glow-hover">Introduction to <span class="tool-name">Windbg</span> and debugging windows</a></li>
                 </ul>
 
-                <h2 class="glow">Gathering Intelligence</h2>
+                <h2 class="glow-purple">Gathering Intelligence</h2>
 
                 <h3>0x02 Sourcing Malware Samples</h3>
                 <ul>
@@ -81,7 +72,7 @@
                     <li><a href="https://malpedia.caad.fkie.fraunhofer.de/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malpedia</a></li>
                 </ul>
 
-                <h2 class="glow">Practical Exercises</h2>
+                <h2 class="glow-blue">Practical Exercises</h2>
                 <h3>0x05 Beginner Challenges and Writeups</h3>
                 <ul>
                     <li><a href="https://github.com/MalwareTech/Beginner-Reversing-Challenges" target="_blank" rel="noopener noreferrer" class="glow-hover">Beginner Malware Reversing Challenges (by Malware Tech)</a></li>
@@ -96,15 +87,16 @@
 
                 <h2 class="glow">Understanding Low-Level Concepts</h2>
 
-                <h3>0x06 Assembly Language and PE Format</h3>
-                <p>Understanding assembly language (primarily x86/x64) and the structure of executable files (like the Windows PE format) is crucial.</p>
+                <h3>0x06 <span class="keyword-white">Assembly Language</span> and <span class="keyword-white">PE Format</span></h3>
+                <p>Understanding assembly language (primarily <span class="keyword-yellow">x86/x64</span>) and the structure of executable files (like the Windows <span class="keyword-yellow">PE format</span>) is crucial.</p>
                 <h4>Assembly Introduction:</h4>
                 <ul>
                     <li><a href="https://www.youtube.com/watch?v=wLXIWKUWpSs" target="_blank" rel="noopener noreferrer" class="glow-hover">Video 1 (x86 Intro)</a> and <a href="https://www.youtube.com/watch?v=cFGJhn97e3s" target="_blank" rel="noopener noreferrer" class="glow-hover">Video 2 (x86 Intro)</a></li>
                     <li><a href="https://www.youtube.com/playlist?list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA" target="_blank" rel="noopener noreferrer" class="glow-hover">Modern x64 Assembly (Playlist)</a></li>
                     <li><a href="http://opensecuritytraining.info/IntroX86.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Introductory Intel x86 (OpenSecurityTraining)</a></li>
-                    <li><a href="https://godbolt.org/" target="_blank" rel="noopener noreferrer" class="glow-hover">Compiler Explorer (godbolt.org)</a> - See assembly for your C/C++ code.</li>
-                    <li>(Many other links from the source included below for completeness)</li>
+                    <li><a href="https://godbolt.org/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Compiler Explorer (godbolt.org)</a></li>
+                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Art%20of%20Assembly%20Language%2C%20The%20-%20Hyde%2C%20Randall.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">The Art of Assembly Language - Hyde, Randall</a></li>
+                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Assembly%20Language%20Step-by-Step_%20Programming%20with%20Linux%20-%20Duntemann%2C%20Jeff.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Assembly Language Step-by-Step: Programming with Linux - Duntemann, Jeff</a></li>
                 </ul>
                  <h4>PE Format Resources:</h4>
                  <ul>
@@ -116,11 +108,11 @@
                  <h4>Key Books/Internals:</h4>
                  <ul>
                     <li><a href="https://www.microsoftpressstore.com/store/windows-internals-part-1-system-architecture-processes-9780135462409" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows Internals, Part 1 (7th Edition)</a></li>
-                     <li>Windows Internals, Part 2 (7th Edition)</li>
+                     <li>Windows Internals, Part 2 (7th Edition) - <a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/WinInternals_p2.zip" target="_blank" rel="noopener noreferrer" class="glow-hover book-link-zip">Download</a></li>
                  </ul>
 
-                <h3>0x07 Programming for Reverse Engineering</h3>
-                <p>Proficiency in C/C++, Python, and Assembly is highly recommended.</p>
+                <h3>0x07 Programming for <span class="keyword-blue">Reverse Engineering</span></h3>
+                <p>Proficiency in <span class="keyword-white">C/C++</span>, <span class="keyword-white">Python</span>, and <span class="keyword-white">Assembly</span> is highly recommended.</p>
                 <ul>
                     <li><a href="https://www.malwaretech.com/2018/03/best-programming-languages-to-learn-for-malware-analysis.html" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech's article on programming for malware analysis</a></li>
                     <li><strong>Recommended Learning:</strong>
@@ -132,33 +124,43 @@
                     <li><a href="https://www.amazon.com/Windows-System-Programming-4th-Addison-Wesley/dp/0321657748" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows System Programming</a> book</li>
                 </ul>
 
-                <h2 class="glow">Essential Reverse Engineering Books</h2>
+                <h2 class="glow-purple">Essential Reverse Engineering Books</h2>
                 <p>After covering the foundations, these books are crucial:</p>
                 <ul>
-                    <li>Reversing: Secrets of Reverse Engineering - Eilam, Eldad</li>
-                    <li>Practical Reverse Engineering: x86, x64, ARM, Windows Kernel - Dang, Bruce & Gazet, Alexandre & Bachaalany, Elias</li>
+                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Reversing_%20Secrets%20of%20Reverse%20Engineering%20-%20Eilam%2C%20Eldad.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Reversing: Secrets of Reverse Engineering - Eilam, Eldad</a></li>
+                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Practical%20Reverse%20Engineering_%20x86%2C%20x64%2C%20ARM%2C%20Windows%20Kernel%2C%20Rev%20Obfuscation%20-%20Dang%2C%20Bruce%20%26%20Gazet%2C%20Alexandre%20%26%20Bachaalany%2C%20Elias.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Practical Reverse Engineering: x86, x64, ARM, Windows Kernel - Dang, Bruce & Gazet, Alexandre & Bachaalany, Elias</a></li>
+                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/IDA%20Pro%20Book_%20The%20Unofficial%20Guide%20to%20the%20World's%20Most%20Popular%20Disassembler%2C%20The%20-%20Eagle%2C%20Chris.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">The IDA Pro Book - Eagle, Chris</a></li>
+
                 </ul>
 
-                 <h2 class="glow">Malware Unpacking</h2>
+                 <h2 class="glow">Malware Analysis Books & <span class="keyword-yellow">Unpacking</span></h2>
                  <h3>0x08 Manual Unpacking Techniques</h3>
-                 <p>Learning to manually unpack malware protected by packers like UPX, Themida, VMProtect, etc.</p>
+                 <p>Learning to manually unpack malware protected by packers like <span class="tool-name">UPX</span>, <span class="tool-name">Themida</span>, <span class="tool-name">VMProtect</span>, etc.</p>
                  <ul>
                      <li><a href="https://medium.com/@dbragetti/unpacking-malware-685de7093e5" target="_blank" rel="noopener noreferrer" class="glow-hover">Unpacking Malware (Medium Article)</a></li>
                      <li><a href="https://www.travismathison.com/posts/Manually-unpacking-malware/" target="_blank" rel="noopener noreferrer" class="glow-hover">Manually unpacking malware (Travis Mathison)</a></li>
                      <li><a href="https://www.youtube.com/playlist?list=PLt9cUwGw6CYGfoSL9PUlpKi23z0_R2gz-" target="_blank" rel="noopener noreferrer" class="glow-hover">Manual Unpacking Playlist (YouTube)</a></li>
                  </ul>
+                <h4>Essential Malware Analysis Books:</h4>
+                 <ul>
+                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Practical%20Malware%20Analysis_%20The%20Hands-On%20Guide%20to%20Dissecting%20Malicious%20Software%20-%20Sikorski%2C%20Michael%20%26%20Honig%2C%20Andrew.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Practical Malware Analysis: A Hands-On Guide - Sikorski & Honig</a></li>
+                    <li><a href="https://www.amazon.com/Malware-Analysts-Cookbook-DVD-Techniques/dp/0470613033" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Analyst's Cookbook and DVD</a></li>
+                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Linux%20Malware%20Incident%20Response_%20A%20Practitioner's%20Guide%20ile%20Data%20-%20Cameron%20Malin%20%26%20Eoghan%20Casey%20%26%20James%20Aquilina.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Linux Malware Incident Response</a></li>
+                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Malware%20Forensics%20Field%20Guide%20for%20Windows%20Syst%20Field%20Guides%20-%20Casey%2C%20Eoghan%3BMalin%2C%20Cameron%20H.%3BAquilina%2C%20James%20M_.zip" target="_blank" rel="noopener noreferrer" class="glow-hover book-link-zip">Malware Forensics Field Guide for Windows Systems</a></li>
+                </ul>
 
-                 <h2 class="glow">Advanced Techniques</h2>
 
-                 <h3>0x09 Virtualization-based Protectors</h3>
-                 <p>Analyzing protectors that use virtual machines (VMs) for obfuscation, like VMProtect.</p>
+                 <h2 class="glow-blue">Advanced Techniques</h2>
+
+                 <h3>0x09 <span class="keyword-purple">Virtualization</span>-based Protectors</h3>
+                 <p>Analyzing protectors that use virtual machines (VMs) for obfuscation, like <span class="tool-name">VMProtect</span>.</p>
                  <ul>
                     <li><a href="https://www.tetraph.com/security/vulnerability-scanning/vmprotect-2-detailed-analysis-virtual-machine-architecture/" target="_blank" rel="noopener noreferrer" class="glow-hover">VMProtect 2 – Detailed Analysis (Part 1)</a></li>
                     <li><a href="https://www.tetraph.com/security/vulnerability-scanning/vmprotect-2-part-two-complete-static-analysis/" target="_blank" rel="noopener noreferrer" class="glow-hover">VMProtect 2 – Complete Static Analysis (Part 2)</a></li>
                     <li><a href="https://synthesis.to/2021/10/21/vm_based_obfuscation.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Workshop: VM-based Obfuscation Analysis</a></li>
                  </ul>
 
-                 <h3>0x0a Malware Injection and Hooking</h3>
+                 <h3>0x0a Malware <span class="keyword-purple">Injection</span> and <span class="keyword-purple">Hooking</span></h3>
                  <p>Understanding how malware injects code into other processes and hooks functions.</p>
                  <ul>
                     <li><a href="https://www.endgame.com/blog/technical-blog/ten-process-injection-techniques-technical-survey-common-and-trending-process" target="_blank" rel="noopener noreferrer" class="glow-hover">Ten Process Injection Techniques (Endgame)</a></li>
@@ -166,8 +168,8 @@
                     <li><a href="https://malwaretech.com/how-to-write-a-rootkit" target="_blank" rel="noopener noreferrer" class="glow-hover">"Inline Hooking for programmers" (MalwareTech) - Part 1 and Part 2</a></li>
                  </ul>
 
-                <h3>0x0b Kernel-mode Malware</h3>
-                <p>Understanding kernel drivers and rootkits requires a solid grasp of Windows internals and driver development.</p>
+                <h3>0x0b <span class="keyword-purple">Kernel-mode</span> Malware</h3>
+                <p>Understanding kernel drivers and <span class="keyword-red">rootkits</span> requires a solid grasp of Windows internals and driver development.</p>
                 <h4>Basic Driver Development Resources:</h4>
                 <ul>
                     <li><a href="https://www.codeproject.com/articles/9504/driver-development-part-1-introduction-to-drivers" target="_blank" rel="noopener noreferrer" class="glow-hover">CodeProject: Driver Dev Part 1 (Intro)</a></li>
@@ -180,6 +182,8 @@
                      <li>Windows Internals (Parts 1 & 2)</li>
                      <li><a href="http://www.osronline.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">OSR Online (Essential Driver Dev Resource)</a></li>
                      <li><a href="http://j00ru.vexillium.org/" target="_blank" rel="noopener noreferrer" class="glow-hover">J00ru Blog</a></li>
+                    <li><a href="https://www.amazon.com/Rootkit-Arsenal-Escape-Evasion-Corners/dp/144962636X" target="_blank" rel="noopener noreferrer" class="glow-hover">The Rootkit Arsenal</a></li>
+                    <li><a href="https://www.amazon.com/Rootkits-Bootkits-Alex-Matrosov/dp/1593277164" target="_blank" rel="noopener noreferrer" class="glow-hover">Rootkits and Bootkits</a></li>
                  </ul>
                  <h4>Kernel-mode Rootkit Techniques:</h4>
                  <ul>
@@ -191,10 +195,10 @@
 
                  <h3>0x0c Going Deeper</h3>
                  <ul>
-                    <li><a href="https://securelist.com/bootkits-the-ultimate-in-persistent-malware/58221/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware infecting MBR, bootkits, and UEFI firmware</a></li>
+                    <li><a href="https://securelist.com/bootkits-the-ultimate-in-persistent-malware/58221/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware infecting MBR, <span class="keyword-red">bootkits</span>, and UEFI firmware</a></li>
                  </ul>
 
-                <h2 class="glow">Learning Resources</h2>
+                <h2 class="glow-yellow">Learning Resources</h2>
 
                 <h3>0x0d Courses and Tutorials</h3>
                  <ul>
@@ -211,26 +215,30 @@
                      <li><a href="https://www.youtube.com/channel/UCQN2DsjnYH60SFBIA6IkNwg" target="_blank" rel="noopener noreferrer" class="glow-hover">Colin Hardy's Malware Channel</a></li>
                  </ul>
 
-                 <h3>0x0f Recommended Books</h3>
+                 <h3>0x0f Recommended Books (Links Above)</h3>
+                 <p><span class="text-white">(Direct links provided in relevant sections earlier in the roadmap)</span></p>
                  <ul>
-                    <li>Practical Malware Analysis: A Hands-On Guide to Dissecting Malicious Software (Sikorski & Honig)</li>
+                    <li>Practical Malware Analysis (Sikorski & Honig)</li>
                     <li>The Art of Computer Virus Research and Defense (Peter Szor)</li>
                     <li>The "Ultimate" Anti-Debugging Reference (Peter Ferrie)</li>
                     <li>Malware Analyst's Cookbook and DVD</li>
                     <li>Hacker Disassembling Uncovered (Kris Kaspersky)</li>
                     <li>The Rootkit Arsenal</li>
                     <li>Rootkits and Bootkits (Matrosov, Rodionov, Bratus)</li>
+                    <li>Reversing: Secrets of Reverse Engineering (Eilam, Eldad)</li>
+                     <li>Practical Reverse Engineering (Dang, Gazet, Bachaalany)</li>
+                     <li>The IDA Pro Book (Eagle, Chris)</li>
                  </ul>
 
                 <h2 class="glow">Tips and Advice</h2>
                 <h3>0x10 Staying Motivated and Advancing Your Career</h3>
                 <ul>
                     <li>Stay curious and eager to learn.</li>
-                    <li>Practice, practice, practice.</li>
+                    <li><span class="text-yellow">Practice, practice, practice.</span></li>
                     <li>Engage with the community (forums, Discord, Twitter).</li>
                     <li>Contribute: Share writeups, tools, or knowledge.</li>
                     <li>Stay up-to-date: Follow blogs, researchers, conferences.</li>
-                    <li>Develop strong programming skills (C/C++, Python, Assembly).</li>
+                    <li>Develop strong programming skills (<span class="keyword-white">C/C++</span>, <span class="keyword-white">Python</span>, <span class="keyword-white">Assembly</span>).</li>
                     <li>Embrace failure as a learning opportunity.</li>
                     <li>Maintain a safe and controlled lab environment.</li>
                     <li>Adhere to ethical guidelines and respect IP.</li>
@@ -245,17 +253,33 @@
                     <li>Continuously update skills.</li>
                  </ul>
 
-                <h2 class="glow">Conclusion</h2>
-                <p>This comprehensive roadmap provides a step-by-step guide for mastering reverse engineering and malware analysis. By following the suggested resources and engaging in practical exercises, you can build a strong foundation, develop advanced skills, and position yourself for a successful career in this field. Remember to stay motivated, curious, and always eager to learn. Good luck on your journey!</p>
+                <h2 class="glow-purple">Conclusion</h2>
+                <p>This comprehensive roadmap provides a step-by-step guide for mastering reverse engineering and malware analysis. By following the suggested resources and engaging in practical exercises, you can build a strong foundation, develop advanced skills, and position yourself for a successful career in this field. Remember to stay motivated, curious, and always eager to learn. <span class="text-yellow">Good luck on your journey!</span></p>
 
                 <hr style="border-color: #003300; margin: 30px 0;">
 
-                <h2 class="glow">Additional Resources</h2>
+                <h2 class="glow-blue">Additional Resources & Tools</h2>
                 <p>Explore these blogs, communities, and tools to further your learning.</p>
-                <!-- Add sections for Blogs, Forums, Tools, Platforms if desired, linking appropriately -->
+                <h4>Key Tools:</h4>
+                 <ul>
+                     <li><span class="tool-name">IDA Pro</span> / <span class="tool-name">Ghidra</span> / <span class="tool-name">Binary Ninja</span> / <span class="tool-name">Radare2</span> (Disassemblers/Decompilers)</li>
+                     <li><span class="tool-name">x64dbg</span> / <span class="tool-name">Windbg</span> / <span class="tool-name">OllyDbg</span> / <span class="tool-name">Immunity Debugger</span> (Debuggers)</li>
+                     <li><span class="tool-name">Wireshark</span> (Network Analysis)</li>
+                     <li><span class="tool-name">Cuckoo Sandbox</span> / <span class="tool-name">CAPE Sandbox</span> (Dynamic Analysis)</li>
+                     <li><span class="tool-name">PEStudio</span> / <span class="tool-name">PE-bear</span> (PE Analysis)</li>
+                     <li><span class="tool-name">Volatility</span> (Memory Forensics)</li>
+                     <li><span class="tool-name">Sysinternals Suite</span> (System Monitoring)</li>
+                     <li><span class="tool-name">YARA</span> (Pattern Matching)</li>
+                 </ul>
+                 <h4>Online Platforms:</h4>
+                 <ul>
+                     <li><a href="https://bazaar.abuse.ch/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareBazaar</a></li>
+                     <li><a href="https://www.virustotal.com/gui/home" target="_blank" rel="noopener noreferrer" class="glow-hover">VirusTotal</a></li>
+                     <li><a href="https://www.hybrid-analysis.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Hybrid Analysis</a></li>
+                 </ul>
 
                 <h2 class="glow">Join the Community</h2>
-                <h3>Join OrcaCyberWeapons on Telegram!</h3>
+                <h3>Join <span class="glow-yellow">OrcaCyberWeapons</span> on Telegram!</h3>
                 <p>Are you ready to dive into the depths of cybersecurity, reverse engineering, and advanced threat analysis? Look no further than OrcaCyberWeapons, your gateway to the world of cutting-edge security research and exploration.</p>
                  <p><strong>What We Offer:</strong> Advanced Cybersecurity Insights, Reverse Engineering Expertise, Malware Development and Analysis, APT Techniques and Defense Strategies.</p>
                  <p>Whether you're a seasoned cybersecurity professional, an aspiring ethical hacker, or a curious enthusiast, OrcaCyberWeapons provides a platform for in-depth discussions, practical insights, and collaborative exploration.</p>
@@ -279,13 +303,11 @@
     <div id="mini-shell">
         <div id="shell-output"></div>
         <div class="shell-input-line">
-            <!-- Determine path via JS -->
             <span id="shell-prompt">x86byte_kpwn:/articles/re-ma-roadmap$</span>
             <input type="text" id="shell-input" autocomplete="off">
         </div>
     </div>
 
-    <!-- Correct path to JS (up one level) -->
     <script src="../script.js"></script>
 </body>
 </html>
