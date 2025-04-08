@@ -114,7 +114,6 @@ nav ul li a.active {
     color: var(--accent-red-hover); /* Active link is bright red */
     text-shadow: 0 0 5px var(--accent-red-hover);
 }
-
 /* --- Main Layout --- */
 .main-grid { display: grid; grid-template-columns: 230px 1fr; /* Slightly wider sidebar */ gap: 15px; padding: 0 15px; /* Add padding here */ }
 #main-content.full-width { grid-column: 1 / -1; }
