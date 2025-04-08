@@ -1,181 +1,272 @@
 /* --- Global Resets & Base Styles --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
+/* --- NEW: Color Variables (EvilZone/Breach Inspired) --- */
+:root {
+    --bg-dark: #1a1a1a;        /* Dark gray background */
+    --header-footer-bg: #333333; /* Medium gray for bars */
+    --content-bg: #0a0a0a;      /* Near-black for content */
+    --text-primary: #cccccc;   /* Light gray main text */
+    --text-secondary: #aaaaaa; /* Medium gray secondary text */
+    --accent-red: #cc0000;      /* Primary red accent */
+    --accent-red-hover: #ff3333;/* Brighter red for hover */
+    --border-color: #444444;   /* Dark gray borders */
+    --link-color: var(--accent-red); /* Links use accent red */
+    --link-hover-color: var(--accent-red-hover);
+    --green-accent: #00cc00; /* Keep some green (optional) */
+    --vt323-font: 'VT323', monospace;
+}
+
 body {
-    background-color: #000000; color: #00ff00; font-family: 'VT323', monospace;
-    font-size: 18px; line-height: 1.6; cursor: none; /* Hide default */
-    text-rendering: optimizeSpeed; overflow-x: hidden;
+    /* Use color variables */
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--vt323-font);
+    font-size: 18px;
+    line-height: 1.6;
+    cursor: none; /* Hide default */
+    text-rendering: optimizeSpeed;
+    overflow-x: hidden;
 }
 .container {
-    width: 90%; max-width: 1000px; margin: 20px auto; border: 2px solid #00ff00;
-    padding: 10px 15px; background-color: #050505; contain: layout style paint;
+    width: 90%; max-width: 1000px; margin: 0 auto; /* Removed top/bottom margin, handled by bars */
+    border: 1px solid var(--border-color); /* Subtle border */
+    /* background-color: var(--bg-dark); Removed, let body show through */
+    contain: layout style paint;
+    /* Add padding inside header/footer bars and main content instead */
 }
-a { color: #00ff00; text-decoration: none; } /* Default link color (overridden in prose) */
+a { color: var(--link-color); text-decoration: none; }
+a:hover { color: var(--link-hover-color); } /* Basic hover */
 img { loading: lazy; decoding: async; max-width: 100%; height: auto; display: block; }
 
-/* --- Custom Cursor (Advanced: RAF + Transform + Centered Dot) --- */
-#cursor-follower { position: fixed; width: 22px; height: 22px; border: 2px solid red; border-radius: 50%; pointer-events: none; z-index: 9999; top: 0; left: 0; opacity: 0; transition: opacity 0.2s ease-in-out; will-change: transform; display: flex; justify-content: center; align-items: center; }
-#cursor-dot { width: 6px; height: 6px; background-color: white; border-radius: 50%; }
-button, a, input, textarea, select { cursor: pointer; } input[type="text"],textarea { cursor: text; }
-button:hover ~ #cursor-follower, a:hover ~ #cursor-follower, input:hover ~ #cursor-follower, textarea:hover ~ #cursor-follower, select:hover ~ #cursor-follower { opacity: 0; }
+/* --- Custom Cursor --- */
+#cursor-follower { border: 2px solid var(--accent-red); /* Red cursor */ }
+#cursor-dot { background-color: white; /* Keep dot white */ }
+/* ... rest of cursor styles ... */
 
-/* --- Header & Navigation --- */
-header { border-bottom: 1px dashed #00ff00; padding-bottom: 10px; margin-bottom: 15px; text-align: center; }
-header h1 { font-size: 2.5em; margin-bottom: 10px; letter-spacing: 2px; }
+/* --- Header & Navigation (EvilZone Style) --- */
+.header-bar { /* NEW WRAPPER */
+    background-color: var(--header-footer-bg);
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    margin-bottom: 15px; /* Space below header */
+}
+header { /* Remove old header styles */
+    border-bottom: none; padding-bottom: 0; margin-bottom: 0;
+}
+header h1 {
+    font-size: 2.8em; /* Slightly larger */
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    color: var(--accent-red); /* RED Title */
+    text-shadow: 0 0 5px var(--accent-red-hover); /* Red glow */
+}
 nav ul { list-style: none; padding: 0; margin: 0; }
-nav ul li { display: inline-block; margin: 0 15px; }
-nav ul li a { padding: 3px 5px; border: 1px solid transparent; transition: text-shadow 0.2s ease; }
-nav ul li a.active { border: 1px dashed #00ff00; text-shadow: 0 0 5px #00ff00; }
+nav ul li { display: inline-block; margin: 0 12px; }
+nav ul li a {
+    padding: 3px 5px;
+    border: 1px solid transparent;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+    color: var(--text-primary); /* Gray links */
+    font-size: 1.1em;
+}
+nav ul li a:hover, nav ul li a:focus {
+    color: var(--link-hover-color); /* Red hover */
+    text-shadow: 0 0 5px var(--link-hover-color); /* Red glow on hover */
+    outline: none;
+}
+nav ul li a.active {
+    color: var(--accent-red-hover); /* Active link is bright red */
+    text-shadow: 0 0 5px var(--accent-red-hover);
+    /* Remove the dashed border */
+    /* border-bottom: 1px dashed var(--accent-red); Optionally add underline */
+}
 
 /* --- Main Layout --- */
-.main-grid { display: grid; grid-template-columns: 220px 1fr; gap: 20px; margin-top: 15px; }
+.main-grid { display: grid; grid-template-columns: 230px 1fr; /* Slightly wider sidebar */ gap: 15px; padding: 0 15px; /* Add padding here */ }
 #main-content.full-width { grid-column: 1 / -1; }
-main:not(.main-grid) #main-content { width: 100%; margin-top: 15px; }
+/* Removed margin-top from main-grid, handled by header bar margin */
 
-/* --- Profile Sidebar --- */
-#profile-sidebar { border: 1px solid #00ff00; padding: 15px; text-align: center; height: fit-content; }
-#profile-sidebar img, #profile-placeholder { width: 150px; height: 150px; object-fit: cover; border: 1px solid #00ff00; margin: 0 auto 10px auto; }
-#profile-sidebar h2 { font-size: 1.5em; margin-bottom: 10px; }
-#profile-sidebar p { font-size: 0.9em; color: #cccccc; line-height: 1.4; }
-
-/* --- Main Content Area (General) --- */
-#main-content { border: 1px solid #00ff00; padding: 15px; min-height: 300px; }
-.content-header { font-size: 0.9em; color: #aaaaaa; border-bottom: 1px solid #333333; padding-bottom: 5px; margin-bottom: 15px; }
-#main-content h3.glow { margin-top: 20px; margin-bottom: 15px; font-size: 1.3em; } /* For non-article H3s */
-
-
-
-
-
-
-
-
-.my-Yellow {
-    color: #ffff99; /* Yellow */
-    font-weight: bold;
+/* --- Profile Sidebar (BreachForums Style) --- */
+#profile-sidebar {
+    border: 1px solid var(--border-color);
+    background-color: var(--content-bg); /* Match content bg */
+    padding: 15px;
+    text-align: center;
+    height: fit-content; /* Or set a fixed height if needed */
+    color: var(--text-secondary); /* Default text in sidebar */
+}
+#profile-sidebar img#profile-avatar { /* Give avatar an ID */
+    width: 130px; height: 130px; /* Slightly smaller? */
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    margin: 0 auto 10px auto;
+    display: block;
+}
+#profile-placeholder { /* Keep placeholder style */
+    width: 130px; height: 130px; border: 1px solid var(--border-color); margin: 0 auto 10px; text-align: center; line-height: 130px; color: var(--text-secondary);
+}
+#profile-sidebar h2.username { /* Add class to H2 */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--accent-red); /* Red username */
+}
+.profile-rank { /* NEW: For the GOD gif */
+    margin: 10px auto;
+    /* width: 100px; Adjust as needed */
+}
+.profile-rank img {
+    margin: 0 auto; /* Center the image */
+    max-width: 150px; /* Limit gif size */
+}
+.profile-stats { /* NEW: For stats */
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+    text-align: left; /* Align text left */
+    font-size: 0.95em;
+    line-height: 1.8;
+}
+.profile-stats .stat-label {
+    color: var(--text-primary); /* Lighter label */
+    width: 80px; /* Align values */
+    display: inline-block;
+}
+.profile-stats .stat-value {
+    color: var(--text-primary); /* White/light gray value */
+    float: right; /* Align value to the right */
+}
+#profile-sidebar p.profile-description { /* Style the description if you keep it */
+    font-size: 0.9em; color: var(--text-secondary); line-height: 1.4; margin-top: 15px; text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-/* --- Styling for Connect Links on About Page --- */
-
-/* Apply consistent H3 style from articles */
-#main-content.article-prose h3 { /* Ensure selector applies */
-    font-size: 1.4em; margin-top: 25px; margin-bottom: 12px;
-    color: #33ff33; border-bottom: 1px dotted #004400; padding-bottom: 3px;
+/* --- Main Content Area --- */
+#main-content {
+    border: 1px solid var(--border-color);
+    background-color: var(--content-bg); /* Black/dark background */
+    padding: 15px;
+    min-height: 400px; /* Ensure it has some height */
 }
-
-.connect-links {
-    list-style: none; /* Remove default bullets if any */
-    padding-left: 25px; /* Match article list padding */
-    margin-bottom: 1em;
+.content-header {
+    font-size: 0.9em; color: var(--text-secondary); border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; margin-bottom: 15px;
 }
-
-.connect-links li {
-    position: relative; /* Needed for ::before positioning */
-    margin-bottom: 0.8em; /* Space between links */
+#main-content h3 { /* General H3 style */
+    margin-top: 20px; margin-bottom: 15px; font-size: 1.3em;
+    color: var(--text-primary); /* Light gray */
+    border-bottom: 1px dotted var(--border-color); /* Subtle underline */
+    padding-bottom: 3px;
 }
-
-/* Apply the green '»' bullet */
-.connect-links li::before {
-    content: "»";
-    position: absolute;
-    left: -15px; /* Position relative to padding */
-    top: 0px;
-    color: #00ff00; /* Green */
-    font-weight: bold;
-}
-
-/* Style for the platform name part (e.g., "GitHub:") */
-.link-platform {
-    color: #66ccff; /* Blue */
-    font-weight: bold;
-    margin-right: 8px; /* Space between platform name and link */
-}
-
-/* Style for the actual link/URL part */
-.connect-links li a {
-    color: #ffffff; /* White base color for the URL/handle */
-    border-bottom: 1px dotted #aaaaaa; /* Subtle white/grey underline */
-    /* The 'glow-hover' class will handle the hover effect */
-}
-
-.connect-links li a:hover {
-    border-bottom-style: solid;
-    border-bottom-color: #ffffff; /* Make underline solid white on hover */
-     /* Glow effect is applied via .glow-hover */
-}
-/* --- Article List (Home Page) --- */
-.articles-list article { border-bottom: 1px solid #333333; padding-bottom: 15px; margin-bottom: 15px; }
+/* Adjust article list */
+.articles-list article { border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px; }
 .articles-list article:last-child { border-bottom: none; margin-bottom: 0; }
-.articles-list article h4 a { color: #00ff00; font-size: 1.2em; display: inline-block; margin-bottom: 5px; border-bottom: 1px solid transparent; }
-.articles-list article p { color: #cccccc; font-size: 0.95em; margin-bottom: 8px; }
-.post-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #aaaaaa; }
+.articles-list article h4 a {
+    color: var(--link-color); /* Red link */
+    font-size: 1.2em; display: inline-block; margin-bottom: 5px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+.articles-list article h4 a:hover {
+    color: var(--link-hover-color); /* Brighter red hover */
+    border-bottom-color: var(--link-hover-color);
+}
+.articles-list article p { color: var(--text-primary); font-size: 0.95em; margin-bottom: 8px; }
+.post-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: var(--text-secondary); }
 
 /* --- Like Button --- */
-.like-button { background: none; border: 1px solid #00cc00; color: #00ff00; font-family: inherit; font-size: 0.9em; padding: 2px 6px; transition: background-color 0.2s, color 0.2s, border-color 0.2s; }
-.like-button:hover:not(:disabled), .like-button:focus:not(:disabled) { background-color: #003300; outline: none; border-color: #0f0; }
-.like-button.liked, .like-button:disabled { background-color: #004d00; color: #55ff55; border-color: #005500; cursor: default; pointer-events: none; opacity: 0.7; }
+.like-button {
+    background: #111; border: 1px solid var(--accent-red); color: var(--accent-red); font-family: inherit; font-size: 0.9em; padding: 2px 6px; transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.like-button:hover:not(:disabled), .like-button:focus:not(:disabled) {
+    background-color: var(--accent-red); color: #000; outline: none; border-color: var(--accent-red-hover);
+}
+.like-button.liked, .like-button:disabled {
+    background-color: #400; color: #800; border-color: #500; cursor: default; pointer-events: none; opacity: 0.7;
+}
 
 /* --- Footer --- */
-footer { border-top: 1px dashed #00ff00; padding-top: 15px; margin-top: 20px; text-align: center; font-size: 0.9em; }
-.social-links a { margin: 0 8px; font-size: 1.1em; display: inline-block; }
-.powered-by { margin-top: 10px; color: #aaaaaa; }
+.footer-bar { /* NEW WRAPPER */
+    background-color: var(--header-footer-bg);
+    padding: 10px 15px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    margin-top: 15px; /* Space above footer */
+    font-size: 0.9em;
+}
+footer { /* Remove old footer styles */
+    border-top: none; padding-top: 0; margin-top: 0; text-align: inherit; font-size: inherit;
+}
+.social-links a {
+    margin: 0 8px; font-size: 1.1em; display: inline-block; color: var(--text-primary);
+}
+.social-links a:hover {
+    color: var(--link-hover-color); text-shadow: 0 0 5px var(--link-hover-color);
+}
+.powered-by { margin-top: 10px; color: var(--text-secondary); }
 
-/* --- Generic Helper Classes (May overlap with article specifics) --- */
-.warning { border: 1px dashed red; padding: 10px; margin-top: 20px; color: #ffdddd; background-color: rgba(100, 0, 0, 0.2); }
-.warning .glow { color: red; text-shadow: 0 0 5px red; }
+/* --- Generic Helper Classes --- */
+.warning { border: 1px dashed var(--accent-red); padding: 10px; margin-top: 20px; color: #ffdddd; background-color: rgba(100, 0, 0, 0.2); }
+.warning .glow { color: var(--accent-red-hover); text-shadow: 0 0 5px var(--accent-red-hover); }
 
-/* --- Default Glow Effect --- */
-.glow { color: #00ff00; text-shadow: 0 0 4px #00ff00, 0 0 7px #00ff00; }
-.glow-hover:hover, .glow-hover:focus { text-shadow: 0 0 6px #33ff33, 0 0 10px #55ff55; outline: none; }
+/* --- Glow Effect (Adjusted) --- */
+.glow { /* Default subtle glow for specific elements if needed */
+    color: var(--text-primary); /* Or keep specific color */
+    text-shadow: 0 0 3px var(--text-secondary); /* Subtle white/gray glow */
+}
+.glow-hover:hover, .glow-hover:focus { /* Applied to links etc. */
+    text-shadow: 0 0 6px var(--link-hover-color), 0 0 8px var(--link-hover-color); /* Red glow on hover */
+    outline: none;
+}
+/* Override H1 glow to stay red */
+header h1.glow { /* .glow is optional here if already styled */
+    color: var(--accent-red);
+    text-shadow: 0 0 5px var(--accent-red-hover);
+}
+/* Override username H2 glow */
+#profile-sidebar h2.username.glow {
+     color: var(--accent-red);
+     text-shadow: 0 0 4px var(--accent-red);
+}
 
-/* --- REFINED Article Styling --- */
+
+/* --- REFINED Article Styling (Adjust Colors) --- */
 .article-prose { max-width: 800px; margin-left: auto; margin-right: auto; }
-.article-prose h1.glow, .article-prose h2.glow { color: #00ff00; text-shadow: 0 0 4px #00ff00, 0 0 7px #00ff00; }
-.article-prose h1 { font-size: 2.2em; margin-bottom: 10px; }
-.article-prose h2 { font-size: 1.7em; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px dashed #005500; padding-bottom: 5px; }
-.article-prose h3 { font-size: 1.4em; margin-top: 25px; margin-bottom: 12px; color: #33ff33; border-bottom: 1px dotted #004400; padding-bottom: 3px; }
-.article-prose p { margin-bottom: 1em; color: #ccffcc; }
-.article-prose ul { margin-bottom: 1em; padding-left: 25px; list-style: none; /* Use pseudo-element */ }
-.article-prose ul ul { margin-top: 0.5em; margin-bottom: 0.5em; }
-.article-prose li { margin-bottom: 0.6em; position: relative; /* Needed for pseudo-element positioning */ }
-.article-prose li::before { content: "»"; position: absolute; left: -15px; /* Adjust position relative to padding */ top: 0px; color: #00ff00; font-weight: bold; }
-.article-prose a { color: #66ccff; text-decoration: none; border-bottom: 1px dotted #006699; }
-.article-prose a:hover { border-bottom-style: solid; /* Glow handled by .glow-hover */ }
-.keyword { color: #ffffff; font-weight: bold; }
-.tool-name { color: #cc99ff; font-weight: bold; }
-.book-link::after { content: " [PDF]"; font-size: 0.8em; color: #aaaaaa; }
-.book-link-zip::after { content: " [ZIP]"; font-size: 0.8em; color: #aaaaaa; }
-.article-prose code { background-color: #002200; color: #aaffaa; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
-.article-prose pre { background-color: #080808; border: 1px solid #004400; padding: 15px; margin: 15px 0; overflow-x: auto; font-size: 0.9em; line-height: 1.4; }
-.article-prose pre code { background-color: transparent; padding: 0; border-radius: 0; color: #ccffcc; }
-.article-prose blockquote { border-left: 3px solid #009900; margin: 15px 0 15px 20px; padding-left: 15px; color: #aaa; font-style: italic; }
-.article-prose hr { border: 0; height: 1px; background: #003300; margin: 30px 0; }
-/* Contact page specific list */
-.contact-methods li::before { content: "»"; position: absolute; left: -15px; top: 0px; color: #00ff00; font-weight: bold;} /* Match article list style */
-.contact-label { display: inline-block; width: 80px; font-weight: bold; }
-.contact-note { font-size: 0.9em; color: #aaaaaa; margin-left: 10px; }
-/* Connect links specific list (About page) */
-.connect-links li::before { content: "»"; position: absolute; left: -15px; top: 0px; color: #00ff00; font-weight: bold;} /* Match article list style */
+.article-prose h1, .article-prose h2, .article-prose h3 { /* Use main content H styles */ }
+.article-prose h1.glow, .article-prose h2.glow { color: var(--text-primary); text-shadow: 0 0 4px var(--text-primary); }
+/* ... Update colors (like #00ff00, #33ff33) in .article-prose styles ... */
+.article-prose p { color: var(--text-primary); }
+.article-prose ul { /* Keep structure */ }
+.article-prose li::before { color: var(--accent-red); /* Red bullet */ }
+.article-prose a { color: var(--link-color); border-bottom: 1px dotted var(--link-color); }
+.article-prose a:hover { border-bottom-style: solid; color: var(--link-hover-color); }
+.article-prose code { background-color: #222; color: var(--green-accent); /* Keep green for code? */ }
+.article-prose pre { background-color: #000; border: 1px solid var(--border-color); color: var(--text-primary); }
+.article-prose pre code { color: var(--text-primary); }
+.article-prose blockquote { border-left: 3px solid var(--accent-red); color: var(--text-secondary); }
+.article-prose hr { background: var(--border-color); }
 
-/* --- Mini Shell --- */
-#mini-shell { position: fixed; bottom: 10px; right: 10px; width: 350px; height: 200px; border: 2px solid #00ff00; background-color: rgba(0, 10, 0, 0.85); backdrop-filter: blur(3px); padding: 5px; font-size: 14px; overflow-y: auto; line-height: 1.4; z-index: 1000; contain: layout style paint; }
-#mini-shell::-webkit-scrollbar { width: 8px; }
-#mini-shell::-webkit-scrollbar-track { background: #0a0a0a; }
-#mini-shell::-webkit-scrollbar-thumb { background-color: #00ff00; border-radius: 4px; border: 1px solid #050505; }
-#shell-output { white-space: pre-wrap; word-break: break-all; margin-bottom: 5px; min-height: calc(100% - 25px); }
-#shell-output .command { color: #ffffff; }
-#shell-output .output { color: #00ff00; }
-#shell-output .error { color: #ff4444; }
-.shell-input-line { display: flex; align-items: center; height: 20px; }
-#shell-prompt { color: #ffffff; margin-right: 5px; flex-shrink: 0; }
-#shell-input { background: none; border: none; color: #ffffff; font-family: inherit; font-size: inherit; flex-grow: 1; outline: none; padding: 0; caret-color: #00ff00; width: 100%; }
+/* --- Contact/Community Page Specific Adjustments --- */
+/* (Ensure lists, links, keyword spans use the new color vars) */
+.my-Yellow { /* You might replace this or choose a new color */
+    color: #ffff99; /* Or maybe var(--accent-red-hover) ? */
+    font-weight: bold;
+}
+.keyword { color: var(--text-primary); font-weight: bold; }
+.link-platform { color: var(--text-secondary); font-weight: bold; }
+/* Adjust list bullets if needed */
+.contact-methods li::before, .connect-links li::before { color: var(--accent-red); }
+
+/* --- Mini Shell (Updated Colors) --- */
+#mini-shell {
+    border: 2px solid var(--accent-red); /* Red border */
+    background-color: rgba(10, 0, 0, 0.85); /* Darker red/black tint */
+    backdrop-filter: blur(3px);
+    /* ... rest ... */
+}
+#mini-shell::-webkit-scrollbar-thumb { background-color: var(--accent-red); }
+#shell-output .command { color: var(--text-primary); }
+#shell-output .output { color: var(--green-accent); /* Keep green output? */ }
+#shell-output .error { color: #ff4444; /* Brighter red for errors */ }
+#shell-prompt { color: var(--text-primary); }
+#shell-input { color: var(--text-primary); caret-color: var(--accent-red); }
