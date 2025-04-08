@@ -313,14 +313,37 @@ header h1.glow { /* .glow is optional here if already styled */
 
 /* --- Mini Shell (Updated Colors) --- */
 #mini-shell {
+    position: fixed; bottom: 10px; right: 10px; width: 350px; height: 200px;
     border: 2px solid var(--accent-red); /* Red border */
     background-color: rgba(10, 0, 0, 0.85); /* Darker red/black tint */
     backdrop-filter: blur(3px);
-    /* ... rest ... */
+    padding: 5px; font-size: 14px; overflow-y: auto; line-height: 1.4; z-index: 1000;
+    contain: layout style paint;
 }
-#mini-shell::-webkit-scrollbar-thumb { background-color: var(--accent-red); }
+/* ... (scrollbar styles) ... */
+
+#shell-output { white-space: pre-wrap; word-break: break-all; margin-bottom: 5px; min-height: calc(100% - 25px); }
 #shell-output .command { color: var(--text-primary); }
 #shell-output .output { color: var(--green-accent); /* Keep green output? */ }
 #shell-output .error { color: #ff4444; /* Brighter red for errors */ }
-#shell-prompt { color: var(--text-primary); }
-#shell-input { color: var(--text-primary); caret-color: var(--accent-red); }
+
+.shell-input-line { display: flex; align-items: center; height: 20px; }
+#shell-prompt { color: var(--text-primary); margin-right: 5px; flex-shrink: 0; }
+
+/* --- FIX FOR SHELL INPUT --- */
+#shell-input {
+    background: transparent !important; /* Force no background */
+    border: none !important; /* Force no border */
+    color: var(--text-primary) !important; /* Ensure text color */
+    font-family: inherit;
+    font-size: inherit;
+    flex-grow: 1;
+    outline: none !important; /* Force no outline */
+    padding: 0;
+    caret-color: var(--accent-red); /* Red caret */
+    width: 100%;
+    /* Remove any browser default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
