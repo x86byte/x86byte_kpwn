@@ -142,70 +142,82 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case 'pwd': printToShell(currentPath); break;
             case 'cd':
-                let targetUrl = null, targetPath = null;
-                const currentBase = currentPath.split('/')[1] || '';
+    let targetUrl = null, targetPath = null;
+    const currentBase = currentPath.split('/')[1] || '';
+    const inArticle = currentPath.startsWith('/articles/'); // Check if currently IN an article page
 
-                if (args.length === 0 || args[0] === '/' || args[0] === '~') {
-                     targetUrl = 'index.html'; targetPath = '/';
-                } else if (args[0] === '..') {
-                     if (currentPath.startsWith('/articles')) { // If in any article path
-                         targetUrl = '../index.html'; targetPath = '/';
-                     } else if (currentPath !== '/') { // If in /about, /contact, /community
-                         targetUrl = 'index.html'; targetPath = '/';
-                     } else {
-                         targetPath = '/'; // Already at root
-                     }
-                } else {
-                    const targetDir = args[0].replace(/\/$/, '');
-                    if (currentPath === '/') { // From root
-                        if (targetDir === 'about') { targetUrl = 'about.html'; targetPath = '/about'; }
-                        else if (targetDir === 'contact') { targetUrl = 'contact.html'; targetPath = '/contact'; }
-                        else if (targetDir === 'community') { targetUrl = 'community.html'; targetPath = '/community'; }
-                        else if (targetDir === 'articles') { targetPath = '/articles'; } // Go to virtual articles dir
-                        else { printToShell(`cd: No such file or directory: ${targetDir}`, 'error'); }
-                    } else if (currentPath === '/articles') { // From /articles directory
-                         if (targetDir === 're-ma-roadmap') { targetUrl = 'articles/re-ma-roadmap.html'; targetPath = '/articles/re-ma-roadmap'; }
-                         // Add else if for future articles
-                         else { printToShell(`cd: No such article: ${targetDir}`, 'error'); }
-                    } else if (currentPath.startsWith('/articles/')) { // From within an article page
-                        // Allow cd .. (handled above), block other cds for now
-                        printToShell(`cd: Cannot navigate directly from article ${currentPath}`, 'error');
-                    }
-                     else { // From /about, /contact, /community
-                        printToShell(`cd: Cannot navigate from ${currentPath} to ${targetDir}`, 'error');
-                    }
-                }
+    if (args.length === 0 || args[0] === '/' || args[0] === '~') {
+         // Go to root index.html
+         targetUrl = inArticle ? '../index.html' : 'index.html'; // Adjust path based on current location
+         targetPath = '/';
+    } else if (args[0] === '..') {
+         if (inArticle) { // If in an article, go to root
+             targetUrl = '../index.html';
+             targetPath = '/';
+         } else if (currentPath === '/articles') { // If in /articles, go to root
+             targetUrl = 'index.html'; // Already in root context for this file
+             targetPath = '/';
+         } else if (currentPath !== '/') { // If in /about, /contact, /community, go to root
+             targetUrl = 'index.html';
+             targetPath = '/';
+         } else { // Already at root
+             targetPath = '/';
+         }
+    } else {
+        const targetDir = args[0].replace(/\/$/, '');
+        if (currentPath === '/') { // From root
+            if (targetDir === 'about') { targetUrl = 'about.html'; targetPath = '/about'; }
+            else if (targetDir === 'contact') { targetUrl = 'contact.html'; targetPath = '/contact'; }
+            else if (targetDir === 'community') { targetUrl = 'community.html'; targetPath = '/community'; }
+            else if (targetDir === 'articles') { targetPath = '/articles'; } // Go to virtual articles dir
+            else { printToShell(`cd: No such file or directory: ${targetDir}`, 'error'); }
+        } else if (currentPath === '/articles') { // From /articles directory (virtual)
+             if (targetDir === 're-ma-roadmap') {
+                 // Navigate TO the article page RELATIVE to index.html
+                 targetUrl = 'articles/re-ma-roadmap.html';
+                 targetPath = '/articles/re-ma-roadmap';
+             }
+             // Add else if for future articles
+             else { printToShell(`cd: No such article: ${targetDir}`, 'error'); }
+        } else if (inArticle) { // From within an article page
+            printToShell(`cd: Use 'cd ..' to leave article`, 'error');
+        }
+         else { // From /about, /contact, /community
+            printToShell(`cd: Cannot navigate directly from ${currentPath} to ${targetDir}`, 'error');
+        }
+    }
 
-                // Navigation logic
-                if (targetUrl) {
-                     // Relative path adjustment might be needed if structure changes drastically
-                     window.location.href = targetUrl;
-                } else if (targetPath !== null && targetPath !== currentPath) {
-                    currentPath = targetPath;
-                    updatePrompt();
-                    // Maybe print something like "Changed directory to /articles"
-                }
-                // No else needed, command just finishes if no navigation occurs
-                break;
-             case 'cat':
-                 let catTargetUrl = null;
-                 if (args.length > 0) {
-                     const slug = args[0].replace('.html', '').replace('.md', '');
-                     if (currentPath === '/articles' || currentPath.startsWith('/articles/')) {
-                         if (slug === 're-ma-roadmap') {
-                            if (currentPath !== '/articles/re-ma-roadmap') {
-                                catTargetUrl = (currentPath === '/articles') ? 'articles/re-ma-roadmap.html' : '../articles/re-ma-roadmap.html'; // Adjust path based on current location
-                                printToShell('Navigating to re-ma-roadmap...');
-                            } else {
-                                 printToShell('You are already viewing this article.');
-                            }
-                         } // Add else if for future articles
-                         else { printToShell(`cat: Unknown article: ${args[0]}`, 'error'); }
-                     } else { printToShell(`cat: Cannot read '${args[0]}' from ${currentPath}`, 'error'); }
-                 } else { printToShell('cat: Missing filename', 'error'); }
+    // Navigation logic
+    if (targetUrl) {
+         window.location.href = targetUrl; // Navigate
+    } else if (targetPath !== null && targetPath !== currentPath) {
+        currentPath = targetPath;
+        updatePrompt();
+        // Optional message: printToShell(`Changed directory to ${currentPath}`);
+    }
+    break;
 
-                 if (catTargetUrl) { window.location.href = catTargetUrl; }
-                 break;
+ case 'cat':
+     let catTargetUrl = null;
+     if (args.length > 0) {
+         const slug = args[0].replace('.html', '').replace('.md', '');
+         const inArticle = currentPath.startsWith('/articles/');
+
+         if (slug === 're-ma-roadmap') {
+            if (currentPath !== '/articles/re-ma-roadmap') {
+                // Determine correct relative path based on CURRENT location
+                catTargetUrl = inArticle ? '../articles/re-ma-roadmap.html' : 'articles/re-ma-roadmap.html';
+                printToShell('Navigating to re-ma-roadmap...');
+            } else {
+                 printToShell('You are already viewing this article.');
+            }
+         }
+         // Add else if for future articles
+         else { printToShell(`cat: Unknown article or not in articles directory: ${args[0]}`, 'error'); }
+     } else { printToShell('cat: Missing filename', 'error'); }
+
+     if (catTargetUrl) { window.location.href = catTargetUrl; }
+     break;
             case 'goto':
                  if (args.length > 0) {
                      let url = args[0];
