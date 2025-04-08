@@ -2,7 +2,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
-/* --- NEW: Color Variables (EvilZone/Breach Inspired) --- */
+/* --- Color Variables (EvilZone/Breach Inspired) --- */
 :root {
     --bg-dark: #1a1a1a;        /* Dark gray background */
     --header-footer-bg: #333333; /* Medium gray for bars */
@@ -25,25 +25,58 @@ body {
     font-family: var(--vt323-font);
     font-size: 18px;
     line-height: 1.6;
-    cursor: none; /* Hide default */
+    cursor: none; /* <<< HIDE DEFAULT CURSOR GLOBALLY */
     text-rendering: optimizeSpeed;
     overflow-x: hidden;
 }
+
+/* --- Ensure Container is Centered --- */
 .container {
-    width: 90%; max-width: 1000px; margin: 0 auto; /* Removed top/bottom margin, handled by bars */
+    width: 90%; max-width: 1000px;
+    margin: 0 auto; /* <<< THIS CENTERS THE WHOLE CONTAINER */
     border: 1px solid var(--border-color); /* Subtle border */
-    /* background-color: var(--bg-dark); Removed, let body show through */
     contain: layout style paint;
-    /* Add padding inside header/footer bars and main content instead */
 }
+
 a { color: var(--link-color); text-decoration: none; }
 a:hover { color: var(--link-hover-color); } /* Basic hover */
 img { loading: lazy; decoding: async; max-width: 100%; height: auto; display: block; }
 
 /* --- Custom Cursor --- */
-#cursor-follower { border: 2px solid var(--accent-red); /* Red cursor */ }
-#cursor-dot { background-color: white; /* Keep dot white */ }
-/* ... rest of cursor styles ... */
+#cursor-follower {
+    position: fixed;
+    width: 22px; height: 22px;
+    border: 2px solid var(--accent-red); /* Red border */
+    border-radius: 50%;
+    pointer-events: none; /* Crucial */
+    z-index: 9999; /* Must be on top */
+    top: 0; left: 0;
+    opacity: 0; /* Start hidden - JS will fade it in */
+    transition: opacity 0.3s ease-in-out; /* Fade in */
+    will-change: transform; /* Performance hint */
+    display: flex; /* For centering the dot */
+    justify-content: center;
+    align-items: center;
+    /* Transform is set by JS */
+}
+#cursor-dot {
+    width: 6px; height: 6px;
+    background-color: white; /* White dot */
+    border-radius: 50%;
+}
+
+/* ALSO hide default cursor over interactive elements */
+button, a, input, textarea, select {
+    cursor: none; /* <<< CHANGE 'auto' back to 'none' */
+}
+/* Text input might need specific override if you want the text caret */
+input[type="text"], textarea {
+    cursor: none; /* For consistency with keeping custom cursor always on */
+    /* If you absolutely want the text I-beam caret, change to 'text', but */
+    /* the custom cursor will still draw over it. 'none' is cleaner. */
+}
+/* --- NO MORE HIDING RULES FOR CURSOR FOLLOWER ON HOVER --- */
+
 
 /* --- Header & Navigation (EvilZone Style) --- */
 .header-bar { /* NEW WRAPPER */
@@ -80,154 +113,11 @@ nav ul li a:hover, nav ul li a:focus {
 nav ul li a.active {
     color: var(--accent-red-hover); /* Active link is bright red */
     text-shadow: 0 0 5px var(--accent-red-hover);
-    /* Remove the dashed border */
-    /* border-bottom: 1px dashed var(--accent-red); Optionally add underline */
 }
 
 /* --- Main Layout --- */
 .main-grid { display: grid; grid-template-columns: 230px 1fr; /* Slightly wider sidebar */ gap: 15px; padding: 0 15px; /* Add padding here */ }
 #main-content.full-width { grid-column: 1 / -1; }
-/* Removed margin-top from main-grid, handled by header bar margin */
-
-
-
-
-
-
-
-/* --- Custom Cursor --- */
-#cursor-follower {
-    position: fixed;
-    width: 22px; height: 22px;
-    border: 2px solid var(--accent-red); /* Red border */
-    border-radius: 50%;
-    pointer-events: none; /* Crucial */
-    z-index: 9999; /* Must be on top */
-    top: 0; left: 0;
-    opacity: 0; /* Start hidden */
-    transition: opacity 0.3s ease-in-out; /* Fade in */
-    will-change: transform; /* Performance hint */
-    display: flex; /* For centering the dot */
-    justify-content: center;
-    align-items: center;
-    /* Transform is set by JS */
-}
-#cursor-dot {
-    width: 6px; height: 6px;
-    background-color: white; /* White dot */
-    border-radius: 50%;
-}
-/* Hide default cursor */
-body { cursor: none; }
-/* Optional: Show default cursor over interactive elements */
-button, a, input, textarea, select { cursor: auto; }
-/* Optional: Hide custom cursor when hovering interactive elements */
-button:hover ~ #cursor-follower,
-a:hover ~ #cursor-follower,
-input:hover ~ #cursor-follower,
-textarea:hover ~ #cursor-follower,
-select:hover ~ #cursor-follower {
-    opacity: 0; /* Hide custom cursor */
-}
-input[type="text"]:hover ~ #cursor-follower, /* Ensure text input hover also hides */
-textarea:hover ~ #cursor-follower {
-    opacity: 0;
-}
-
-
-
-
-
-
-
-
-
-/* --- Footer --- */
-.footer-bar { /* NEW WRAPPER */
-    background-color: var(--header-footer-bg);
-    padding: 10px 15px;
-    border-top: 1px solid var(--border-color);
-    text-align: center; /* **** THIS IS THE KEY **** */
-    margin-top: 15px; /* Space above footer */
-    font-size: 0.9em;
-}
-footer { /* Remove old footer styles */
-    /* Inherits text-align from .footer-bar */
-    border-top: none; padding-top: 0; margin-top: 0;
-    text-align: inherit; font-size: inherit;
-}
-.social-links {
-     /* No text-align needed here, inherits center */
-     margin-bottom: 8px; /* Add some space above powered-by */
-}
-.social-links a {
-    margin: 0 8px; font-size: 1.1em; display: inline-block; /* Allows centering */
-    color: var(--text-primary);
-    transition: color 0.2s, text-shadow 0.2s; /* Added transition */
-}
-.social-links a:hover {
-    color: var(--link-hover-color); text-shadow: 0 0 5px var(--link-hover-color);
-}
-.powered-by {
-    /* No text-align needed here, inherits center */
-    margin-top: 10px; color: var(--text-secondary);
-}
-
-
-
-
-/* --- Article List Styling (ensure li relative) --- */
-.article-prose ul { margin-bottom: 1em; padding-left: 25px; list-style: none; }
-.article-prose ul ul { margin-top: 0.5em; margin-bottom: 0.5em; }
-.article-prose li {
-    margin-bottom: 0.6em;
-    position: relative; /* **** ADD THIS **** */
-}
-.article-prose li::before {
-    content: "»";
-    position: absolute;
-    left: -18px; /* Adjust position if needed */
-    top: 0px;
-    color: var(--accent-red); /* Red bullet */
-    font-weight: bold;
-}
-
-/* --- Contact Page List Styling (ensure li relative) --- */
-.contact-methods { /* Assuming ul has this class */
-    list-style: none; padding-left: 25px; margin-bottom: 1em;
-}
-.contact-methods li {
-     position: relative; /* **** ADD THIS **** */
-     margin-bottom: 0.8em;
-}
-.contact-methods li::before {
-    content: "»"; position: absolute; left: -18px; top: 0px;
-    color: var(--accent-red); font-weight: bold;
-}
-/* ... other contact styles ... */
-
-/* --- Connect Links List Styling (About Page - ensure li relative) --- */
-.connect-links { /* Assuming ul has this class */
-     list-style: none; padding-left: 25px; margin-bottom: 1em;
-}
-.connect-links li {
-    position: relative; /* **** ADD THIS **** */
-    margin-bottom: 0.8em;
-}
-.connect-links li::before {
-    content: "»"; position: absolute; left: -18px; top: 0px;
-    color: var(--accent-red); font-weight: bold;
-}
-
-
-
-
-
-
-
-
-
-
 
 /* --- Profile Sidebar (BreachForums Style) --- */
 #profile-sidebar {
@@ -255,7 +145,6 @@ footer { /* Remove old footer styles */
 }
 .profile-rank { /* NEW: For the GOD gif */
     margin: 10px auto;
-    /* width: 100px; Adjust as needed */
 }
 .profile-rank img {
     margin: 0 auto; /* Center the image */
@@ -269,17 +158,24 @@ footer { /* Remove old footer styles */
     font-size: 0.95em;
     line-height: 1.8;
 }
+.profile-stats > div { /* Target direct div children for clear */
+    clear: both; /* Ensure each stat row starts fresh */
+    margin-bottom: 4px; /* Add a little space between stats */
+}
 .profile-stats .stat-label {
     color: var(--text-primary); /* Lighter label */
     width: 80px; /* Align values */
-    display: inline-block;
+    display: inline-block; /* Keep inline */
+    float: left; /* Float left */
 }
 .profile-stats .stat-value {
     color: var(--text-primary); /* White/light gray value */
     float: right; /* Align value to the right */
+    text-align: right; /* Ensure text within value aligns right */
+    /* width: calc(100% - 90px); /* Optional: calculate remaining width */
 }
 #profile-sidebar p.profile-description { /* Style the description if you keep it */
-    font-size: 0.9em; color: var(--text-secondary); line-height: 1.4; margin-top: 15px; text-align: center;
+    font-size: 0.9em; color: var(--text-secondary); line-height: 1.4; margin-top: 15px; text-align: center; clear: both; /* Clear floats from stats */
 }
 
 /* --- Main Content Area --- */
@@ -325,25 +221,51 @@ footer { /* Remove old footer styles */
     background-color: #400; color: #800; border-color: #500; cursor: default; pointer-events: none; opacity: 0.7;
 }
 
-/* --- Footer --- */
-.footer-bar { /* NEW WRAPPER */
+/* --- Footer (Centering Fixes Included) --- */
+.footer-bar {
     background-color: var(--header-footer-bg);
-    padding: 10px 15px;
+    padding: 15px; /* Increased padding */
     border-top: 1px solid var(--border-color);
-    text-align: center;
-    margin-top: 15px; /* Space above footer */
+    text-align: center; /* <<< PRIMARY RULE FOR CENTERING */
+    margin-top: 20px; /* Increased margin */
     font-size: 0.9em;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box;
 }
-footer { /* Remove old footer styles */
-    border-top: none; padding-top: 0; margin-top: 0; text-align: inherit; font-size: inherit;
+
+footer {
+    /* Footer inherits text-align: center */
+    display: inline-block; /* Treat footer as inline-block for centering */
+    width: auto; /* Size to content */
+    text-align: center; /* Reinforce */
+    border-top: none; padding-top: 0; margin-top: 0;
 }
+
+.social-links {
+     /* Inherits text-align: center */
+     margin-bottom: 10px; /* Consistent spacing */
+     display: block; /* Occupy space for centering */
+     width: 100%;   /* Span the centered footer block */
+}
+
 .social-links a {
-    margin: 0 8px; font-size: 1.1em; display: inline-block; color: var(--text-primary);
+    margin: 0 10px; /* Slightly more space */
+    font-size: 1.1em;
+    display: inline-block; /* Correct for text-align: center */
+    color: var(--text-primary);
+    transition: color 0.2s, text-shadow 0.2s;
 }
 .social-links a:hover {
     color: var(--link-hover-color); text-shadow: 0 0 5px var(--link-hover-color);
 }
-.powered-by { margin-top: 10px; color: var(--text-secondary); }
+
+.powered-by {
+    /* Inherits text-align: center */
+    margin-top: 10px;
+    color: var(--text-secondary);
+    display: block; /* Occupy space for centering */
+    width: 100%;   /* Span the centered footer block */
+}
 
 /* --- Generic Helper Classes --- */
 .warning { border: 1px dashed var(--accent-red); padding: 10px; margin-top: 20px; color: #ffdddd; background-color: rgba(100, 0, 0, 0.2); }
@@ -369,35 +291,64 @@ header h1.glow { /* .glow is optional here if already styled */
      text-shadow: 0 0 4px var(--accent-red);
 }
 
-
 /* --- REFINED Article Styling (Adjust Colors) --- */
 .article-prose { max-width: 800px; margin-left: auto; margin-right: auto; }
-.article-prose h1, .article-prose h2, .article-prose h3 { /* Use main content H styles */ }
+.article-prose h1, .article-prose h2 { /* Use main content H styles */ }
+.article-prose h3 { font-size: 1.4em; margin-top: 25px; margin-bottom: 12px; color: var(--text-primary); border-bottom: 1px dotted var(--border-color); padding-bottom: 3px; }
 .article-prose h1.glow, .article-prose h2.glow { color: var(--text-primary); text-shadow: 0 0 4px var(--text-primary); }
-/* ... Update colors (like #00ff00, #33ff33) in .article-prose styles ... */
-.article-prose p { color: var(--text-primary); }
-.article-prose ul { /* Keep structure */ }
-.article-prose li::before { color: var(--accent-red); /* Red bullet */ }
-.article-prose a { color: var(--link-color); border-bottom: 1px dotted var(--link-color); }
-.article-prose a:hover { border-bottom-style: solid; color: var(--link-hover-color); }
-.article-prose code { background-color: #222; color: var(--green-accent); /* Keep green for code? */ }
-.article-prose pre { background-color: #000; border: 1px solid var(--border-color); color: var(--text-primary); }
-.article-prose pre code { color: var(--text-primary); }
-.article-prose blockquote { border-left: 3px solid var(--accent-red); color: var(--text-secondary); }
-.article-prose hr { background: var(--border-color); }
-
-/* --- Contact/Community Page Specific Adjustments --- */
-/* (Ensure lists, links, keyword spans use the new color vars) */
-.my-Yellow { /* You might replace this or choose a new color */
-    color: #ffff99; /* Or maybe var(--accent-red-hover) ? */
+.article-prose p { color: var(--text-primary); margin-bottom: 1em;}
+.article-prose ul { margin-bottom: 1em; padding-left: 25px; list-style: none; }
+.article-prose ul ul { margin-top: 0.5em; margin-bottom: 0.5em; }
+.article-prose li {
+    margin-bottom: 0.6em;
+    position: relative; /* <<< ENSURE RELATIVE POSITIONING */
+}
+.article-prose li::before {
+    content: "»";
+    position: absolute;
+    left: -18px; /* Adjust position if needed */
+    top: 0px; /* Align with top of text */
+    color: var(--accent-red); /* Red bullet */
     font-weight: bold;
 }
-.keyword { color: var(--text-primary); font-weight: bold; }
-.link-platform { color: var(--text-secondary); font-weight: bold; }
-/* Adjust list bullets if needed */
-.contact-methods li::before, .connect-links li::before { color: var(--accent-red); }
+.article-prose a { color: var(--link-color); border-bottom: 1px dotted var(--link-color); }
+.article-prose a:hover { border-bottom-style: solid; color: var(--link-hover-color); }
+.article-prose code { background-color: #222; color: var(--green-accent); /* Keep green for code? */ padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
+.article-prose pre { background-color: #000; border: 1px solid var(--border-color); color: var(--text-primary); padding: 15px; margin: 15px 0; overflow-x: auto; font-size: 0.9em; line-height: 1.4; }
+.article-prose pre code { background-color: transparent; padding: 0; border-radius: 0; color: var(--text-primary); }
+.article-prose blockquote { border-left: 3px solid var(--accent-red); color: var(--text-secondary); margin: 15px 0 15px 20px; padding-left: 15px; font-style: italic; }
+.article-prose hr { border: 0; height: 1px; background: var(--border-color); margin: 30px 0; }
 
-/* --- Mini Shell (Updated Colors) --- */
+/* --- Contact/Community/About Page Specific Adjustments --- */
+.my-Yellow { color: #ffff99; font-weight: bold; }
+.keyword { color: var(--text-primary); font-weight: bold; }
+.link-platform { color: var(--text-secondary); font-weight: bold; margin-right: 8px; }
+.contact-label { display: inline-block; width: 80px; font-weight: bold; }
+.contact-note { font-size: 0.9em; color: var(--text-secondary); margin-left: 10px; }
+
+/* --- Ensure >> Bullets for Lists on Static Pages --- */
+.contact-methods, .connect-links { /* Target specific list classes */
+    list-style: none; padding-left: 25px; margin-bottom: 1em;
+}
+.contact-methods li, .connect-links li {
+     position: relative; /* <<< ENSURE RELATIVE POSITIONING */
+     margin-bottom: 0.8em;
+}
+.contact-methods li::before, .connect-links li::before {
+    content: "»"; position: absolute; left: -18px; top: 0px;
+    color: var(--accent-red); font-weight: bold;
+}
+/* Style links within these lists if needed differently from article prose */
+.contact-methods li a, .connect-links li a {
+    color: var(--link-color);
+    border-bottom: 1px dotted var(--link-color);
+}
+.contact-methods li a:hover, .connect-links li a:hover {
+    color: var(--link-hover-color);
+    border-bottom-style: solid;
+}
+
+/* --- Mini Shell (Updated Colors & Input Fix) --- */
 #mini-shell {
     position: fixed; bottom: 10px; right: 10px; width: 350px; height: 200px;
     border: 2px solid var(--accent-red); /* Red border */
@@ -406,7 +357,9 @@ header h1.glow { /* .glow is optional here if already styled */
     padding: 5px; font-size: 14px; overflow-y: auto; line-height: 1.4; z-index: 1000;
     contain: layout style paint;
 }
-/* ... (scrollbar styles) ... */
+#mini-shell::-webkit-scrollbar { width: 8px; }
+#mini-shell::-webkit-scrollbar-track { background: #0a0a0a; }
+#mini-shell::-webkit-scrollbar-thumb { background-color: var(--accent-red); border-radius: 4px; border: 1px solid #050505; }
 
 #shell-output { white-space: pre-wrap; word-break: break-all; margin-bottom: 5px; min-height: calc(100% - 25px); }
 #shell-output .command { color: var(--text-primary); }
@@ -416,7 +369,6 @@ header h1.glow { /* .glow is optional here if already styled */
 .shell-input-line { display: flex; align-items: center; height: 20px; }
 #shell-prompt { color: var(--text-primary); margin-right: 5px; flex-shrink: 0; }
 
-/* --- FIX FOR SHELL INPUT --- */
 #shell-input {
     background: transparent !important; /* Force no background */
     border: none !important; /* Force no border */
@@ -428,7 +380,6 @@ header h1.glow { /* .glow is optional here if already styled */
     padding: 0;
     caret-color: var(--accent-red); /* Red caret */
     width: 100%;
-    /* Remove any browser default appearance */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
