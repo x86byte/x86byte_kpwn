@@ -143,6 +143,59 @@ textarea:hover ~ #cursor-follower {
 
 
 
+/* --- Article List Styling (ensure li relative) --- */
+.article-prose ul { margin-bottom: 1em; padding-left: 25px; list-style: none; }
+.article-prose ul ul { margin-top: 0.5em; margin-bottom: 0.5em; }
+.article-prose li {
+    margin-bottom: 0.6em;
+    position: relative; /* **** ADD THIS **** */
+}
+.article-prose li::before {
+    content: "»";
+    position: absolute;
+    left: -18px; /* Adjust position if needed */
+    top: 0px;
+    color: var(--accent-red); /* Red bullet */
+    font-weight: bold;
+}
+
+/* --- Contact Page List Styling (ensure li relative) --- */
+.contact-methods { /* Assuming ul has this class */
+    list-style: none; padding-left: 25px; margin-bottom: 1em;
+}
+.contact-methods li {
+     position: relative; /* **** ADD THIS **** */
+     margin-bottom: 0.8em;
+}
+.contact-methods li::before {
+    content: "»"; position: absolute; left: -18px; top: 0px;
+    color: var(--accent-red); font-weight: bold;
+}
+/* ... other contact styles ... */
+
+/* --- Connect Links List Styling (About Page - ensure li relative) --- */
+.connect-links { /* Assuming ul has this class */
+     list-style: none; padding-left: 25px; margin-bottom: 1em;
+}
+.connect-links li {
+    position: relative; /* **** ADD THIS **** */
+    margin-bottom: 0.8em;
+}
+.connect-links li::before {
+    content: "»"; position: absolute; left: -18px; top: 0px;
+    color: var(--accent-red); font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* --- Profile Sidebar (BreachForums Style) --- */
 #profile-sidebar {
     border: 1px solid var(--border-color);
