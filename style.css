@@ -65,7 +65,54 @@ main:not(.main-grid) #main-content { width: 100%; margin-top: 15px; }
 
 
 
+/* --- Styling for Connect Links on About Page --- */
 
+/* Apply consistent H3 style from articles */
+#main-content.article-prose h3 { /* Ensure selector applies */
+    font-size: 1.4em; margin-top: 25px; margin-bottom: 12px;
+    color: #33ff33; border-bottom: 1px dotted #004400; padding-bottom: 3px;
+}
+
+.connect-links {
+    list-style: none; /* Remove default bullets if any */
+    padding-left: 25px; /* Match article list padding */
+    margin-bottom: 1em;
+}
+
+.connect-links li {
+    position: relative; /* Needed for ::before positioning */
+    margin-bottom: 0.8em; /* Space between links */
+}
+
+/* Apply the green '»' bullet */
+.connect-links li::before {
+    content: "»";
+    position: absolute;
+    left: -15px; /* Position relative to padding */
+    top: 0px;
+    color: #00ff00; /* Green */
+    font-weight: bold;
+}
+
+/* Style for the platform name part (e.g., "GitHub:") */
+.link-platform {
+    color: #66ccff; /* Blue */
+    font-weight: bold;
+    margin-right: 8px; /* Space between platform name and link */
+}
+
+/* Style for the actual link/URL part */
+.connect-links li a {
+    color: #ffffff; /* White base color for the URL/handle */
+    border-bottom: 1px dotted #aaaaaa; /* Subtle white/grey underline */
+    /* The 'glow-hover' class will handle the hover effect */
+}
+
+.connect-links li a:hover {
+    border-bottom-style: solid;
+    border-bottom-color: #ffffff; /* Make underline solid white on hover */
+     /* Glow effect is applied via .glow-hover */
+}
 /* --- Article List (Home Page) --- */
 .articles-list article { border-bottom: 1px solid #333333; padding-bottom: 15px; margin-bottom: 15px; }
 .articles-list article:last-child { border-bottom: none; margin-bottom: 0; }
