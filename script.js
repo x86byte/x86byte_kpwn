@@ -4,61 +4,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!cursorFollower) {
         console.error("Cursor follower element (#cursor-follower) not found.");
-        // Fallback to default cursor if custom one fails
         document.body.style.cursor = 'auto';
     } else {
-        let mouseX = window.innerWidth / 2;  // Start in center
+        let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
         let followerX = mouseX;
         let followerY = mouseY;
-        const delay = 0.15; // Slightly faster follow? Adjust if needed
-        let rafId = null;
-        let isCursorActive = false; // Track if animation should run
+        // --- INCREASE THIS VALUE FOR FASTER RESPONSE ---
+        const delay = 0.35; // Changed for faster response. Adjust 0.35 as needed (e.g., 0.4, 0.5)
+        // --- YOU CAN TWEAK 0.35 ---
 
-        // Initial position set immediately
+        let rafId = null;
+        let isCursorActive = false;
+
         cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
-        cursorFollower.style.opacity = '0'; // Start hidden
+        cursorFollower.style.opacity = '0';
 
         function updateCursor() {
-            // Only run calculations if the mouse has moved at least once
             if (isCursorActive) {
                 followerX += (mouseX - followerX) * delay;
                 followerY += (mouseY - followerY) * delay;
                 cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
             }
-            rafId = requestAnimationFrame(updateCursor); // Keep the loop running
+            rafId = requestAnimationFrame(updateCursor);
         }
 
         function onMouseMove(e) {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            // Make visible and start animation on first move
             if (!isCursorActive) {
                 cursorFollower.style.opacity = '1';
                 isCursorActive = true;
-                // Start the animation loop if it's not already running
                 if (!rafId) {
                     updateCursor();
                 }
             }
         }
 
-        function onMouseLeave() {
-             // Optional: Hide cursor when mouse leaves window
-             // cursorFollower.style.opacity = '0';
-             // isCursorActive = false; // Pause calculations
-        }
+        // Optional: Hide cursor when mouse leaves window (uncomment if desired)
+        // function onMouseLeave() {
+        //    cursorFollower.style.opacity = '0';
+        //    isCursorActive = false;
+        // }
 
         document.addEventListener('mousemove', onMouseMove, { passive: true });
-        // document.addEventListener('mouseleave', onMouseLeave); // Uncomment if you want hide on leave
+        // document.addEventListener('mouseleave', onMouseLeave); // Uncomment if needed
 
-        // Start the animation loop regardless, but calculations depend on isCursorActive
         if (!rafId) {
             updateCursor();
         }
     }
 
-
+    // --- LIKE BUTTON LOGIC ---
     const likeButtons = document.querySelectorAll('.like-button');
     const likedPostsKey = 'x86byte_liked_posts';
     let likedPosts = {};
@@ -83,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    // --- MINI SHELL LOGIC ---
     const shellOutput = document.getElementById('shell-output');
     const shellInput = document.getElementById('shell-input');
     const shellPrompt = document.getElementById('shell-prompt');
@@ -105,8 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return path; // Fallback
     }
 
-
-    
     let currentPath = getCurrentPathFromURL();
     let commandHistory = []; let historyIndex = -1;
 
@@ -115,42 +111,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function printToShell(text, type = 'output') {
-         if (shellOutput) { const line = document.createElement('div'); line.textContent = text; line.className = type; shellOutput.appendChild(line); miniShell.scrollTop = miniShell.scrollHeight; }
+         if (shellOutput && miniShell) { // Added check for miniShell
+            const line = document.createElement('div');
+            line.textContent = text;
+            line.className = type;
+            shellOutput.appendChild(line);
+            miniShell.scrollTop = miniShell.scrollHeight; // Scroll down
+        }
     }
 
-
-
-
-    
      function executeCommand(command) {
-        const parts = command.trim().split(' ').filter(p => p !== ''); const cmd = parts[0]?.toLowerCase(); const args = parts.slice(1);
-        printToShell(`${shellPrompt?.textContent || '$'} ${command}`, 'command');
+        const parts = command.trim().split(' ').filter(p => p !== '');
+        const cmd = parts[0]?.toLowerCase();
+        const args = parts.slice(1);
+
+        // Use current prompt text when printing command
+        const promptText = shellPrompt ? shellPrompt.textContent : '$';
+        printToShell(`${promptText} ${command}`, 'command');
+
         if (command) { commandHistory.push(command); historyIndex = commandHistory.length; }
 
         switch (cmd) {
             case 'help': printToShell('Available: help, ls, cd, pwd, cat, goto, clear, date'); break;
             case 'ls':
                 if (currentPath === '/') printToShell('about contact community articles/');
-                // UPDATED ls for /articles
                 else if (currentPath === '/articles' || currentPath.startsWith('/articles/')) {
-                     printToShell('re-ma-roadmap'); // List the article file/slug
+                     printToShell('re-ma-roadmap');
                 }
-                else printToShell(''); // Empty for other pages like /about
+                else printToShell(''); // Empty for other pages
                 break;
             case 'pwd': printToShell(currentPath); break;
             case 'cd':
                 let targetUrl = null, targetPath = null;
-                const currentBase = currentPath.split('/')[1] || ''; // e.g., 'articles', 'about', or '' for root
+                const currentBase = currentPath.split('/')[1] || '';
 
-                if (args.length === 0 || args[0] === '/' || args[0] === '~') { targetUrl = 'index.html'; targetPath = '/'; }
-                else if (args[0] === '..') {
-                    // If in an article or /articles, go to root
-                    if (currentBase === 'articles') { targetUrl = '../index.html'; targetPath = '/'; }
-                    // If in /about, /contact, /community, go to root
-                    else if (currentPath !== '/') { targetUrl = 'index.html'; targetPath = '/'; }
-                    else { targetPath = '/'; } // Already at root
-                }
-                else {
+                if (args.length === 0 || args[0] === '/' || args[0] === '~') {
+                     targetUrl = 'index.html'; targetPath = '/';
+                } else if (args[0] === '..') {
+                     if (currentPath.startsWith('/articles')) { // If in any article path
+                         targetUrl = '../index.html'; targetPath = '/';
+                     } else if (currentPath !== '/') { // If in /about, /contact, /community
+                         targetUrl = 'index.html'; targetPath = '/';
+                     } else {
+                         targetPath = '/'; // Already at root
+                     }
+                } else {
                     const targetDir = args[0].replace(/\/$/, '');
                     if (currentPath === '/') { // From root
                         if (targetDir === 'about') { targetUrl = 'about.html'; targetPath = '/about'; }
@@ -158,59 +163,107 @@ document.addEventListener('DOMContentLoaded', () => {
                         else if (targetDir === 'community') { targetUrl = 'community.html'; targetPath = '/community'; }
                         else if (targetDir === 'articles') { targetPath = '/articles'; } // Go to virtual articles dir
                         else { printToShell(`cd: No such file or directory: ${targetDir}`, 'error'); }
-                    }
-                    // UPDATED: Allow cd into specific article from /articles
-                    else if (currentPath === '/articles') {
-                         if (targetDir === 're-ma-roadmap') { targetUrl = 're-ma-roadmap.html'; targetPath = '/articles/re-ma-roadmap'; }
+                    } else if (currentPath === '/articles') { // From /articles directory
+                         if (targetDir === 're-ma-roadmap') { targetUrl = 'articles/re-ma-roadmap.html'; targetPath = '/articles/re-ma-roadmap'; }
                          // Add else if for future articles
                          else { printToShell(`cd: No such article: ${targetDir}`, 'error'); }
+                    } else if (currentPath.startsWith('/articles/')) { // From within an article page
+                        // Allow cd .. (handled above), block other cds for now
+                        printToShell(`cd: Cannot navigate directly from article ${currentPath}`, 'error');
                     }
-                    else { printToShell(`cd: Cannot navigate from ${currentPath}`, 'error'); }
+                     else { // From /about, /contact, /community
+                        printToShell(`cd: Cannot navigate from ${currentPath} to ${targetDir}`, 'error');
+                    }
                 }
+
                 // Navigation logic
                 if (targetUrl) {
-                     // Adjust URL based on current location for relative paths
-                     if (currentPath.includes('/articles/')) { // If currently in an article
-                         window.location.href = `../${targetUrl}`; // Need to go up one level first
-                     } else {
-                         window.location.href = targetUrl;
-                     }
-                } else if (targetPath && targetPath !== currentPath) {
-                    currentPath = targetPath; updatePrompt();
-                } else { updatePrompt(); } // Ensure prompt updates
+                     // Relative path adjustment might be needed if structure changes drastically
+                     window.location.href = targetUrl;
+                } else if (targetPath !== null && targetPath !== currentPath) {
+                    currentPath = targetPath;
+                    updatePrompt();
+                    // Maybe print something like "Changed directory to /articles"
+                }
+                // No else needed, command just finishes if no navigation occurs
                 break;
-             // UPDATED: cat command to navigate
-            case 'cat':
-                if ((currentPath === '/articles' || currentPath.startsWith('/articles/')) && args.length > 0) {
-                    const slug = args[0].replace('.html', '').replace('.md', ''); // Be flexible
-                    if (slug === 're-ma-roadmap') {
-                        // If already there, maybe just print a message?
-                        if (currentPath === '/articles/re-ma-roadmap') {
-                             printToShell('You are already viewing this article.');
-                        } else {
-                             printToShell('Navigating to re-ma-roadmap...');
-                             window.location.href = 're-ma-roadmap.html'; // Navigate if in /articles
-                        }
-                    }
-                    // Add else if for future articles
-                    else { printToShell(`cat: Unknown article: ${args[0]}`, 'error'); }
-                } else if (args.length > 0) { printToShell(`cat: Cannot read '${args[0]}' from ${currentPath}`, 'error'); }
-                else { printToShell('cat: Missing filename', 'error'); }
-                break;
-            case 'goto': /* ... (same as before) ... */ if (args.length > 0) { let url = args[0]; if (!/^(https?:)?\/\//i.test(url)) url = 'https://' + url; printToShell(`Opening ${url} in a new tab...`); try { window.open(url, '_blank', 'noopener,noreferrer'); } catch (e) { printToShell(`goto: Error opening URL: ${e.message}`, 'error'); } } else printToShell('goto: Missing URL', 'error'); break;
+             case 'cat':
+                 let catTargetUrl = null;
+                 if (args.length > 0) {
+                     const slug = args[0].replace('.html', '').replace('.md', '');
+                     if (currentPath === '/articles' || currentPath.startsWith('/articles/')) {
+                         if (slug === 're-ma-roadmap') {
+                            if (currentPath !== '/articles/re-ma-roadmap') {
+                                catTargetUrl = (currentPath === '/articles') ? 'articles/re-ma-roadmap.html' : '../articles/re-ma-roadmap.html'; // Adjust path based on current location
+                                printToShell('Navigating to re-ma-roadmap...');
+                            } else {
+                                 printToShell('You are already viewing this article.');
+                            }
+                         } // Add else if for future articles
+                         else { printToShell(`cat: Unknown article: ${args[0]}`, 'error'); }
+                     } else { printToShell(`cat: Cannot read '${args[0]}' from ${currentPath}`, 'error'); }
+                 } else { printToShell('cat: Missing filename', 'error'); }
+
+                 if (catTargetUrl) { window.location.href = catTargetUrl; }
+                 break;
+            case 'goto':
+                 if (args.length > 0) {
+                     let url = args[0];
+                     if (!/^(https?:)?\/\//i.test(url)) { url = 'https://' + url; }
+                     printToShell(`Opening ${url} in a new tab...`);
+                     try { window.open(url, '_blank', 'noopener,noreferrer'); }
+                     catch (e) { printToShell(`goto: Error opening URL: ${e.message}`, 'error'); }
+                 } else { printToShell('goto: Missing URL', 'error'); }
+                 break;
             case 'clear': if (shellOutput) shellOutput.innerHTML = ''; break;
             case 'date': printToShell(new Date().toLocaleString()); break;
             case undefined: case '': break; // Ignore empty
             default: printToShell(`command not found: ${cmd}`, 'error'); break;
         }
-        if (shellInput) shellInput.focus();
+        if (shellInput) shellInput.focus(); // Keep focus on input
     }
 
-    if (shellInput && shellOutput && miniShell && shellPrompt) { /* ... (Shell listeners same as before) ... */
-        updatePrompt(); printToShell("Welcome. Type 'help' for commands.");
-        shellInput.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); executeCommand(shellInput.value); shellInput.value = ''; } else if (e.key === 'ArrowUp') { e.preventDefault(); if (commandHistory.length > 0) { historyIndex = Math.max(0, historyIndex - 1); shellInput.value = commandHistory[historyIndex]; setTimeout(() => shellInput.setSelectionRange(shellInput.value.length, shellInput.value.length), 0); } } else if (e.key === 'ArrowDown') { e.preventDefault(); if (historyIndex < commandHistory.length - 1) { historyIndex++; shellInput.value = commandHistory[historyIndex]; setTimeout(() => shellInput.setSelectionRange(shellInput.value.length, shellInput.value.length), 0); } else { historyIndex = commandHistory.length; shellInput.value = ''; } } else if (e.key === 'l' && e.ctrlKey) { e.preventDefault(); executeCommand('clear'); } });
-        miniShell.addEventListener('click', (e) => { if (e.target !== shellInput) shellInput.focus(); });
-        shellInput.focus();
-    } else { console.error("Mini-shell HTML elements not found."); }
+    if (shellInput && shellOutput && miniShell && shellPrompt) {
+        updatePrompt();
+        printToShell("Welcome. Type 'help' for commands.");
+        shellInput.addEventListener('keydown', (e) => {
+             if (e.key === 'Enter' && !e.shiftKey) {
+                 e.preventDefault();
+                 executeCommand(shellInput.value);
+                 shellInput.value = '';
+            } else if (e.key === 'ArrowUp') {
+                 e.preventDefault();
+                 if (commandHistory.length > 0) {
+                     historyIndex = Math.max(0, historyIndex - 1);
+                     shellInput.value = commandHistory[historyIndex];
+                     // Move cursor to end
+                     setTimeout(() => shellInput.setSelectionRange(shellInput.value.length, shellInput.value.length), 0);
+                 }
+            } else if (e.key === 'ArrowDown') {
+                 e.preventDefault();
+                 if (historyIndex < commandHistory.length - 1) {
+                     historyIndex++;
+                     shellInput.value = commandHistory[historyIndex];
+                     // Move cursor to end
+                     setTimeout(() => shellInput.setSelectionRange(shellInput.value.length, shellInput.value.length), 0);
+                 } else {
+                     historyIndex = commandHistory.length;
+                     shellInput.value = '';
+                 }
+            } else if (e.key === 'l' && e.ctrlKey) { // Ctrl+L for clear
+                 e.preventDefault();
+                 executeCommand('clear');
+            }
+         });
+        // Refocus input if user clicks inside the shell but not on the input itself
+        miniShell.addEventListener('click', (e) => {
+            if (e.target !== shellInput) {
+                shellInput.focus();
+            }
+        });
+        shellInput.focus(); // Initial focus
+    } else {
+        console.error("Mini-shell HTML elements not found or incomplete.");
+    }
 
-});
+}); // End of DOMContentLoaded
