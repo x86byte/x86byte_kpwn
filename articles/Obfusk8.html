@@ -226,10 +226,11 @@
                 <p><a href="https://youtu.be/B9g4KSg3tHQ" target="_blank" rel="noopener noreferrer" class="glow-hover">[Obfusk8: C++17-Based Obfuscation Library - IDA pro Graph View] ~Video Demo</a></p>
                 
                 <h2 class="glow">Usage</h2>
-                <ol>
-                    Include <code>Obfusk8Core.hpp</code> in your main project file (e.g., <code>main.cpp</code>).
+                <!-- **** FIXED SECTION: Changed <ol> to <ul> **** -->
+                <ul>
+                    <li>Include <code>Obfusk8Core.hpp</code> in your main project file (e.g., <code>main.cpp</code>).
                         <pre><code class="language-cpp">#include "Obfusk8Core.hpp" // Adjust path as needed</code></pre>
-                    
+                    </li>
                     <li>Wrap your <code>main</code> function's body with the <code>_main</code>:
                         <pre><code class="language-cpp">_main({
     // Your application's original main code here
@@ -253,7 +254,7 @@
                     <li>Use <code>OBFUSCATE_STRING("your string")</code> for all important string literals. Access the decrypted string via its <code>.c_str()</code> method if needed for API calls, or use its other methods like <code>.print_to_console()</code> if provided by <code>xtea8.hpp</code>.</li>
                     <li>Use <code>STEALTH_API_OBFSTR("dll_name.dll", "FunctionNameA")</code> for direct stealthy API calls, or preferably use the API wrapper classes (e.g., <code>K8_ProcessManipulationAPIs::ProcessAPI</code>, <code>k8_NetworkingAPIs::NetworkingAPI</code>) for convenience and built-in stealth.</li>
                     <li>Sprinkle <code>OBF_BOGUS_FLOW_*</code>, <code>OBF_CALL_ANY_LOCAL_JUNK</code>, <code>NOP()</code>, and other primitives in performance-insensitive critical sections of your code for added obfuscation layers.</li>
-                </ol>
+                </ul>
                 <p><em>* see the main.cpp file.</em></p>
                 
                 <h2 class="glow">Building</h2>
