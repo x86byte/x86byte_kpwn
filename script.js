@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (currentPath === '/') printToShell('about contact community articles/');
                 else if (currentPath === '/articles' || currentPath.startsWith('/articles/')) {
                      printToShell('re-ma-roadmap');
+                     printToShell('Obfusk8');
                 }
                 else printToShell(''); // Empty for other pages
                 break;
@@ -176,6 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
                  // Navigate TO the article page RELATIVE to index.html
                  targetUrl = 'articles/re-ma-roadmap.html';
                  targetPath = '/articles/re-ma-roadmap';
+             } else if (targetDir === 'Obfusk8'){
+                targetUrl = 'articles/Obfusk8.html';
+                 targetPath = '/articles/Obfusk8';
              }
              // Add else if for future articles
              else { printToShell(`cd: No such article: ${targetDir}`, 'error'); }
@@ -208,6 +212,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Determine correct relative path based on CURRENT location
                 catTargetUrl = inArticle ? '../articles/re-ma-roadmap.html' : 'articles/re-ma-roadmap.html';
                 printToShell('Navigating to re-ma-roadmap...');
+            } else {
+                 printToShell('You are already viewing this article.');
+            }
+         } else if (slug === 'Obfusk8') {
+            if (currentPath !== '/articles/Obfusk8p') {
+                // Determine correct relative path based on CURRENT location
+                catTargetUrl = inArticle ? '../articles/Obfusk8.html' : 'articles/Obfusk8.html';
+                printToShell('Navigating to Obfusk8...');
             } else {
                  printToShell('You are already viewing this article.');
             }
