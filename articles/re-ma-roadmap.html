@@ -36,312 +36,430 @@
 
         <main>
             <section id="main-content" class="full-width article-prose">
-                <img id="ida-decoration-img"
-                     src="../img/ida.jpg"
-                     alt="IDA decoration"
-                     width="150">
-                
                 <h1 class="glow">Reverse Engineering and Malware Analysis Roadmap</h1>
-                <p class="post-meta" style="font-size: 0.9em; margin-bottom: 25px;">
-                    <span>Posted: 2025-04-08 by x86byte</span>
-                </p>
 
-                <img src="https://github.com/user-attachments/assets/746914e3-f4b3-46de-9ed0-e3f282ac311a" alt="RE/MA Roadmap Visual" style="max-width: 600px; margin: 10px auto 20px; border: 1px solid #0f0;">
+                <img src="https://github.com/user-attachments/assets/6d8c7398-972b-4e81-a33e-225d4ae159b9" alt="RE/MA Roadmap Banner" style="max-width: 800px; margin: 10px auto 20px; border: 1px solid #0f0;">
 
-                <p>Welcome to the comprehensive roadmap for mastering <span class="keyword">Reverse Engineering</span> (RE) and <span class="keyword">Malware Analysis</span> (MA). This roadmap is designed to guide individuals from beginner to expert level.</p>
+                <p>Welcome to the comprehensive roadmap for mastering reverse engineering and malware analysis. This roadmap is designed to guide individuals from beginner to expert level in the field of reverse engineering and malware analysis.</p>
 
                 <!-- Foundations Section -->
                 <h2 class="glow"><span class="keyword">Foundations</span></h2>
                 <h3>0x00 Establishing a Secure Lab Environment</h3>
-                 <ul>
-                     <li><a href="https://0xinfection.github.io/reversing/" target="_blank" rel="noopener noreferrer" class="glow-hover">Reverse Engineering For Everyone!</a></li>
-                     <li><a href="https://www.youtube.com/watch?v=ql9D5MuK_3c" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Analysis Virtual Machine – by OALabs</a></li>
-                     <li><a href="https://www.malwaretech.com/beginner-malware-reversing-challenges" target="_blank" rel="noopener noreferrer" class="glow-hover">Creating a Simple Free Malware Analysis Environment – by MalwareTech</a></li>
-                 </ul>
-                 <h3>0x01 Mastering Reverse Engineering Tools</h3>
-                 <ul>
-                     <li><a href="https://github.com/kosmokato/Lena151" target="_blank" rel="noopener noreferrer" class="glow-hover">Reversing with Lena151 – learn <span class="tool-name">OllyDbg</span> (old, but still very useful)</a></li>
-                     <li><a href="http://ricardonarvaja.info/WEB/IDA%20DESDE%20CERO/EN%20INGLES/INGLES/" target="_blank" rel="noopener noreferrer" class="glow-hover">REVERSING WITH <span class="tool-name">IDA PRO</span> FROM SCRATCH</a></li>
-                     <li><a href="https://www.youtube.com/playlist?list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu" target="_blank" rel="noopener noreferrer" class="glow-hover">Introduction to <span class="tool-name">Windbg</span> and debugging windows</a></li>
-                 </ul>
+                <ul>
+                    <li><a href="https://youtu.be/rmSIm3BKu3Y" target="_blank" rel="noopener noreferrer" class="glow-hover">Build a Malware Analysis Lab (Self-Hosted & Cloud) - The Malware Analysis Project 101</a></li>
+                </ul>
+                <h3>0x01 Mastering Reverse Engineering Tools</h3>
+                <ul>
+                    <li><a href="https://0xinfection.github.io/reversing/" target="_blank" rel="noopener noreferrer" class="glow-hover">Reverse Engineering For Everyone!</a></li>
+                    <li><a href="https://github.com/kosmokato/Lena151" target="_blank" rel="noopener noreferrer" class="glow-hover">Reversing with Lena151 – learn <span class="tool-name">OllyDbg</span> (old, but still very useful)</a></li>
+                    <li><a href="http://ricardonarvaja.info/WEB/IDA%20DESDE%20CERO/EN%20INGLES/INGLES/" target="_blank" rel="noopener noreferrer" class="glow-hover">REVERSING WITH <span class="tool-name">IDA PRO</span> FROM SCRATCH</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLhx7-txsG6t6n_E2LgDGqgvJtCHPL7UFu" target="_blank" rel="noopener noreferrer" class="glow-hover">Introduction to <span class="tool-name">Windbg</span> and debugging windows</a></li>
+                    <li><a href="../REbooks/IdaC++.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Writing IDA plugins in C/C++</a>
+                        <ul><li>Reference: <a href="https://cpp.docs.hex-rays.com/index.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Hex-Rays C++ Docs</a></li></ul>
+                    </li>
+                    <li><a href="../REbooks/IDA Plugin Writing in C++ v1.1.rar" target="_blank" rel="noopener noreferrer" class="glow-hover book-link-zip">IDA Plugin Writing in C++ v1.1</a></li>
+                    <li><a href="../REbooks/IDA Plugin Writing in C++.rar" target="_blank" rel="noopener noreferrer" class="glow-hover book-link-zip">IDA Plugin Writing in C++</a></li>
+                </ul>
 
                 <!-- Intelligence Section -->
                 <h2 class="glow"><span class="keyword">Gathering Intelligence</span></h2>
-                 <h3>0x02 Sourcing Malware Samples</h3>
-                 <ul>
-                     <li><a href="https://malwarebreakdown.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareBreakdown</a></li>
-                     <li><a href="https://www.malware-traffic-analysis.net/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Traffic Analysis</a></li>
-                     <li><a href="https://vx-underground.org/samples.html" target="_blank" rel="noopener noreferrer" class="glow-hover">VX Underground</a></li>
-                     <li><a href="http://www.malshare.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malshare</a></li>
-                     <li><a href="https://virusshare.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">VirusShare</a></li>
-                     <li><a href="https://bazaar.abuse.ch/" target="_blank" rel="noopener noreferrer" class="glow-hover">Abuse.ch Bazaar</a></li>
-                     <li><a href="http://thezoo.morirt.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">TheZoo</a></li>
-                     <li><a href="https://beta.virusbay.io/" target="_blank" rel="noopener noreferrer" class="glow-hover">VirusBay</a></li>
-                 </ul>
-                 <h3>0x03 Gathering Threat Intelligence</h3>
-                 <ul>
-                     <li><a href="http://benkow.cc" target="_blank" rel="noopener noreferrer" class="glow-hover">Benkow</a></li>
-                     <li><a href="http://vxvault.net/" target="_blank" rel="noopener noreferrer" class="glow-hover">VXVault</a></li>
-                     <li><a href="http://cybercrime-tracker.net/" target="_blank" rel="noopener noreferrer" class="glow-hover">Cybercrime Tracker</a></li>
-                 </ul>
+                <h3>0x02 Sourcing Malware Samples</h3>
+                <ul>
+                    <li><a href="https://www.malware-traffic-analysis.net/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Traffic Analysis</a></li>
+                    <li><a href="https://vx-underground.org/samples.html" target="_blank" rel="noopener noreferrer" class="glow-hover">VX Underground</a></li>
+                    <li><a href="http://www.malshare.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malshare</a></li>
+                    <li><a href="https://virusshare.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">VirusShare</a></li>
+                    <li><a href="https://bazaar.abuse.ch/" target="_blank" rel="noopener noreferrer" class="glow-hover">Abuse.ch</a></li>
+                    <li><a href="http://thezoo.morirt.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">TheZoo</a></li>
+                    <li><a href="https://beta.virusbay.io/" target="_blank" rel="noopener noreferrer" class="glow-hover">VirusBay</a></li>
+                    <li><a href="https://bazaar.abuse.ch/browse/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareBazaar</a></li>
+                    <li><a href="https://www.virussign.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">VirusSign</a></li>
+                </ul>
+                <h3>0x03 Gathering Threat Intelligence</h3>
+                <ul>
+                    <li><a href="http://benkow.cc" target="_blank" rel="noopener noreferrer" class="glow-hover">Benkow</a></li>
+                    <li><a href="http://vxvault.net/" target="_blank" rel="noopener noreferrer" class="glow-hover">VXVault</a></li>
+                    <li><a href="http://cybercrime-tracker.net/" target="_blank" rel="noopener noreferrer" class="glow-hover">Cybercrime Tracker</a></li>
+                </ul>
 
                 <!-- Malware Families Section -->
                 <h2 class="glow"><span class="keyword">Analyzing Malware Families</span></h2>
-                 <h3>0x04 Understanding Common Malware Families</h3>
-                 <ul>
+                <h3>0x04 Understanding Common Malware Families</h3>
+                <ul>
                     <li><a href="https://malpedia.caad.fkie.fraunhofer.de/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malpedia</a></li>
-                 </ul>
+                </ul>
 
                 <!-- Exercises Section -->
                 <h2 class="glow"><span class="keyword">Practical Exercises</span></h2>
-                 <h3>0x05 Beginner Challenges and Writeups</h3>
-                 <ul>
-                     <li><a href="https://github.com/MalwareTech/Beginner-Reversing-Challenges" target="_blank" rel="noopener noreferrer" class="glow-hover">Beginner Malware Reversing Challenges (by Malware Tech)</a></li>
-                     <li><a href="https://www.malwarebytes.com/blog/news/2017/11/how-to-solve-the-malwarebytes-crackme-a-step-by-step-tutorial" target="_blank" rel="noopener noreferrer" class="glow-hover">Solve the Malwarebytes CrackMe: a step-by-step tutorial</a></li>
-                     <li><a href="https://irfanalditya.github.io/posts/malwaretech-chal1/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech Windows Reversing Challenge #1 Write-Ups</a></li>
-                     <li><a href="https://irfanalditya.github.io/posts/malwaretech-chal2/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech Windows Reversing Challenge #2 Write-Ups</a></li>
-                     <li><a href="https://irfanalditya.github.io/posts/malwaretech-chal3/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech Windows Reversing Challenge #3 Write-Ups</a></li>
-                     <li><a href="https://crackmes.one/" target="_blank" rel="noopener noreferrer" class="glow-hover">Crackmes.one – various crackmes to help you exercise reversing</a></li>
-                     <li><a href="https://github.com/guyinatuxedo/nightmare" target="_blank" rel="noopener noreferrer" class="glow-hover">"Nightmare" – a reverse engineering course created around CTF tasks</a></li>
-                     <li><a href="https://github.com/fareedfauzi/Flare-On-Challenges" target="_blank" rel="noopener noreferrer" class="glow-hover">FlareOn Challenge writeups</a></li>
-                 </ul>
+                <h3>0x05 Beginner Challenges and Writeups</h3>
+                <p>First of all:</p>
+                <ul>
+                    <li><a href="https://www.bowneconsultingcontent.com//pub/EH/proj/cloud/ED301c_tkp/ED301c_tkp.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows Stack Protection I: Assembly Code</a></li>
+                    <li><a href="https://www.bowneconsultingcontent.com//pub/EH/proj/cloud/ED302c_tkp/ED302c_tkp.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows Stack Protection II: Exploit Without ASLR</a></li>
+                    <li><a href="https://www.bowneconsultingcontent.com//pub/EH/proj/cloud/ED303c_tkp/ED303c_tkp.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows Stack Protection III: Limitations of ASLR</a></li>
+                    <li><a href="https://samsclass.info/127/lec/EDch6.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">The Wild World of Windows</a></li>
+                </ul>
+                <ul>
+                    <li><a href="../ObfuscationRes/RE_mpe.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Material for Reverse Engineering Malware Practical Examples (2020 Jason Reaves)</a></li>
+                    <li><a href="https://github.com/MalwareTech/Beginner-Reversing-Challenges" target="_blank" rel="noopener noreferrer" class="glow-hover">Beginner Malware Reversing Challenges (by Malware Tech)</a></li>
+                    <li><a href="https://www.malwarebytes.com/blog/news/2017/11/how-to-solve-the-malwarebytes-crackme-a-step-by-step-tutorial" target="_blank" rel="noopener noreferrer" class="glow-hover">Solve the Malwarebytes CrackMe: a step-by-step tutorial</a></li>
+                    <li><a href="https://irfanalditya.github.io/posts/malwaretech-chal1/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech Windows Reversing Challenge #1 Write-Ups</a></li>
+                    <li><a href="https://irfanalditya.github.io/posts/malwaretech-chal2/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech Windows Reversing Challenge #2 Write-Ups</a></li>
+                    <li><a href="https://irfanalditya.github.io/posts/malwaretech-chal3/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech Windows Reversing Challenge #3 Write-Ups</a></li>
+                    <li><a href="https://crackmes.one/" target="_blank" rel="noopener noreferrer" class="glow-hover">Crackmes.one – various crackmes to help you exercise reversing</a></li>
+                    <li><a href="https://github.com/guyinatuxedo/nightmare" target="_blank" rel="noopener noreferrer" class="glow-hover">"Nightmare" – a reverse engineering course created around CTF tasks</a></li>
+                    <li><a href="https://github.com/fareedfauzi/Flare-On-Challenges" target="_blank" rel="noopener noreferrer" class="glow-hover">FlareOn Challenge writeups</a></li>
+                    <li><a href="../ObfuscationRes/2003.05039v2.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Devil is Virtual: Reversing Virtual Inheritance in C++ Binaries</a></li>
+                </ul>
 
                 <!-- Low-Level Concepts Section -->
                 <h2 class="glow"><span class="keyword">Understanding Low-Level Concepts</span></h2>
-                 <h3>0x06 <span class="keyword">Assembly Language</span> and <span class="keyword">PE Format</span></h3>
-                  <p>Understanding assembly language (primarily <span class="keyword">x86/x64</span>) and the structure of executable files (like the Windows <span class="keyword">PE format</span>) is crucial.</p>
-
-                  <!-- ==== UPDATED ASSEMBLY RESOURCES ==== -->
-                  <h4>Assembly Resources:</h4>
-                  <ul>
-                      <li><span class="keyword">[Video Playlists]</span>
-                         <ul>
-                             <li><a href="https://www.youtube.com/playlist?list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA" target="_blank" rel="noopener noreferrer" class="glow-hover">Modern x64 Assembly</a></li>
-                             <li><a href="https://www.youtube.com/playlist?list=PLmxT2pVYo5LB5EzTPZGfFN0c2GDiSXgQe" target="_blank" rel="noopener noreferrer" class="glow-hover">Intro to x86 Assembly Language</a></li>
-                             <li><a href="https://www.youtube.com/playlist?list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn" target="_blank" rel="noopener noreferrer" class="glow-hover">x86_64 Linux Assembly</a></li>
-                             <li><a href="https://www.youtube.com/playlist?list=PL038BE01D3BAEFDB0" target="_blank" rel="noopener noreferrer" class="glow-hover">Intro x86 (32 bit)</a></li>
-                             <li><a href="https://www.youtube.com/playlist?list=PL0C5C980A28FEE68D" target="_blank" rel="noopener noreferrer" class="glow-hover">Practical x64 Assembly and C++ Tutorials</a></li>
-                             <li><a href="https://www.youtube.com/watch?v=75gBFiFtAb8" target="_blank" rel="noopener noreferrer" class="glow-hover">x86 Assembly Crash Course (Single Video)</a></li>
-                             <li><a href="https://www.youtube.com/watch?v=wLXIWKUWpSs" target="_blank" rel="noopener noreferrer" class="glow-hover">Video 1 (x86 Intro - Might be duplicate?)</a> and <a href="https://www.youtube.com/watch?v=cFGJhn97e3s" target="_blank" rel="noopener noreferrer" class="glow-hover">Video 2 (x86 Intro - Might be duplicate?)</a></li>
-                         </ul>
-                      </li>
-                      <li><span class="keyword">[Tutorials & Guides]</span>
-                         <ul>
-                             <li><a href="https://www.tutorialspoint.com/assembly_programming/index.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Assembly Programming Tutorial (TutorialsPoint)</a></li>
-                             <li><a href="http://opensecuritytraining.info/IntroX86.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Introductory Intel x86 (OpenSecurityTraining)</a></li>
-                             <li><a href="http://opensecuritytraining.info/IntroARM.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Introduction to ARM (OpenSecurityTraining)</a></li>
-                             <li><a href="https://azeria-labs.com/writing-arm-assembly-part-1/" target="_blank" rel="noopener noreferrer" class="glow-hover">Introduction to ARM Assembly Basics (Azeria Labs)</a></li>
-                             <li><a href="https://github.com/0xAX/asm" target="_blank" rel="noopener noreferrer" class="glow-hover">Learning assembly for linux-x64 (GitHub Repo)</a></li>
-                             <li><a href="https://www.cs.virginia.edu/~evans/cs216/guides/x86.html" target="_blank" rel="noopener noreferrer" class="glow-hover">x86 Assembly Guide (UVA)</a></li>
-                             <li><a href="https://sensepost.com/blogstatic/2014/01/SensePost_crash_course_in_x86_assembly-.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">A Crash Course in x86 Assembly for Reverse Engineers (SensePost PDF)</a></li>
-                             <li><a href="https://www.recurse.com/blog/7-understanding-c-by-learning-assembly" target="_blank" rel="noopener noreferrer" class="glow-hover">Understanding C by learning assembly (Recurse Center)</a></li>
-                             <li><a href="https://gpfault.net/posts/asm-tut-0.txt.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Learn x86_64 Assembly Part 0</a>, <a href="https://gpfault.net/posts/asm-tut-1.txt.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Part 1</a>, <a href="https://gpfault.net/posts/asm-tut-2.txt.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Part 2</a> (gpfault)</li>
-                             <li><a href="http://www.egr.unlv.edu/~ed/assembly64.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">x86-64 Assembly Programming with Ubuntu (PDF Guide)</a></li>
-                             <li><a href="https://pacman128.github.io/pcasm/" target="_blank" rel="noopener noreferrer" class="glow-hover">Assembly for beginners (PC Assembly Language)</a></li>
-                             <li><a href="http://cssimplified.com/computer-organisation-and-assembly-language-programming/beginner-write-your-first-assembly-language-program-hello-world-explained" target="_blank" rel="noopener noreferrer" class="glow-hover">Beginner "Hello World" in Assembly</a></li>
-                             <li><a href="https://www.whoishostingthis.com/resources/assembly-language/" target="_blank" rel="noopener noreferrer" class="glow-hover">Assembly Language Overview (WhoIsHostingThis)</a></li>
-                             <li><a href="https://inst.eecs.berkeley.edu/~cs161/sp15/discussions/dis06-assembly.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Quick Guide to Assembly (Berkeley PDF)</a></li>
-                             <li><a href="https://www.shadowinfosec.io/2018/05/a-gentle-introduction-into-arm-assembly.html" target="_blank" rel="noopener noreferrer" class="glow-hover">A gentle introduction into ARM assembly</a></li>
-                         </ul>
-                      </li>
-                      <li><span class="keyword">[References & Cheatsheets]</span>
-                         <ul>
-                             <li><a href="https://www.felixcloutier.com/x86/index.html" target="_blank" rel="noopener noreferrer" class="glow-hover">x86 and amd64 instruction reference (Felix Cloutier)</a></li>
-                             <li><a href="https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/" target="_blank" rel="noopener noreferrer" class="glow-hover">Linux System Call Table for x86_64</a></li>
-                             <li><a href="https://github.com/cirosantilli/x86-assembly-cheat" target="_blank" rel="noopener noreferrer" class="glow-hover">x86-assembly-cheat (GitHub Repo)</a></li>
-                         </ul>
-                      </li>
-                       <li><span class="keyword">[Tools & Advanced]</span>
-                         <ul>
-                             <li><a href="https://godbolt.org/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Compiler Explorer (godbolt.org)</a></li>
-                             <li><a href="https://blog.stephenmarz.com/2020/05/20/assemblys-perspective/" target="_blank" rel="noopener noreferrer" class="glow-hover">Assembly’s Perspective (Blog Post)</a></li>
-                             <li><a href="https://media.ccc.de/v/34c3-9058-everything_you_want_to_know_about_x86_microcode_but_might_have_been_afraid_to_ask" target="_blank" rel="noopener noreferrer" class="glow-hover">Everything about x86 microcode (CCC Talk)</a></li>
-                         </ul>
-                      </li>
-                      <li><span class="keyword">[Books]</span>
-                         <ul>
-                             <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Art%20of%20Assembly%20Language%2C%20The%20-%20Hyde%2C%20Randall.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">The Art of Assembly Language - Hyde, Randall</a></li>
-                             <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Assembly%20Language%20Step-by-Step_%20Programming%20with%20Linux%20-%20Duntemann%2C%20Jeff.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Assembly Language Step-by-Step: Programming with Linux - Duntemann, Jeff</a></li>
-                             <li><a href="https://www.syncfusion.com/ebooks/assemblylanguage" target="_blank" rel="noopener noreferrer" class="glow-hover">Assembly Language Succinctly (Syncfusion Ebook)</a></li>
-                         </ul>
-                       </li>
-                  </ul>
-                  <!-- ==== END UPDATED ASSEMBLY RESOURCES ==== -->
-
-                  <h4>PE Format Resources:</h4>
-                  <ul>
-                      <li><a href="https://docs.microsoft.com/en-us/windows/win32/debug/pe-format" target="_blank" rel="noopener noreferrer" class="glow-hover">Official PE Format Documentation (Microsoft)</a></li>
-                      <li><a href="https://0xrick.github.io/win-internals/pe1/" target="_blank" rel="noopener noreferrer" class="glow-hover">Understanding Windows PE Files (0xrick)</a></li>
-                      <li><a href="https://bytepointer.com/resources/pietrek_pe.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Peering Inside the PE (Matt Pietrek)</a></li>
-                      <li><a href="https://github.com/corkami/pics/tree/master/binary/pe101" target="_blank" rel="noopener noreferrer" class="glow-hover">PE101</a> and <a href="https://github.com/corkami/pics/tree/master/binary/pe102" target="_blank" rel="noopener noreferrer" class="glow-hover">PE102</a> by Ange Albertini</li>
-                  </ul>
-                  <h4>Key Books/Internals:</h4>
-                  <ul>
-                      <li><a href="https://www.microsoftpressstore.com/store/windows-internals-part-1-system-architecture-processes-9780135462409" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows Internals, Part 1 (7th Edition)</a></li>
-                       <li>Windows Internals, Part 2 (7th Edition) - <a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/WinInternals_p2.zip" target="_blank" rel="noopener noreferrer" class="glow-hover book-link-zip">Download</a></li>
-                  </ul>
-
-                 <h3>0x07 Programming for Reverse Engineering</h3>
-                 <p>Proficiency in <span class="keyword">C/C++</span>, <span class="keyword">Python</span>, and <span class="keyword">Assembly</span> is highly recommended.</p>
-                 <ul>
-                     <li><a href="https://www.malwaretech.com/2018/03/best-programming-languages-to-learn-for-malware-analysis.html" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech's article on programming for malware analysis</a></li>
-                     <li><strong>Recommended Learning:</strong>
-                         <ul>
-                             <li>x86 Assembly: <a href="https://github.com/VishalRashmika/Iczelions-Assembly-Tutorials/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="glow-hover">Iczelion's tutorial</a>, Win32 Assembler for Crackers by Goppit</li>
-                             <li>C/C++: "The C Programming language" (K&R), "The C++ Programming language" (Stroustrup)</li>
-                         </ul>
-                     </li>
-                     <li><a href="https://www.amazon.com/Windows-System-Programming-4th-Addison-Wesley/dp/0321657748" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows System Programming</a> book</li>
-                 </ul>
-
-                <!-- Essential Books Section -->
-                <h2 class="glow"><span class="keyword">Essential Reverse Engineering Books</span></h2>
-                <p>After covering the foundations, these books are crucial:</p>
+                <h3>0x06 Assembly Language and PE Format</h3>
                 <ul>
-                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Reversing_%20Secrets%20of%20Reverse%20Engineering%20-%20Eilam%2C%20Eldad.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Reversing: Secrets of Reverse Engineering - Eilam, Eldad</a></li>
-                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Practical%20Reverse%20Engineering_%20x86%2C%20x64%2C%20ARM%2C%20Windows%20Kernel%2C%20Rev%20Obfuscation%20-%20Dang%2C%20Bruce%20%26%20Gazet%2C%20Alexandre%20%26%20Bachaalany%2C%20Elias.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Practical Reverse Engineering - Dang, Gazet, Bachaalany</a></li>
-                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/IDA%20Pro%20Book_%20The%20Unofficial%20Guide%20to%20the%20World's%20Most%20Popular%20Disassembler%2C%20The%20-%20Eagle%2C%20Chris.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">The IDA Pro Book - Eagle, Chris</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=wLXIWKUWpSs" target="_blank" rel="noopener noreferrer" class="glow-hover">Video 1</a> and <a href="https://www.youtube.com/watch?v=cFGJhn97e3s" target="_blank" rel="noopener noreferrer" class="glow-hover">Video 2</a> for x86 assembly introduction</li>
+                    <li>Intel official manual on assembly language (and free courses for other platforms)</li>
+                    <li><a href="https://www.scribd.com/document/607827843/An-In-Depth-Look-into-the-Win32-Portable-Executable-File-Format" target="_blank" rel="noopener noreferrer" class="glow-hover">An In-Depth Look Into The Win32 Portable Executable File Format</a></li>
+                    <li><a href="https://mcsi-library.readthedocs.io/articles/2022/05/reverse-engineering-portable-executables-pe-part-2/reverse-engineering-portable-executables-pe-part-2.html" target="_blank" rel="noopener noreferrer" class="glow-hover">An In-Depth Look into the Win32 Portable Executable File Format (Part 2)</a></li>
+                    <li><a href="https://coffi.readthedocs.io/en/latest/peering_inside_pe.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Peering Inside the PE: A Tour of the Win32 Portable Executable File Format</a></li>
+                    <li><a href="https://github.com/corkami/pics/tree/master/binary/pe101" target="_blank" rel="noopener noreferrer" class="glow-hover">PE101</a> and <a href="https://github.com/corkami/pics/tree/master/binary/pe102" target="_blank" rel="noopener noreferrer" class="glow-hover">PE102</a> by Ange Albertini</li>
+                    <li><a href="https://bytepointer.com/resources/pietrek_pe.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Introduction to the Portable Executable (PE) File Format</a></li>
+                    <li><a href="https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/sans-for610-pe.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Win32 Portable Executable File Format (SANS)</a></li>
+                    <li><a href="https://www.microsoftpressstore.com/articles/article.aspx?p=2201309" target="_blank" rel="noopener noreferrer" class="glow-hover">Inside Windows PE</a></li>
+                    <li><a href="https://www.microsoftpressstore.com/store/windows-internals-part-1-system-architecture-processes-9780135462409" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows Internals 7th Edition</a></li>
+                    <li><a href="https://docs.microsoft.com/en-us/windows/win32/dlls/dynamic-linking" target="_blank" rel="noopener noreferrer" class="glow-hover">Dynamic Linking and Windows PE</a></li>
+                    <li><a href="https://0xrick.github.io/win-internals/pe1/" target="_blank" rel="noopener noreferrer" class="glow-hover">Understanding Windows PE Files</a></li>
+                    <li><a href="https://binary.ninja/cookbook/" target="_blank" rel="noopener noreferrer" class="glow-hover">Binary Analysis Cookbooks</a></li>
+                    <li><a href="https://www.contextis.com/en/blog/malware-analysis-windows-pe-file-parsing-python" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows PE Parsing with Python</a></li>
+                    <li><a href="../ObfuscationRes/CPP-Dynamic-Type-Recovery.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Automation Techniques in C++ Reverse Engineering</a></li>
+                </ul>
+                <h4>Additional Assembly Resources</h4>
+                <ul>
+                    <li><a href="https://www.youtube.com/playlist?list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA" target="_blank" rel="noopener noreferrer" class="glow-hover">Modern x64 Assembly</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLmxT2pVYo5LB5EzTPZGfFN0c2GDiSXgQe" target="_blank" rel="noopener noreferrer" class="glow-hover">Intro to x86 Assembly Language</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn" target="_blank" rel="noopener noreferrer" class="glow-hover">x86_64 Linux Assembly</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PL038BE01D3BAEFDB0" target="_blank" rel="noopener noreferrer" class="glow-hover">Intro x86 (32 bit)</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PL0C5C980A28FEE68D" target="_blank" rel="noopener noreferrer" class="glow-hover">Practical x64 Assembly and C++ Tutorials</a></li>
+                    <li><a href="http://opensecuritytraining.info/IntroX86.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Introductory Intel x86: Architecture, Assembly, Applications, & Alliteration</a></li>
+                    <li><a href="https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/" target="_blank" rel="noopener noreferrer" class="glow-hover">Linux System Call Table for x86_64</a></li>
+                    <li><a href="https://github.com/0xAX/asm" target="_blank" rel="noopener noreferrer" class="glow-hover">Learning assembly for linux-x64</a></li>
+                    <li><a href="https://github.com/cirosantilli/x86-assembly-cheat" target="_blank" rel="noopener noreferrer" class="glow-hover">x86-assembly-cheat</a></li>
+                    <li><a href="https://www.cs.virginia.edu/~evans/cs216/guides/x86.html" target="_blank" rel="noopener noreferrer" class="glow-hover">x86 Assembly Guide</a></li>
+                    <li><a href="https://blog.stephenmarz.com/2020/05/20/assemblys-perspective/" target="_blank" rel="noopener noreferrer" class="glow-hover">Assembly’s Perspective</a></li>
+                    <li><a href="https://sensepost.com/blogstatic/2014/01/SensePost_crash_course_in_x86_assembly-.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">A Crash Course in x86 Assembly for Reverse Engineers</a></li>
+                    <li><a href="https://www.recurse.com/blog/7-understanding-c-by-learning-assembly" target="_blank" rel="noopener noreferrer" class="glow-hover">Understanding C by learning assembly</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=75gBFiFtAb8" target="_blank" rel="noopener noreferrer" class="glow-hover">x86 Assembly Crash Course (YouTube)</a></li>
+                    <li><a href="https://www.felixcloutier.com/x86/index.html" target="_blank" rel="noopener noreferrer" class="glow-hover">x86 and amd64 instruction reference</a></li>
+                    <li>Learn x86_64 Assembly: <a href="https://gpfault.net/posts/asm-tut-0.txt.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Part 0</a>, <a href="https://gpfault.net/posts/asm-tut-1.txt.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Part 1</a>, <a href="https://gpfault.net/posts/asm-tut-2.txt.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Part 2</a></li>
+                    <li><a href="http://www.egr.unlv.edu/~ed/assembly64.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">x86-64 Assembly Programming with Ubuntu</a></li>
+                    <li><a href="https://pacman128.github.io/pcasm/" target="_blank" rel="noopener noreferrer" class="glow-hover">Assembly for beginners</a></li>
+                    <li><a href="https://www.syncfusion.com/ebooks/assemblylanguage" target="_blank" rel="noopener noreferrer" class="glow-hover">Assembly Language Succinctly</a></li>
+                    <li><a href="https://media.ccc.de/v/34c3-9058-everything_you_want_to_know_about_x86_microcode_but_might_have_been_afraid_to_ask" target="_blank" rel="noopener noreferrer" class="glow-hover">Everything you want to know about x86 microcode...</a></li>
+                    <li><a href="http://cssimplified.com/computer-organisation-and-assembly-language-programming/beginner-write-your-first-assembly-language-program-hello-world-explained" target="_blank" rel="noopener noreferrer" class="glow-hover">Beginner "Hello World" in Assembly</a></li>
+                    <li><a href="https://inst.eecs.berkeley.edu/~cs161/sp15/discussions/dis06-assembly.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Quick Guide to Assembly (Berkeley)</a></li>
+                    <li><a href="https://godbolt.org/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Compiler Explorer (godbolt.org)</a></li>
+                    <li><a href="http://opensecuritytraining.info/IntroARM.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Introduction to ARM</a></li>
+                    <li><a href="https://azeria-labs.com/writing-arm-assembly-part-1/" target="_blank" rel="noopener noreferrer" class="glow-hover">Introduction to ARM Assembly Basics</a></li>
+                    <li><a href="../REbooks/Art%20of%20Assembly%20Language%2C%20The%20-%20Hyde%2C%20Randall.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">The Art of Assembly Language - Hyde, Randall</a></li>
+                    <li><a href="../REbooks/Assembly%20Language%20Step-by-Step_%20Programming%20with%20Linux%20-%20Duntemann%2C%20Jeff.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Assembly Language Step-by-Step: Programming with Linux - Duntemann, Jeff</a></li>
+                </ul>
+                <h3>0x07 Programming for Reverse Engineering</h3>
+                <p>Proficiency in <span class="keyword">C/C++</span>, <span class="keyword">Python</span>, and <span class="keyword">Assembly</span> is highly recommended.</p>
+                <ul>
+                    <li><a href="https://www.malwaretech.com/2018/03/best-programming-languages-to-learn-for-malware-analysis.html" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech's article on programming for malware analysis</a></li>
+                    <li>Recommended Learning:
+                        <ul>
+                            <li>x86 Assembly: <a href="https://github.com/VishalRashmika/Iczelions-Assembly-Tutorials/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="glow-hover">Iczelion's tutorial</a>, <a href="https://www.scribd.com/document/659839309/Win32-Assembler-Coding-for-Crackers-PL-Kody-zrodlowe" target="_blank" rel="noopener noreferrer" class="glow-hover">Win32 Assembler for Crackers by Goppit</a></li>
+                            <li>C/C++: <a href="https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628" target="_blank" rel="noopener noreferrer" class="glow-hover">The C Programming language (K&R)</a>, <a href="https://www.amazon.com/C-Programming-Language-4th/dp/0321563840" target="_blank" rel="noopener noreferrer" class="glow-hover">The C++ Programming language</a>, <a href="https://www.amazon.com/Linux-System-Programming-Embedded-Developers/dp/1593272200" target="_blank" rel="noopener noreferrer" class="glow-hover">Linux Programming by example</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://www.amazon.com/Windows-System-Programming-4th-Addison-Wesley/dp/0321657748" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows System Programming</a> book</li>
+                    <li><a href="https://web.archive.org/web/20220407010232mp_/https://caiorss.github.io/C-Cpp-Notes/WindowsAPI-cpp.html" target="_blank" rel="noopener noreferrer" class="glow-hover">C/C++ Notes - Windows API Programming Win32</a></li>
                 </ul>
 
-                <!-- Malware Analysis Books & Unpacking Section -->
-                 <h2 class="glow"><span class="keyword">Malware Analysis Books & Unpacking</span></h2>
-                 <h3>0x08 Manual Unpacking Techniques</h3>
-                 <p>Learning to manually unpack malware protected by packers like <span class="tool-name">UPX</span>, <span class="tool-name">Themida</span>, <span class="tool-name">VMProtect</span>, etc.</p>
-                 <ul>
-                     <li><a href="https://medium.com/@dbragetti/unpacking-malware-685de7093e5" target="_blank" rel="noopener noreferrer" class="glow-hover">Unpacking Malware (Medium Article)</a></li>
-                     <li><a href="https://www.travismathison.com/posts/Manually-unpacking-malware/" target="_blank" rel="noopener noreferrer" class="glow-hover">Manually unpacking malware (Travis Mathison)</a></li>
-                     <li><a href="https://www.youtube.com/playlist?list=PLt9cUwGw6CYGfoSL9PUlpKi23z0_R2gz-" target="_blank" rel="noopener noreferrer" class="glow-hover">Manual Unpacking Playlist (YouTube)</a></li>
-                 </ul>
-                <h4>Essential Malware Analysis Books:</h4>
-                 <ul>
-                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Practical%20Malware%20Analysis_%20The%20Hands-On%20Guide%20to%20Dissecting%20Malicious%20Software%20-%20Sikorski%2C%20Michael%20%26%20Honig%2C%20Andrew.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Practical Malware Analysis - Sikorski & Honig</a></li>
-                    <li><a href="https://www.amazon.com/Malware-Analysts-Cookbook-DVD-Techniques/dp/0470613033" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Analyst's Cookbook and DVD</a></li>
-                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Linux%20Malware%20Incident%20Response_%20A%20Practitioner's%20Guide%20ile%20Data%20-%20Cameron%20Malin%20%26%20Eoghan%20Casey%20%26%20James%20Aquilina.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Linux Malware Incident Response</a></li>
-                    <li><a href="https://github.com/x86byte/RE-MA-Roadmap/raw/main/REbooks/Malware%20Forensics%20Field%20Guide%20for%20Windows%20Syst%20Field%20Guides%20-%20Casey%2C%20Eoghan%3BMalin%2C%20Cameron%20H.%3BAquilina%2C%20James%20M_.zip" target="_blank" rel="noopener noreferrer" class="glow-hover book-link-zip">Malware Forensics Field Guide for Windows Systems</a></li>
+                <h3>Start Now with These Books!</h3>
+                <p>After all this learning, you can now start with these essential books on <span class="keyword">Reverse Engineering & Exploitation</span>:</p>
+                <h4>Reverse Engineering & Exploitation</h4>
+                <ul>
+                    <li><a href="../REbooks/Reversing_%20Secrets%20of%20Reverse%20Engineering%20-%20Eilam%2C%20Eldad.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Reversing: Secrets of Reverse Engineering - Eilam, Eldad</a></li>
+                    <li><a href="../REbooks/Practical%20Reverse%20Engineering_%20x86%2C%20x64%2C%20ARM%2C%20Windows%20Kernel%2C%20Rev%20Obfuscation%20-%20Dang%2C%20Bruce%20%26%20Gazet%2C%20Alexandre%20%26%20Bacha%E2%80%A6.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Practical Reverse Engineering: x86, x64, ARM, Windows Kernel - Dang, Gazet, Bachaalany</a></li>
+                </ul>
+
+                <!-- Malware Unpacking Section -->
+                <h2 class="glow"><span class="keyword">Malware Unpacking</span></h2>
+                <h3>0x08 Manual Unpacking Techniques</h3>
+                <p>Some ways...</p>
+                <ul>
+                    <li>Way one: <a href="https://medium.com/@dbragetti/unpacking-malware-685de7093e5" target="_blank" rel="noopener noreferrer" class="glow-hover">Unpacking Malware (Medium Article)</a></li>
+                    <li>Way two: <a href="https://www.travismathison.com/posts/Manually-unpacking-malware/" target="_blank" rel="noopener noreferrer" class="glow-hover">Manually unpacking malware (Travis Mathison)</a></li>
+                </ul>
+                <ul>
+                    <li><a href="https://www.youtube.com/playlist?list=PLt9cUwGw6CYGfoSL9PUlpKi23z0_R2gz-" target="_blank" rel="noopener noreferrer" class="glow-hover">Manual Unpacking Playlist (YouTube)</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=Pjy50g6naMU" target="_blank" rel="noopener noreferrer" class="glow-hover">ConfuserEx 2 Deobfuscation with Python and dnlib</a></li>
+                    <li><a href="https://0xh3xa.github.io/defensive/unpack-upx/" target="_blank" rel="noopener noreferrer" class="glow-hover">Unpacking UPX packer</a></li>
+                    <li><a href="https://infosecwriteups.com/how-to-unpack-upx-packed-malware-with-a-single-breakpoint-4d3a23e21332" target="_blank" rel="noopener noreferrer" class="glow-hover">How to unpack UPX packed malware with a SINGLE breakpoint</a></li>
+                    <li><a href="https://blog.thalium.re/posts/llvm-powered-devirtualization/" target="_blank" rel="noopener noreferrer" class="glow-hover">LLVM-powered deobfuscation of virtualized binaries</a></li>
+                    <li><a href="https://cfp.recon.cx/media/recon2024/submissions/DDHBFN/resources/Slides_-_Automating_Malware_Deobfuscation_with_Bi_2dAAJCN.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Automating Malware Deobfuscation with Binary Ninja</a></li>
+                    <li><a href="https://youtu.be/9EkRW6rh6DI" target="_blank" rel="noopener noreferrer" class="glow-hover">How To Quickly Unpack Qbot Loader Malware</a></li>
+                    <li><a href="https://blogs.jpcert.or.jp/en/2022/03/anti_upx_unpack.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Anti-UPX Unpacking Technique</a></li>
+                    <li><a href="https://ieeexplore.ieee.org/abstract/document/9139515" target="_blank" rel="noopener noreferrer" class="glow-hover">x64Unpack: Hybrid Emulation Unpacker for 64-bit Windows Environments</a></li>
+                    <li><a href="../ObfuscationRes/The%20Art%20of%20Unpacking%20-%20Part1.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">The Art Of Unpacking part 1</a></li>
+                    <li><a href="../ObfuscationRes/The%20Art%20of%20Unpacking%20-%20Part2.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">The Art Of Unpacking part 2</a></li>
+                    <li><a href="../ObfuscationRes/Statically%20Unpacking%20Shellcode-based%20PE%20Loaders.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Statically Unpacking Shellcode-based PE Loaders</a></li>
+                    <li><a href="../ObfuscationRes/invoke_dosfuscation_techniques_for_fin_style_dos_level_cmd_obfuscation.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">DOSfuscation: Exploring Cmd.exe Obfuscation</a></li>
                 </ul>
 
                 <!-- Advanced Techniques Section -->
-                 <h2 class="glow"><span class="keyword">Advanced Techniques</span></h2>
-                 <h3>0x09 <span class="keyword">Virtualization</span>-based Protectors</h3>
-                 <p>Analyzing protectors that use virtual machines (VMs) for obfuscation, like <span class="tool-name">VMProtect</span>.</p>
-                 <ul>
-                     <li><a href="https://www.tetraph.com/security/vulnerability-scanning/vmprotect-2-detailed-analysis-virtual-machine-architecture/" target="_blank" rel="noopener noreferrer" class="glow-hover">VMProtect 2 – Detailed Analysis (Part 1)</a></li>
-                     <li><a href="https://www.tetraph.com/security/vulnerability-scanning/vmprotect-2-part-two-complete-static-analysis/" target="_blank" rel="noopener noreferrer" class="glow-hover">VMProtect 2 – Complete Static Analysis (Part 2)</a></li>
-                     <li><a href="https://synthesis.to/2021/10/21/vm_based_obfuscation.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Workshop: VM-based Obfuscation Analysis</a></li>
-                 </ul>
-                 <h3>0x0a Malware <span class="keyword">Injection</span> and <span class="keyword">Hooking</span></h3>
-                 <p>Understanding how malware injects code into other processes and hooks functions.</p>
-                 <ul>
-                     <li><a href="https://www.endgame.com/blog/technical-blog/ten-process-injection-techniques-technical-survey-common-and-trending-process" target="_blank" rel="noopener noreferrer" class="glow-hover">Ten Process Injection Techniques (Endgame)</a></li>
-                     <li><a href="https://github.com/odzhan/injection" target="_blank" rel="noopener noreferrer" class="glow-hover">Injection Techniques Demos (Source Code)</a></li>
-                     <li><a href="https://malwaretech.com/how-to-write-a-rootkit" target="_blank" rel="noopener noreferrer" class="glow-hover">"Inline Hooking for programmers" (MalwareTech) - Part 1 and Part 2</a></li>
-                 </ul>
-                <h3>0x0b <span class="keyword">Kernel-mode</span> Malware</h3>
-                <p>Understanding kernel drivers and <span class="keyword">rootkits</span> requires a solid grasp of Windows internals and driver development.</p>
-                <h4>Basic Driver Development Resources:</h4>
+                <h2 class="glow"><span class="keyword">Advanced Techniques</span></h2>
+                <h3>0x09 Virtualization-based Protectors</h3>
                 <ul>
-                    <li><a href="https://www.codeproject.com/articles/9504/driver-development-part-1-introduction-to-drivers" target="_blank" rel="noopener noreferrer" class="glow-hover">CodeProject: Driver Dev Part 1 (Intro)</a></li>
-                    <li><a href="https://www.codeproject.com/articles/9575/driver-development-part-2-introduction-to-implemen" target="_blank" rel="noopener noreferrer" class="glow-hover">CodeProject: Driver Dev Part 2 (IOCTLs)</a></li>
-                     <li>(See source for more parts)</li>
-                 </ul>
-                 <h4>Key Books/Resources for Kernel:</h4>
-                 <ul>
-                     <li>Windows Kernel Programming (Pavel Yosifovich)</li>
-                     <li>Windows Internals (Parts 1 & 2)</li>
-                     <li><a href="http://www.osronline.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">OSR Online (Essential Driver Dev Resource)</a></li>
-                     <li><a href="http://j00ru.vexillium.org/" target="_blank" rel="noopener noreferrer" class="glow-hover">J00ru Blog</a></li>
-                    <li><a href="https://www.amazon.com/Rootkit-Arsenal-Escape-Evasion-Corners/dp/144962636X" target="_blank" rel="noopener noreferrer" class="glow-hover">The Rootkit Arsenal</a></li>
-                    <li><a href="https://www.amazon.com/Rootkits-Bootkits-Alex-Matrosov/dp/1593277164" target="_blank" rel="noopener noreferrer" class="glow-hover">Rootkits and Bootkits</a></li>
-                 </ul>
-                 <h4>Kernel-mode Rootkit Techniques:</h4>
-                 <ul>
-                     <li><a href="https://resources.infosecinstitute.com/hooking-idt/" target="_blank" rel="noopener noreferrer" class="glow-hover">Hooking IDT</a></li>
-                     <li><a href="https://www.adlice.com/kernelmode-rootkits-part-1-ssdt-hooks/" target="_blank" rel="noopener noreferrer" class="glow-hover">SSDT hooks</a></li>
-                     <li><a href="https://www.adlice.com/kernelmode-rootkits-part-2-irp-hooks/" target="_blank" rel="noopener noreferrer" class="glow-hover">IRP hooks</a></li>
-                     <li><a href="https://www.adlice.com/kernelmode-rootkits-part-3-kernel-filters/" target="_blank" rel="noopener noreferrer" class="glow-hover">Kernel filters</a></li>
-                 </ul>
-                 <h3>0x0c Going Deeper</h3>
-                 <ul><li><a href="https://securelist.com/bootkits-the-ultimate-in-persistent-malware/58221/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware infecting MBR, <span class="keyword">bootkits</span>, and UEFI firmware</a></li></ul>
+                    <li><a href="https://synthesis.to/2021/10/21/vm_based_obfuscation.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Workshop: VM-based Obfuscation Analysis</a></li>
+                    <li><a href="https://www.mitchellzakocs.com/blog/tigress" target="_blank" rel="noopener noreferrer" class="glow-hover">Tigress: Virtualization-Based Software Obfuscation Pt. 1</a></li>
+                    <li><a href="https://www.mitchellzakocs.com/blog/vmprotect3" target="_blank" rel="noopener noreferrer" class="glow-hover">VMProtect 3: Virtualization-Based Software Obfuscation Pt. 2</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=PAG3M7mWT2c&t=13229s" target="_blank" rel="noopener noreferrer" class="glow-hover">Discussion on reverse engineering virtualization</a></li>
+                    <li><a href="https://www.tetraph.com/security/vulnerability-scanning/vmprotect-2-detailed-analysis-virtual-machine-architecture/" target="_blank" rel="noopener noreferrer" class="glow-hover">VMProtect 2 – Detailed Analysis of the Virtual Machine Architecture</a></li>
+                    <li><a href="https://www.tetraph.com/security/vulnerability-scanning/vmprotect-2-part-two-complete-static-analysis/" target="_blank" rel="noopener noreferrer" class="glow-hover">VMProtect 2 – Part Two, Complete Static Analysis</a></li>
+                    <li><a href="https://medium.com/@acheron2302/speakeasy-writeup-3af3375ab63" target="_blank" rel="noopener noreferrer" class="glow-hover">SpeakEasy: a writeup solving a challenge from UIUCTF 2021</a></li>
+                    <li><a href="https://www.synthesis.to/2021/10/21/vm_based_obfuscation.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Tickling VMProtect with LLVM</a></li>
+                    <li><a href="https://www.malwaretech.com/challenges/windows-reversing/vm1" target="_blank" rel="noopener noreferrer" class="glow-hover">Cracking programs with custom virtualization-based protectors</a></li>
+                    <li><a href="../ObfuscationRes/boris_lau_virtualization_obfs.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Dealing with Virtualization packer</a></li>
+                    <li><a href="../ObfuscationRes/Unpacking%20Virtualization%20Obfuscators.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Unpacking Virtualization Obfuscators</a></li>
+                    <li><a href="../ObfuscationRes/Virtual%20Machine%20RE-building.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Virtual Machine RE-building</a></li>
+                    <li><a href="../ObfuscationRes/The-Art-Binary-Code-Obfuscation-Via-Program-Synthesis.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Breaking State-of-the-Art Binary Code Obfuscation via Program Synthesis</a></li>
+                    <li><a href="../ObfuscationRes/Advanced-Binary-Deobfuscation.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Advanced Binary Deobfuscation</a></li>
+                </ul>
+                <h3>0x0a Malware Injection and Hooking</h3>
+                <ul>
+                    <li><a href="https://www.endgame.com/blog/technical-blog/ten-process-injection-techniques-technical-survey-common-and-trending-process" target="_blank" rel="noopener noreferrer" class="glow-hover">A walk-through various techniques (by Endgame)</a></li>
+                    <li><a href="https://github.com/odzhan/injection" target="_blank" rel="noopener noreferrer" class="glow-hover">Ready-made demos of various code injection techniques (source code)</a></li>
+                    <li><a href="https://www.blackhat.com/us-19/briefings/schedule/index.html#practical-approach-to-process-injection-14279" target="_blank" rel="noopener noreferrer" class="glow-hover">Review of various injection techniques (BlackHat 2019)</a></li>
+                    <li><a href="https://github.com/hasherezade/demos" target="_blank" rel="noopener noreferrer" class="glow-hover">Author's PE injection demos (source code)</a></li>
+                    <li><a href="https://malwaretech.com/how-to-write-a-rootkit" target="_blank" rel="noopener noreferrer" class="glow-hover">"Inline Hooking for programmers" (by MalwareTech) - Part 1 and Part 2</a></li>
+                    <li><a href="https://redteaming.io/" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows API Hooking (article in Red Teaming Experiments)</a></li>
+                    <li><a href="https://blog.malwarebytes.com/threat-analysis/2016/12/simple-userland-rootkit-a-case-study/" target="_blank" rel="noopener noreferrer" class="glow-hover">Simple userland rootkit - a case study</a></li>
+                </ul>
+                <h3>0x0b Kernel-mode Malware</h3>
+                <p>Before we dive into kernel-mode malware and rootkit techniques, it's important to understand the fundamentals of driver development and kernel programming. Below are some great starting points that will guide you through these concepts and provide a solid foundation.</p>
+                
+                <h4>Basic Driver Development Resources</h4>
+                <ul>
+                    <li><a href="https://web.archive.org/web/20211106153221mp_/https://codemachine.com/articles/kernel_structures.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Catalog of key Windows kernel data structures</a></li>
+                    <li><a href="https://www.codeproject.com/articles/9504/driver-development-part-1-introduction-to-drivers" target="_blank" rel="noopener noreferrer" class="glow-hover">Driver Development Part 1: Introduction to Drivers</a></li>
+                    <li><a href="https://www.codeproject.com/articles/9575/driver-development-part-2-introduction-to-implemen" target="_blank" rel="noopener noreferrer" class="glow-hover">Driver Development Part 2: Introduction to Implementing IOCTLs</a></li>
+                    <li><a href="https://www.codeproject.com/articles/9636/driver-development-part-3-introduction-to-driver-c" target="_blank" rel="noopener noreferrer" class="glow-hover">Driver Development Part 3: Introduction to Driver Contexts</a></li>
+                    <li><a href="https://www.codeproject.com/articles/9974/driver-development-part-5-introduction-to-the-tran" target="_blank" rel="noopener noreferrer" class="glow-hover">Driver Development Part 5: Introduction to the Transport Device Interface</a></li>
+                    <li><a href="https://www.codeproject.com/articles/12878/driver-development-part-6-introduction-to-display" target="_blank" rel="noopener noreferrer" class="glow-hover">Driver Development Part 6: Introduction to Display Drivers</a></li>
+                </ul>
+
+                <h4>Additional Resources</h4>
+                <p><strong>Memory Management in Kernel Mode</strong></p>
+                <ul>
+                    <li><a href="https://manybutfinite.com/post/how-the-kernel-manages-your-memory/" target="_blank" rel="noopener noreferrer" class="glow-hover">How The Kernel Manages Your Memory</a></li>
+                    <li><a href="https://www.osronline.com/article.cfm%5Earticle=539.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Driver Basics - DMA Concepts</a></li>
+                    <li><a href="https://www.osronline.com/article.cfm%5earticle=39.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Sharing Memory Between Drivers and Applications</a></li>
+                    <li><a href="https://www.osronline.com/article.cfm%5earticle=71.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows NT Virtual Memory (Part I)</a> & <a href="https://www.osronline.com/article.cfm%5earticle=60.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">(Part II)</a></li>
+                </ul>
+                <p><strong>Handling IRPs (I/O Request Packets)</strong></p>
+                <ul>
+                    <li><a href="https://www.osronline.com/article.cfm%5earticle=21.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Properly Pending IRPs - IRP Handling for the Rest of Us</a></li>
+                    <li><a href="https://www.osronline.com/article.cfm%5Earticle=87.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">Rolling Your Own - Building IRPs to Perform I/O</a></li>
+                    <li><a href="https://www.osronline.com/article.cfm%5Earticle=78.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">The Truth About Cancel - IRP Cancel Operations (Part I)</a> & <a href="https://www.osronline.com/article.cfm%5earticle=72.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">(Part II)</a></li>
+                    <li>Must-read: <a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/handling-irps" target="_blank" rel="noopener noreferrer" class="glow-hover">Microsoft: Handling IRPs</a></li>
+                </ul>
+                <p><strong>The Basics: Bugchecks Explained</strong></p>
+                <ul>
+                    <li><a href="https://www.osronline.com/article.cfm%5earticle=334.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">PFN_LIST_CORRUPT</a></li>
+                    <li><a href="https://www.osronline.com/article.cfm%5Earticle=335.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">PAGE_FAULT_IN_NONPAGED_AREA</a></li>
+                    <li><a href="https://www.osronline.com/article.cfm%5earticle=336.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">KERNEL_DATA_INPAGE_ERROR</a></li>
+                    <li><a href="https://www.osronline.com/article.cfm%5Earticle=337.htm" target="_blank" rel="noopener noreferrer" class="glow-hover">NO_MORE_IRP_STACK_LOCATIONS</a></li>
+                </ul>
+
+                <h4>Important Books for Kernel and Driver Development</h4>
+                <ul>
+                    <li><a href="../REbooks/Windows_Kernel_Programming_Pavel_Yosifovich.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Windows Kernel Programming (First Edition)</a></li>
+                    <li><a href="../REbooks/Windows_Kernel_Programming_2nd_Edition_Pavel_Yosifovich.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Windows Kernel Programming, 2nd Edition</a></li>
+                    <li><a href="../REbooks/Windows_NT_Device_Driver_Development.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Windows NT Device Driver Development</a></li>
+                    <li><a href="https://dn790000.ca.archive.org/0/items/windows-internals-part1-7th/windows-internals-part1-7th.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Windows Internals, Part 1, 7th Edition - 2017</a></li>
+                    <li><a href="../REbooks/WinInternals_p2.zip" target="_blank" rel="noopener noreferrer" class="glow-hover book-link-zip">Windows Internals, 7th Edition, Part 2 - 2021</a></li>
+                </ul>
+
+                <h4>Web Resources</h4>
+                <ul>
+                    <li><a href="http://www.osronline.com/" target="_blank" rel="noopener noreferrer" class="glow-hover"><strong>OSR Online:</strong> The first and most important resource about Windows Driver Development</a></li>
+                    <li><a href="http://j00ru.vexillium.org/" target="_blank" rel="noopener noreferrer" class="glow-hover">J00ru Blog - Reverse Engineering & Kernel Research</a></li>
+                </ul>
+
+                <hr>
+                <h4>Key Resources for Kernel-mode Malware and Rootkit Techniques</h4>
+                <ul>
+                    <li><a href="https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/" target="_blank" rel="noopener noreferrer" class="glow-hover">Starting with Windows Kernel Exploitation - setting up the lab</a></li>
+                    <li><a href="https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/" target="_blank" rel="noopener noreferrer" class="glow-hover">Brief introduction to driver analysis methods by Matt Hand</a></li>
+                    <li><a href="https://www.sekoia.fr/blog/wp-content/uploads/2016/10/Rootkit-analysis-Use-case-on-HIDEDRV-v1.6.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Rootkit analysis tutorial</a></li>
+                </ul>
+                <h4>Kernel-mode Rootkit Techniques:</h4>
+                <ul>
+                    <li><a href="https://resources.infosecinstitute.com/hooking-idt/" target="_blank" rel="noopener noreferrer" class="glow-hover">Hooking IDT</a></li>
+                    <li><a href="https://www.adlice.com/kernelmode-rootkits-part-1-ssdt-hooks/" target="_blank" rel="noopener noreferrer" class="glow-hover">SSDT hooks</a></li>
+                    <li><a href="https://www.adlice.com/kernelmode-rootkits-part-2-irp-hooks/" target="_blank" rel="noopener noreferrer" class="glow-hover">IRP hooks</a></li>
+                    <li><a href="https://www.adlice.com/kernelmode-rootkits-part-3-kernel-filters/" target="_blank" rel="noopener noreferrer" class="glow-hover">Kernel filters</a></li>
+                </ul>
+
+                <h3>0x0c Going Deeper</h3>
+                <ul>
+                    <li><a href="https://securelist.com/bootkits-the-ultimate-in-persistent-malware/58221/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware infecting MBR, bootkits, and UEFI firmware</a></li>
+                    <li><a href="https://www.leviathansecurity.com/blog/uefi-is-the-new-bios" target="_blank" rel="noopener noreferrer" class="glow-hover">UEFI Reverse Engineering, Vulnerability Discovery, and Exploit Development</a></li>
+                </ul>
 
                 <!-- Learning Resources Section -->
                 <h2 class="glow"><span class="keyword">Learning Resources</span></h2>
-                 <h3>0x0d Courses and Tutorials</h3>
-                 <ul>
-                     <li><a href="http://opensecuritytraining.info/Training.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Open Security Training</a></li>
-                     <li><a href="https://samsclass.info/126/126_S17.shtml" target="_blank" rel="noopener noreferrer" class="glow-hover">Practical Malware Analysis learning materials (Sam's Class)</a></li>
-                     <li><a href="https://malwareunicorn.org/workshops.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Unicorn Workshops</a></li>
-                     <li><a href="https://github.com/hasherezade/malware_training_vol1" target="_blank" rel="noopener noreferrer" class="glow-hover">Hasherezade's malware training repository</a></li>
-                 </ul>
-                 <h3>0x0e YouTube Channels and Videos</h3>
-                 <ul>
-                     <li><a href="https://www.youtube.com/channel/UCVFXrUwuWZ3Uk6ZuIzP5RvQ" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Analysis For Hedgehogs</a></li>
-                     <li><a href="https://www.youtube.com/c/OALabs/videos" target="_blank" rel="noopener noreferrer" class="glow-hover">OALabs</a></li>
-                     <li><a href="https://www.youtube.com/channel/UCQN2DsjnYH60SFBIA6IkNwg" target="_blank" rel="noopener noreferrer" class="glow-hover">Colin Hardy's Malware Channel</a></li>
-                 </ul>
-                 <h3>0x0f Recommended Books (Links Above)</h3>
-                 <p>(Direct links provided in relevant sections earlier)</p>
-                 <ul>
-                    <li>Practical Malware Analysis (Sikorski & Honig)</li>
-                    <li>The Art of Computer Virus Research and Defense (Peter Szor)</li>
-                    <li>The "Ultimate" Anti-Debugging Reference (Peter Ferrie)</li>
-                    <li>Malware Analyst's Cookbook and DVD</li>
-                    <li>Hacker Disassembling Uncovered (Kris Kaspersky)</li>
-                    <li>The Rootkit Arsenal</li>
-                    <li>Rootkits and Bootkits (Matrosov, Rodionov, Bratus)</li>
-                    <li>Reversing: Secrets of Reverse Engineering (Eilam, Eldad)</li>
-                     <li>Practical Reverse Engineering (Dang, Gazet, Bachaalany)</li>
-                     <li>The IDA Pro Book (Eagle, Chris)</li>
-                 </ul>
+                <h3>0x0d Courses and Tutorials</h3>
+                <ul>
+                    <li><a href="https://github.com/mytechnotalent/Reverse-Engineering" target="_blank" rel="noopener noreferrer" class="glow-hover">Mytechnotalent's Reverse Engineering Repository</a></li>
+                    <li><a href="http://legend.octopuslabs.io/sample-page.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Octopus Labs</a></li>
+                    <li><a href="http://opensecuritytraining.info/Training.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Open Security Training</a></li>
+                    <li><a href="https://samsclass.info/126/126_S17.shtml" target="_blank" rel="noopener noreferrer" class="glow-hover">Practical Malware Analysis learning materials</a></li>
+                    <li><a href="https://www.uc.edu/ce/cyber/courses/malware-analysis.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Analysis course (University of Cincinnati)</a></li>
+                    <li><a href="https://twitter.com/0xPat" target="_blank" rel="noopener noreferrer" class="glow-hover">Red/purple teaming: a malware development course by 0xPat</a></li>
+                    <li><a href="https://malwareunicorn.org/workshops.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Building C2 implants in C++</a></li>
+                    <li><a href="https://github.com/hasherezade/malware_training_vol1" target="_blank" rel="noopener noreferrer" class="glow-hover">Hasherezade's malware training repository</a></li>
+                </ul>
+                <h4>Obfuscation</h4>
+                <ul>
+                    <li><a href="../ObfuscationRes/Practical%20Obfuscating%20Programs.PDF" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Practical Obfuscating Programs</a></li>
+                    <li><a href="../ObfuscationRes/Program%20Obfuscation.PDF" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Program Obfuscation</a></li>
+                    <li><a href="../ObfuscationRes/invoke-obfuscation-nullcon.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Invoke-Obfuscation: PowerShell obFUsk8tion</a></li>
+                    <li><a href="../ObfuscationRes/bebc0c4c5dcfb3ffd41ac701adafe88d85ce.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Obfuscation-based Malware Update</a></li>
+                    <li><a href="../ObfuscationRes/Techniques_of_Program_Code_Obfuscation_for_Secure_.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Techniques of Program Code Obfuscation</a></li>
+                    <li><a href="../ObfuscationRes/Orca.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">A Tutorial on Software Obfuscation</a></li>
+                    <li><a href="../ObfuscationRes/Code%20obfuscation%20and%20virus%20detection.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Code Obfuscation and Virus Detection</a></li>
+                </ul>
+                <h3>0x0e YouTube Channels and Videos</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com/channel/UCVFXrUwuWZ3Uk6ZuIzP5RvQ" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Analysis For Hedgehogs</a></li>
+                    <li><a href="https://www.youtube.com/c/OALabs/videos" target="_blank" rel="noopener noreferrer" class="glow-hover">OALabs</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCQN2DsjnYH60SFBIA6IkNwg" target="_blank" rel="noopener noreferrer" class="glow-hover">Colin's channel about malware</a></li>
+                    <li><a href="https://www.youtube.com/user/hexacorn" target="_blank" rel="noopener noreferrer" class="glow-hover">DuMp-GuY TrIcKsTeR</a></li>
+                </ul>
+                <h3>0x0f Recommended Books</h3>
+                <ul>
+                    <li><a href="../REbooks/Practical%20Malware%20Analysis_%20The%20Hands-On%20Guide%20to%20Dissecting%20Malicious%20Software%20-%20Sikorski%2C%20Michael%20%26%20Honig%2C%20Andrew.pdf" target="_blank" rel="noopener noreferrer" class="glow-hover book-link">Practical Malware Analysis: A Hands-On Guide to Dissecting Malicious Software</a></li>
+                    <li><a href="https://www.amazon.com/Art-Computer-Virus-Research-Defense/dp/0321304543" target="_blank" rel="noopener noreferrer" class="glow-hover">The Art of Computer Virus Research and Defense – Peter Szor</a></li>
+                    <li><a href="https://www.amazon.com/Ultimate-Anti-Debugging-Reference-Peter-Ferrie/dp/1500494501" target="_blank" rel="noopener noreferrer" class="glow-hover">"The "Ultimate" Anti-Debugging Reference" – by Peter Ferrie</a></li>
+                    <li><a href="https://www.amazon.com/Malware-Analysts-Cookbook-DVD-Techniques/dp/0470613033" target="_blank" rel="noopener noreferrer" class="glow-hover">Malware Analyst's Cookbook and DVD</a></li>
+                    <li><a href="https://www.amazon.com/Hacker-Disassembling-Uncovered-Kaspersky/dp/193176946X" target="_blank" rel="noopener noreferrer" class="glow-hover">Hacker Disassembling Uncovered – by Kris Kaspersky</a></li>
+                    <li><a href="https://www.amazon.com/Rootkit-Arsenal-Escape-Evasion-Corners/dp/144962636X" target="_blank" rel="noopener noreferrer" class="glow-hover">The Rootkit Arsenal: Escape and Evasion in the Dark Corners of the System</a></li>
+                    <li><a href="https://www.amazon.com/Rootkits-Bootkits-Alex-Matrosov/dp/1593277164" target="_blank" rel="noopener noreferrer" class="glow-hover">Rootkits and Bootkits – by Alex Matrosov, Eugene Rodionov, and Sergey Bratus</a></li>
+                    <li><a href="https://www.amazon.com/Windows-System-Programming-4th-Addison-Wesley/dp/0321657748" target="_blank" rel="noopener noreferrer" class="glow-hover">Windows System Programming (4th edition) – by Johnson M. Hart</a></li>
+                </ul>
 
                 <!-- Tips Section -->
                 <h2 class="glow"><span class="keyword">Tips and Advice</span></h2>
-                 <h3>0x10 Staying Motivated and Advancing Your Career</h3>
-                 <ul>
-                     <li>Stay curious and eager to learn.</li>
-                     <li><span class="keyword">Practice, practice, practice.</span></li>
-                     <li>Engage with the community (forums, Discord, Twitter).</li>
-                     <li>Contribute: Share writeups, tools, or knowledge.</li>
-                     <li>Stay up-to-date: Follow blogs, researchers, conferences.</li>
-                     <li>Develop strong programming skills (<span class="keyword">C/C++</span>, <span class="keyword">Python</span>, <span class="keyword">Assembly</span>).</li>
-                     <li>Embrace failure as a learning opportunity.</li>
-                     <li>Maintain a safe and controlled lab environment.</li>
-                     <li>Adhere to ethical guidelines and respect IP.</li>
-                 </ul>
-                 <h3>0x11 Getting a Malware Analyst Job</h3>
-                 <ul>
-                     <li>Contribute to the community (research, blogs, open source).</li>
-                     <li>Stay active (conferences, CTFs).</li>
-                     <li>Build an online presence (GitHub, Twitter, personal blog).</li>
-                     <li>Network with professionals.</li>
-                     <li>Continuously update skills.</li>
-                 </ul>
+                <h3>0x10 Staying Motivated and Advancing Your Career</h3>
+                <ul>
+                    <li>Stay curious and eager to learn.</li>
+                    <li>Practice, practice, practice.</li>
+                    <li>Engage with the community.</li>
+                    <li>Contribute and share your knowledge.</li>
+                    <li>Stay up-to-date with the latest trends and techniques.</li>
+                    <li>Develop strong programming skills (<span class="keyword">C/C++</span>, <span class="keyword">Python</span>, <span class="keyword">Assembly</span>).</li>
+                    <li>Embrace failure as a learning opportunity.</li>
+                    <li>Maintain a safe and controlled environment for your analysis.</li>
+                    <li>Respect intellectual property and adhere to ethical guidelines.</li>
+                </ul>
+                <h3>0x11 Getting a Malware Analyst Job</h3>
+                <ul>
+                    <li>Contribute to the community (research, blogs, open source).</li>
+                    <li>Stay active (conferences, CTFs).</li>
+                    <li>Build a solid online presence (GitHub, Twitter).</li>
+                    <li>Network with industry professionals.</li>
+                    <li>Continuously update your skills and knowledge.</li>
+                </ul>
 
                 <!-- Conclusion Section -->
                 <h2 class="glow"><span class="keyword">Conclusion</span></h2>
-                <p>This comprehensive roadmap provides a step-by-step guide for mastering reverse engineering and malware analysis. By following the suggested resources and engaging in practical exercises, you can build a strong foundation, develop advanced skills, and position yourself for a successful career in this field. Remember to stay motivated, curious, and always eager to learn. <span class="keyword">Good luck on your journey!</span></p>
+                <p>This comprehensive roadmap provides a step-by-step guide for mastering reverse engineering and malware analysis. By following the suggested resources and engaging in practical exercises, you can build a strong foundation, develop advanced skills, and position yourself for a successful career in this field. Remember to stay motivated, curious, and always eager to learn. Good luck on your journey!</p>
 
                 <hr>
 
                 <!-- Additional Resources Section -->
-                <h2 class="glow"><span class="keyword">Additional Resources & Tools</span></h2>
-                <p>Explore these blogs, communities, and tools to further your learning.</p>
-                <h4>Key Tools:</h4>
-                 <ul>
-                     <li><span class="tool-name">IDA Pro</span> / <span class="tool-name">Ghidra</span> / <span class="tool-name">Binary Ninja</span> / <span class="tool-name">Radare2</span> (Disassemblers/Decompilers)</li>
-                     <li><span class="tool-name">x64dbg</span> / <span class="tool-name">Windbg</span> / <span class="tool-name">OllyDbg</span> / <span class="tool-name">Immunity Debugger</span> (Debuggers)</li>
-                     <li><span class="tool-name">Wireshark</span> (Network Analysis)</li>
-                     <li><span class="tool-name">Cuckoo Sandbox</span> / <span class="tool-name">CAPE Sandbox</span> (Dynamic Analysis)</li>
-                     <li><span class="tool-name">PEStudio</span> / <span class="tool-name">PE-bear</span> (PE Analysis)</li>
-                     <li><span class="tool-name">Volatility</span> (Memory Forensics)</li>
-                     <li><span class="tool-name">Sysinternals Suite</span> (System Monitoring)</li>
-                     <li><span class="tool-name">YARA</span> (Pattern Matching)</li>
-                 </ul>
-                 <h4>Online Platforms:</h4>
-                 <ul>
-                     <li><a href="https://bazaar.abuse.ch/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareBazaar</a></li>
-                     <li><a href="https://www.virustotal.com/gui/home" target="_blank" rel="noopener noreferrer" class="glow-hover">VirusTotal</a></li>
-                     <li><a href="https://www.hybrid-analysis.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Hybrid Analysis</a></li>
-                 </ul>
+                <h2 class="glow"><span class="keyword">Additional Resources</span></h2>
+                <h3>Blogs and Websites</h3>
+                <ul>
+                    <li><a href="https://www.malwaretech.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTech</a></li>
+                    <li><a href="https://hshrzd.wordpress.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Hasherezade's Blog</a></li>
+                    <li><a href="https://blog.malwarebytes.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malwarebytes Labs</a></li>
+                    <li><a href="https://www.fireeye.com/blog/threat-research.html" target="_blank" rel="noopener noreferrer" class="glow-hover">FireEye Threat Research Blog</a></li>
+                    <li><a href="https://blog.talosintelligence.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Talos Intelligence Blog</a></li>
+                    <li><a href="https://securelist.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Securelist by Kaspersky</a></li>
+                    <li><a href="https://www.malwarecookbook.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">The Malware Analyst's Cookbook</a></li>
+                    <li><a href="https://0xec.blogspot.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">0xec</a></li>
+                    <li><a href="https://blog.malwarebytes.com/category/unpacked/" target="_blank" rel="noopener noreferrer" class="glow-hover">Malwarebytes Unpacked</a></li>
+                    <li><a href="https://isc.sans.edu/" target="_blank" rel="noopener noreferrer" class="glow-hover">SANS Internet Storm Center</a></li>
+                    <li><a href="http://malwaremustdie.blogspot.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareMustDie</a></li>
+                    <li><a href="https://www.reversinglabs.com/blog" target="_blank" rel="noopener noreferrer" class="glow-hover">ReversingLabs</a></li>
+                </ul>
+                <h3>Forums and Communities</h3>
+                <ul>
+                    <li><a href="https://malwaretips.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareTips</a></li>
+                    <li><a href="https://reverseengineering.stackexchange.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Reverse Engineering Stack Exchange</a></li>
+                    <li><a href="https://www.kernelmode.info/forum/" target="_blank" rel="noopener noreferrer" class="glow-hover">KernelMode.info</a></li>
+                    <li><a href="https://www.wilderssecurity.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Wilders Security Forums</a></li>
+                    <li><a href="https://www.reddit.com/r/Malware/" target="_blank" rel="noopener noreferrer" class="glow-hover">r/Malware on Reddit</a></li>
+                    <li><a href="https://www.virustotal.com/gui/community" target="_blank" rel="noopener noreferrer" class="glow-hover">VirusTotal Community</a></li>
+                    <li><a href="https://community.osr.com" target="_blank" rel="noopener noreferrer" class="glow-hover">OSR Developer Community</a></li>
+                    <li><a href="https://www.unknowncheats.me/forum/index.php" target="_blank" rel="noopener noreferrer" class="glow-hover">UnKnoWnCheaTs</a></li>
+                    <li><a href="http://forum.ru-board.com" target="_blank" rel="noopener noreferrer" class="glow-hover">ru-board</a></li>
+                    <li><a href="https://forum.reverse4you.org/categories" target="_blank" rel="noopener noreferrer" class="glow-hover">R0</a></li>
+                    <li><a href="https://cracklab.team/index.php" target="_blank" rel="noopener noreferrer" class="glow-hover">CrackLab</a></li>
+                </ul>
+                <h3>Tools and Software</h3>
+                <ul>
+                    <li><a href="https://www.hex-rays.com/products/ida/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">IDA Pro</a></li>
+                    <li><a href="https://ghidra-sre.org/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Ghidra</a></li>
+                    <li><a href="https://x64dbg.com/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">x64dbg</a></li>
+                    <li><a href="http://www.ollydbg.de/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">OllyDbg</a></li>
+                    <li><a href="https://www.immunityinc.com/products/debugger/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Immunity Debugger</a></li>
+                    <li><a href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Wireshark</a></li>
+                    <li><a href="https://cuckoosandbox.org/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Cuckoo Sandbox</a></li>
+                    <li><a href="https://www.winitor.com/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">PEStudio</a></li>
+                    <li><a href="https://www.volatilityfoundation.org/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Volatility</a></li>
+                    <li><a href="https://docs.microsoft.com/en-us/sysinternals/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Sysinternals Suite</a></li>
+                    <li><a href="https://virustotal.github.io/yara/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">YARA</a></li>
+                    <li><a href="https://www.capstone-engine.org/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Capstone</a></li>
+                    <li><a href="https://www.radare.org/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Radare2</a></li>
+                    <li><a href="https://binary.ninja/" target="_blank" rel="noopener noreferrer" class="glow-hover tool-name">Binary Ninja</a></li>
+                </ul>
+                <h3>Online Platforms and Challenges</h3>
+                <ul>
+                    <li><a href="https://bazaar.abuse.ch/" target="_blank" rel="noopener noreferrer" class="glow-hover">MalwareBazaar</a></li>
+                    <li><a href="https://www.virustotal.com/gui/home" target="_blank" rel="noopener noreferrer" class="glow-hover">VirusTotal</a></li>
+                    <li><a href="https://www.hybrid-analysis.com/" target="_blank" rel="noopener noreferrer" class="glow-hover">Hybrid Analysis</a></li>
+                    <li><a href="https://www.fireeye.com/blog/threat-research/2019/08/announcing-the-sixth-annual-flare-on-challenge.html" target="_blank" rel="noopener noreferrer" class="glow-hover">Flare-On Challenge</a></li>
+                    <li><a href="https://ctftime.org/" target="_blank" rel="noopener noreferrer" class="glow-hover">CTFTime</a></li>
+                    <li><a href="https://www.hackthebox.eu/" target="_blank" rel="noopener noreferrer" class="glow-hover">Hack The Box</a></li>
+                </ul>
+
+                <h2 class="glow"><span class="keyword">Upcoming Resources</span></h2>
+                <p>I will be adding some random books to the <strong>REbooks</strong> folder soon. Stay tuned for more resources!</p>
+
+                <h2 class="glow"><span class="keyword">Acknowledgments</span></h2>
+                <p>A big thank you to all the researchers, authors, and contributors who have shared their knowledge and resources in the field of reverse engineering and malware analysis. This roadmap wouldn't have been possible without their valuable contributions.</p>
+
+                <h2 class="glow"><span class="keyword">Contributing</span></h2>
+                <p>Contributions are welcome! If you have any suggestions, resources, or improvements to this roadmap, please feel free to open an issue or submit a pull request.</p>
+
+                <h2 class="glow"><span class="keyword">Channel</span></h2>
+                <h3>Join OrcaCyberWeapons on Telegram!</h3>
+                <p>Are you ready to dive into the depths of cybersecurity, reverse engineering, and advanced threat analysis? Look no further than OrcaCyberWeapons, your gateway to the world of cutting-edge security research and exploration.</p>
+                <p><strong>What We Offer:</strong></p>
+                <ul>
+                    <li><strong>Advanced Cybersecurity Insights:</strong> Delve into the latest trends, techniques, and strategies employed by cyber adversaries.</li>
+                    <li><strong>Reverse Engineering Expertise:</strong> Uncover the inner workings of sophisticated malware and dissect exploit techniques.</li>
+                    <li><strong>Malware Development and Analysis:</strong> Gain valuable insights into the creation, analysis, and mitigation of malware.</li>
+                    <li><strong>APT Techniques and Defense Strategies:</strong> Explore the realm of advanced persistent threats (APTs) and fortify your defenses.</li>
+                </ul>
+                <p>Whether you're a seasoned cybersecurity professional, an aspiring ethical hacker, or a curious enthusiast, OrcaCyberWeapons provides a platform for in-depth discussions, practical insights, and collaborative exploration.</p>
+                <p><a href="https://t.me/OrcaCyberWeapons" target="_blank" rel="noopener noreferrer" class="glow-hover">[Join OrcaCyberWeapons on Telegram]</a></p>
+
             </section>
         </main>
 
